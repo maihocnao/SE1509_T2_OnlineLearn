@@ -15,7 +15,7 @@ public interface QuizDAOitf {
     
     }
     
-    public void getQuiz(){
+    public Quiz getQuiz(){
     
     }
     
