@@ -3,12 +3,37 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dao;
+package daos;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 
 /**
  *
- * @author Viettech88.vn
+ * @author ADMIN
  */
-public interface CourseDAOitf {
-    
+public class CourseDAOitf {
+    private Connection con;
+    private PreparedStatement ps;
+    private ResultSet rs;
+
+    public CourseDAOitf() {
+    }
+
+    private void closeConnection() throws SQLException {
+        if (con != null) {
+            con.close();
+        }
+        if (rs != null) {
+            rs.close();
+        }
+        if (ps != null) {
+            ps.close();
+        }
+    }
+
+  
 }

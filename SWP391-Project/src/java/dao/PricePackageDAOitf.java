@@ -3,12 +3,34 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dao;
+package daos;
 
-/**
- *
- * @author Viettech88.vn
- */
-public interface PricePackageDAOitf {
-    
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+
+public class PricePackageDAOitf {
+
+    private Connection con;
+    private PreparedStatement ps;
+    private ResultSet rs;
+
+    public PricePackageDAOitf() {
+    }
+
+    private void closeConnection() throws SQLException {
+        if (con != null) {
+            con.close();
+        }
+        if (rs != null) {
+            rs.close();
+        }
+        if (ps != null) {
+            ps.close();
+        }
+    }
+
 }
