@@ -84,6 +84,11 @@ public interface AnswerDAOitf {
             }
         return null;
     }    
+   
+   public boolean deleteAnswer(int answerID) throws SQLException{
+        return false;
+        
+    }
                
                
     
