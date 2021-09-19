@@ -40,15 +40,21 @@ public interface AnswerDAOitf {
     }
     public ArrayList<Answer> getAllAnswer() throws SQLException, JMSException {
         ArrayList<Answer> answerList = new ArrayList<>();
-        String sql = "select answerID, answer.questionID, result, answer.content from answer";
+        String sql = "select answerID, answer.questionID, result, answer.content from answer";                  
         try {
             DBConnection db = new DBConnection();
             con = db.getConnection();
+        } catch (Exception ex) {
+            Logger.getLogger(AnswerDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
             if (con != null) {
                 ps = con.prepareStatement(sql);
                 rs = ps.executeQuery();
                 while (rs.next()) {
                     
+    }
+            }
+        return null;           
     }
                
     public ArrayList<Answer> getAllCorrectAnswer() throws SQLException {
@@ -56,5 +62,29 @@ public interface AnswerDAOitf {
         String sql = "select answerID, answer.questionID, result, answer.content from answer where result =1;";
         return correctList;
     }
+               
+    public List<Answer> getAnswerByQuestionID(int questionID) throws SQLException {
+        List<Answer> list = new ArrayList<>();
+        String sql = "select * from answer where questionID = ?;";               
+        try {
+            DBConnection db = new DBConnection();
+            con = db.getConnection();
+        } catch (Exception ex) {
+            Logger.getLogger(AnswerDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+            if (con != null) {
+                ps = con.prepareStatement(sql);
+                ps.setInt(1, questionID);
+                rs = ps.executeQuery();
+
+                while (rs.next()) {
+                    
+                }
+            }
+        return null;
+    }    
+               
+               
     
 }
