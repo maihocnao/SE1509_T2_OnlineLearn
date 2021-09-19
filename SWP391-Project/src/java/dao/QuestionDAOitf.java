@@ -15,7 +15,7 @@ public interface QuestionDAOitf {
     
     }
     
-    public void getQuestion(){
+    public Question getQuestion(){
     
     }
     
