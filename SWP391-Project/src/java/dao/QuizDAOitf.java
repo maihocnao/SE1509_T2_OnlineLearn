@@ -11,9 +11,7 @@ package dao;
  */
 public interface QuizDAOitf {
     
-    public void addQuiz(){
-    
-    }
+    public void addQuiz();
     
     public Quiz getQuiz(){
     
