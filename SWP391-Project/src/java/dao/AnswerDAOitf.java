@@ -50,5 +50,11 @@ public interface AnswerDAOitf {
                 while (rs.next()) {
                     
     }
+               
+    public ArrayList<Answer> getAllCorrectAnswer() throws SQLException {
+        ArrayList<Answer> correctList = new ArrayList<>();
+        String sql = "select answerID, answer.questionID, result, answer.content from answer where result =1;";
+        return correctList;
+    }
     
 }
