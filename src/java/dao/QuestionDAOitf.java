@@ -16,7 +16,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import utils.DBConnection;
+
 /**
  *
  * @author Viettech88.vn
@@ -25,9 +25,6 @@ public interface QuestionDAOitf {
     private Connection con;
     private PreparedStatement ps;
     private ResultSet rs;
-
-    public QuestionDAO() {
-    }
 
     private void closeConnection() throws SQLException {
         if (con != null) {
