@@ -11,9 +11,7 @@ package dao;
  */
 public interface QuestionDAOitf {
     
-    public void addQuestion(){
-    
-    }
+    public void addQuestion();
     
     public Question getQuestion(){
     
