@@ -110,6 +110,8 @@ subjectID int,
 Foreign key (subjectID) references "Subject"(subjectID),
 Foreign key (lessonID) references Lesson(lessonID)
 );
+insert into Quiz values (1,1,'Capital City','Easy',2,300,75,'Multiple Choices',1)
+insert into Quiz values (2,2,'Math','Medium',2,300,80,'Multiple Choices',2)
 
 create table Question (
 questionID int primary key,
@@ -124,6 +126,9 @@ foreign key (subjectID) references "Subject"(subjectID),
 foreign key (dimensionID) references SubjectDimension(dimensionID),
 foreign key (quizID) references Quiz(quizID)
 );
+insert into Question values (1,1,'Capital of Vietnam?','Easy',1,1,1)
+insert into Question values (2,1,'Capital of England?','Easy',1,1,1)
+
 create table Answer(
 answerID int primary key,
 questionID int ,
@@ -131,6 +136,11 @@ result int,
 content nvarchar(50),
 Foreign key (questionID) references Question(questionID)
 );
+insert into Answer values (1,1,1,'Hanoi')
+insert into Answer values (2,1,0,'Tokyo')
+insert into Answer values (3,1,0,'Seoul')
+insert into Answer values (4,1,0,'Bangkok')
+
 
 create table Score(
 quizID int ,
@@ -138,6 +148,7 @@ score int ,
 phone nvarchar(50),
 Foreign key (quizID) references Quiz(quizID),
 );
+
 
 create table PricePackage(
 pricePackageID int primary key,
