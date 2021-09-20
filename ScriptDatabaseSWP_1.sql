@@ -173,4 +173,6 @@ status bit,
 Foreign key (categoryID) references Category(categoryID),
 Foreign key (userID) references "User"(userID)
 );
+insert dbo.Category ([categoryID],[categoryName]) values ('1','CUONG')
+insert dbo.Category ([categoryID],[categoryName]) values ('2','ANH')
 
