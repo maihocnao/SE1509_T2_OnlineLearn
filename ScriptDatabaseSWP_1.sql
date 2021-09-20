@@ -38,6 +38,8 @@ create table Category(
 categoryID int primary key,
 categoryName nvarchar(50),
 );
+insert dbo.Category ([categoryID],[categoryName]) values ('1','CUONG')
+insert dbo.Category ([categoryID],[categoryName]) values ('2','ANH')
 create table Registration(
 registrationID int primary key,
 regisTime date,
@@ -58,6 +60,8 @@ name nvarchar (20),
 "Description" nvarchar(50),
 Foreign key (categoryID) references Category(categoryID),
 );
+insert into "Subject" values ('01','01','','','')
+insert into "Subject" values ('02','02','','','')
 create table  Course(
 courseID int primary key,
 subjectID int ,
@@ -69,6 +73,8 @@ status bit ,
 foreign key (subjectID) references [Subject](subjectID),
 foreign key (registrationID) references [Registration](registrationID)
 );
+insert into Course values ('01','01','01','','','','')
+insert into Course values ('02','02','02','','','','')
 
 create table Lesson(
 
@@ -173,6 +179,5 @@ status bit,
 Foreign key (categoryID) references Category(categoryID),
 Foreign key (userID) references "User"(userID)
 );
-insert dbo.Category ([categoryID],[categoryName]) values ('1','CUONG')
-insert dbo.Category ([categoryID],[categoryName]) values ('2','ANH')
+
 
