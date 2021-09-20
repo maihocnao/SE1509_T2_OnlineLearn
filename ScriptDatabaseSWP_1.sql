@@ -33,6 +33,8 @@ Phone nvarchar(50),
 foreign key (RoleID) references "Role"(RoleID),
 foreign key (SettingID) references Setting(SettingID)
 );
+insert into "User" values ('01','01','01','','123','Nam','Nguyen van a','0123456789')
+insert into "User" values ('02','02','02','','123','Nu','Nguyen van a','0987654321')
 
 create table Category(
 categoryID int primary key,
@@ -174,7 +176,8 @@ salePrice float,
 subjectID int,
 Foreign key (subjectID) references "Subject"(subjectID)
 );
-
+insert into PricePackage values ('1','PrP1','30','1','10','12','','')
+insert into PricePackage values ('2','PrP2','30','0','11','13','','')
 
 
 
@@ -208,5 +211,6 @@ status bit,
 Foreign key (categoryID) references Category(categoryID),
 Foreign key (userID) references "User"(userID)
 );
-
+insert into Blog values ('01','','BlogNumber1','','','','','','')
+insert into Blog values ('02','','BlogNumber2','','','','','','')
 
