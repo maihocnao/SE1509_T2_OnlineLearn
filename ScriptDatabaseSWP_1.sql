@@ -40,6 +40,7 @@ categoryName nvarchar(50),
 );
 insert dbo.Category ([categoryID],[categoryName]) values ('1','CUONG')
 insert dbo.Category ([categoryID],[categoryName]) values ('2','ANH')
+
 create table Registration(
 registrationID int primary key,
 regisTime date,
@@ -51,6 +52,10 @@ UserID int,
 UserEmail nvarchar(50),
 foreign key (UserID) references "User"(UserID)
 );
+INSERT INTO Registration (registrationID,regisTime,status, validFrom,validto,totalPrice,UserID,UserEmail)
+VALUES (1, '20/9/2021', 1, '25/9/2021','30/11/2021',50.5,1,'email');
+INSERT INTO Registration (registrationID,regisTime,status, validFrom,validto,totalPrice,UserID,UserEmail)
+VALUES (2, '20/9/2021', 1, '25/9/2021','30/11/2021',40.5,1,'email');
 
 create table [Subject](
 subjectID int primary key,
@@ -62,6 +67,8 @@ Foreign key (categoryID) references Category(categoryID),
 );
 insert into "Subject" values ('01','01','','','')
 insert into "Subject" values ('02','02','','','')
+
+
 create table  Course(
 courseID int primary key,
 subjectID int ,
@@ -87,6 +94,10 @@ status bit,
 Foreign key (courseID) references Course(courseID),
 Foreign key (subjectID) references [Subject](subjectID)
 );
+INSERT INTO Lesson (lessonID,subjectID, content, lessonName,courseID,status)
+VALUES (1, 1, 'content1', 'lesson 1',1,1);
+INSERT INTO Lesson (lessonID,subjectID, content, lessonName,courseID,status)
+VALUES (2, 1, 'content1','lesson 2', 1,1);
 
 create table SubjectDimension(
 dimensionID int primary key,
@@ -94,8 +105,10 @@ dimensionID int primary key,
 name nvarchar(50),
 [description] nvarchar(50),
 );
-
-
+INSERT INTO SubjectDimension (dimensionID, [type], name, [description])
+VALUES (1, 'Type1', 'IT', 'exclusive ID content');
+INSERT INTO SubjectDimension (dimensionID, [type], name, [description])
+VALUES (2, 'Type2', 'MKT', 'exclusive marketing content');
 
 create table Quiz(
 quizID int primary key,
@@ -173,6 +186,11 @@ title nvarchar(50),
 backlink nvarchar(50),
 "image" nvarchar(50) ,
 );
+INSERT INTO Slider (sliderID, title, backlink, image)
+VALUES (1, 'Title1', 'link1', 'images1');
+INSERT INTO Slider (sliderID, title, backlink, image)
+VALUES (2, 'Title2', 'link2', 'images2');
+
 
 
 
