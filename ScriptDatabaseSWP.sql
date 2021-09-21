@@ -215,5 +215,5 @@ status bit,
 Foreign key (categoryID) references Category(categoryID),
 Foreign key (userID) references "User"(userID)
 );
-insert into Blog values ('01','','BlogNumber1','','','','','','')
-insert into Blog values ('02','','BlogNumber2','','','','','','')
+insert into Blog values (1,1,'BlogNumber1',1,'','title1','','',1,1)
+insert into Blog values (2,1,'BlogNumber2',1,'','title2','','',1,1)
