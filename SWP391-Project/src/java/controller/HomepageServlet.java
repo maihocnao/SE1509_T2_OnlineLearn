@@ -7,7 +7,7 @@ package controller;
 
 import dao.*;
 import bean.*;
-import dao.impl.getSliderToHP;
+import dao.impl.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.PreparedStatement;
@@ -47,19 +47,19 @@ public class HomepageServlet extends HttpServlet {
             PreparedStatement ps= null;
             String service = request.getParameter("service");
             getSliderToHP getSlider = new getSliderToHP(dbConn);
+            getBlogHP getBlog = new getBlogHP(dbConn);
             if (service ==null) {
                 service="displayCommonHP";
             }
             if (service.equals("displayCommonHP")){
-                String sql = "select*from Admin";
-                ResultSet rs = dbConn.getData(sql);
-                ArrayList<Slider> arr = getSlider.getSliderHP();
-                System.out.println(arr);
-                String tittleTable = "List of Admin";
+                
+                ArrayList<Slider> arrSlider = getSlider.getSliderHP();
+                System.out.println(arrSlider);
+               
                 //send data-->view
-                request.setAttribute("ketQua", rs);
-                request.setAttribute("list", arr);
-                request.setAttribute("tieude", tittleTable);
+                
+                request.setAttribute("list", arrSlider);
+                
                 //call view (Select)
                  RequestDispatcher dis=
                         request.getRequestDispatcher("/PublicHomePage.jsp");
