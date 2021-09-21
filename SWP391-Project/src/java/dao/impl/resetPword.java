@@ -4,12 +4,24 @@
  * and open the template in the editor.
  */
 package dao.impl;
+import dao.DBConnect;
 import dao.itf.UserDAO;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 /**
  *
  * @author Viettech88.vn
  */
 public class resetPword implements UserDAO {
+     Connection conn = null;
+    DBConnect dbConn=null;
+    PreparedStatement ps= null;
+
+    public resetPword(DBConnect dbconn) {
+        conn = dbconn.con;
+        this.dbConn=dbconn;
+         
+    }
 
     @Override
     public boolean checkAccountExist() {
@@ -18,7 +30,7 @@ public class resetPword implements UserDAO {
 
     @Override
     public void changePassword() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
