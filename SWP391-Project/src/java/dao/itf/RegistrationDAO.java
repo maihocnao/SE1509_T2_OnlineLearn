@@ -12,4 +12,5 @@ package dao.itf;
 public interface RegistrationDAO {
     void insert();
     void update();
+    void delete();
 }
