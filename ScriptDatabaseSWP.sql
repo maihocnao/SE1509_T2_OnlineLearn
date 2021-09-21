@@ -116,10 +116,10 @@ roleID nvarchar(8) primary key,
 roleName nvarchar(50),
 roleDescription nvarchar(50) ,
 );
-insert into "User" values ('01','ADM','Admin')
-insert into "User" values ('02','CUS','Customer')
-insert into "User" values ('03','SAL','Sale')
-insert into "User" values ('04','MKT','Marketing')
+insert into "Role" values ('01','ADM','Admin')
+insert into "Role" values ('02','CUS','Customer')
+insert into "Role" values ('03','SAL','Sale')
+insert into "Role" values ('04','MKT','Marketing')
 
 create table Score(
 quizID int ,
