@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dao;
+package dao.itf;
 
 /**
  *
  * @author Viettech88.vn
  */
-public class resetPassword {
+public interface SettingDAOitf {
     
 }

@@ -3,12 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dao;
+package dao.impl;
 
-/**
- *
- * @author Viettech88.vn
- */
-public class Login {
+import dao.itf.PricePackageDAOitf;
+
+
+public class PricePackageDAOitfImpl implements PricePackageDAOitf.PricePackageDAOitf {
     
 }

@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package daos;
+package dao.impl;
+
+import dao.itf.CourseDAOitf;
 
 
 public class CourseDAOitfImpl implements CourseDAOitf.CourseDAOitf {
