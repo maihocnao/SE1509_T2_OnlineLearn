@@ -5,8 +5,17 @@
  */
 package controller;
 
+import dao.*;
+import bean.*;
+import dao.impl.getSliderToHP;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,15 +43,39 @@ public class HomepageServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet HomepageServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet HomepageServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            DBConnect dbConn = new DBConnect();
+            PreparedStatement ps= null;
+            String service = request.getParameter("service");
+            getSliderToHP getSlider = new getSliderToHP(dbConn);
+            if (service ==null) {
+                service="displayCommonHP";
+            }
+            if (service.equals("displayCommonHP")){
+                String sql = "select*from Admin";
+                ResultSet rs = dbConn.getData(sql);
+                ArrayList<Slider> arr = getSlider.getSliderHP();
+                System.out.println(arr);
+                String tittleTable = "List of Admin";
+                //send data-->view
+                request.setAttribute("ketQua", rs);
+                request.setAttribute("list", arr);
+                request.setAttribute("tieude", tittleTable);
+                //call view (Select)
+                 RequestDispatcher dis=
+                        request.getRequestDispatcher("/PublicHomePage.jsp");
+                // loclalhost:8080/webroot/filename
+                // run
+                dis.forward(request, response);
+            }
+        }
+    }
+     private void dispath(HttpServletRequest request, HttpServletResponse response, String URL) {
+        try {
+            RequestDispatcher dis = request.getRequestDispatcher(URL);
+            // url: link to view file start with /
+            dis.forward(request, response);
+        } catch (ServletException | IOException ex) {
+            
         }
     }
 

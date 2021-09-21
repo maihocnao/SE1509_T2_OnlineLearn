@@ -5,10 +5,14 @@
  */
 package dao.itf;
 
+import java.util.ArrayList;
+import bean.*;
+
 /**
  *
  * @author Viettech88.vn
  */
 public interface SliderDAO {
     void update();
+    ArrayList<Slider> getSliderHP();
 }
