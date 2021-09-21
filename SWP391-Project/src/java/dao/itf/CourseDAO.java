@@ -12,4 +12,6 @@ package dao.itf;
 public interface CourseDAO {
     void insert();
     void delete();
+    void top3CourseHP();
+    
 }
