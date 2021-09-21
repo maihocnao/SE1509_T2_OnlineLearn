@@ -5,9 +5,9 @@
  */
 package dao.impl;
 
-import dao.itf.PricePackageDAOitf;
+import dao.itf.CategoryDAO;
 
 
-public class PricePackageDAOitfImpl implements PricePackageDAOitf.PricePackageDAOitf {
+public class listCategory implements CategoryDAO   {
     
 }

@@ -9,6 +9,7 @@ package dao.itf;
  *
  * @author Viettech88.vn
  */
-public interface RegistrationDAOitf {
-    
+public interface RoleDAO {
+    void add();
+    void update();
 }

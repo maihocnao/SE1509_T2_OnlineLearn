@@ -3,11 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dao.impl;
+package dao.itf;
 
-import dao.itf.CategoryDAOitf;
-
-
-public class CategoryDAOitfImpl implements CategoryDAOitf.CategoryDAOitf {
-    
+/**
+ *
+ * @author Viettech88.vn
+ */
+public interface ScoreDAO {
+    void update();
+    void delete();
 }

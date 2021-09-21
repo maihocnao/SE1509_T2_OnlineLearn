@@ -9,6 +9,7 @@ package dao.itf;
  *
  * @author Viettech88.vn
  */
-public interface SubjectDimensionDAOitf {
-    
+public interface CourseDAO {
+    void insert();
+    void delete();
 }

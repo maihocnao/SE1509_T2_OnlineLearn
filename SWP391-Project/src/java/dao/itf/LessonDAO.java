@@ -9,11 +9,6 @@ package dao.itf;
  *
  * @author Viettech88.vn
  */
-public interface UserDAOitf {
-    boolean checkAccountExist();
-    
-    void changePassword();
-    
-    void changName();
-    void resetPassword();
+public interface LessonDAO {
+    void list();
 }

@@ -9,19 +9,6 @@ package dao.itf;
  *
  * @author Viettech88.vn
  */
-public interface QuestionDAOitf {
-    
-    public void addQuestion();
-    
-    public Question getQuestion(){
-    
-    }
-    
-    public void editQuestion(){
-    
-    }
-    
-    public void deleteQuestion(){
-    
-    }
+public interface PricePackageDAO {
+    void insert();
 }

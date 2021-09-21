@@ -9,6 +9,6 @@ package dao.itf;
  *
  * @author Viettech88.vn
  */
-public interface SubjectDAOitf {
-    
+public interface SubjectDAO {
+    void delete();
 }

@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dao.impl;
+package dao.itf;
 
-import dao.itf.LessonDAOitf;
-
-
-public class LessonDAOitfImpl implements LessonDAOitf.LessonDAOitf {
-    
+/**
+ *
+ * @author Viettech88.vn
+ */
+public interface SettingDAO {
+    void list();
 }

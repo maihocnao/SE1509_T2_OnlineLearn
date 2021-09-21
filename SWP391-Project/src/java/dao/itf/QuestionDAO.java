@@ -5,10 +5,19 @@
  */
 package dao.itf;
 
+import bean.Question;
+
 /**
  *
  * @author Viettech88.vn
  */
-public interface SettingDAOitf {
+public interface QuestionDAO {
     
+    public void addQuestion();
+    
+    public Question getQuestion();
+    
+    public void editQuestion();
+    
+    public void deleteQuestion();
 }

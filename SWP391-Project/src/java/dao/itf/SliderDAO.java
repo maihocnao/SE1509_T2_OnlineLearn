@@ -9,6 +9,6 @@ package dao.itf;
  *
  * @author Viettech88.vn
  */
-public interface ScoreDAOitf {
-    
+public interface SliderDAO {
+    void update();
 }

@@ -9,19 +9,6 @@ package dao.itf;
  *
  * @author Viettech88.vn
  */
-public interface QuizDAOitf {
-    
-    public void addQuiz();
-    
-    public Quiz getQuiz(){
-    
-    }
-    
-    public void editQuiz(){
-    
-    }
-    
-    public void deleteQuiz(){
-    
-    }
+public interface SubjectDimensionDAO {
+    void update();
 }

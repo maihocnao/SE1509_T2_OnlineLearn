@@ -9,6 +9,7 @@ package dao.itf;
  *
  * @author Viettech88.vn
  */
-public interface SliderDAOitf {
-    
+public interface RegistrationDAO {
+    void insert();
+    void update();
 }

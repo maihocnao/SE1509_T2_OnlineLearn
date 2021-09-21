@@ -9,6 +9,11 @@ package dao.itf;
  *
  * @author Viettech88.vn
  */
-public interface RoleDAOitf {
+public interface UserDAO {
+    boolean checkAccountExist();
     
+    void changePassword();
+    
+    void changName();
+    void resetPassword();
 }
