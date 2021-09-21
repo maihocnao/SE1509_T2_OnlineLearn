@@ -116,6 +116,10 @@ roleID nvarchar(8) primary key,
 roleName nvarchar(50),
 roleDescription nvarchar(50) ,
 );
+insert into "User" values ('01','ADM','Admin')
+insert into "User" values ('02','CUS','Customer')
+insert into "User" values ('03','SAL','Sale')
+insert into "User" values ('04','MKT','Marketing')
 
 create table Score(
 quizID int ,
@@ -144,8 +148,11 @@ Fullname nvarchar(50),
 Phone nvarchar(50),
 foreign key (RoleID) references "Role"(RoleID)
 );
-insert into "User" values ('01','01','01','','123','Nam','Nguyen van a','0123456789')
-insert into "User" values ('02','02','02','','123','Nu','Nguyen van a','0987654321')
+insert into "User" values ('01','01','01','adminweb@gmail.com','123','Nam','Nguyen van a','0123456789')
+insert into "User" values ('02','02','02','user1@gmail.com','234','Nu','Nguyen van b','0987654321')
+insert into "User" values ('03','02','02','user2@gmail.com','345','Nu','Nguyen van c','0985634378')
+insert into "User" values ('04','03','02','sale1@gmail.com','456','Nam','Nguyen van d','0925554321')
+insert into "User" values ('05','04','02','market1@gmail.com','567','Nu','Nguyen van e','0987688356')
 
 create table Blog (
 blogID int primary key,
