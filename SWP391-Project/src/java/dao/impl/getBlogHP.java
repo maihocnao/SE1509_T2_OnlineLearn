@@ -30,7 +30,7 @@ public class getBlogHP implements SubjectDAO {
     }
     
     
-    ArrayList<Blog> get2Post(){
+    public ArrayList<Blog> get2Post(){
         ArrayList<Blog> arr = new ArrayList<>();
         ResultSet rs = dbConn.getData("select top 2  [blogID],[userID],[fullname],[categoryID],[thumbnail],[title],[updatedDate],[blogDetail],[flag],[status]  FROM [SWP].[dbo].[Blog]");
     //  int blogID, int userID, String fullname, int categoryID, String thumbnail, String title, String updatedDate, String blogDetail, byte flag, byte status

@@ -48,17 +48,22 @@ public class HomepageServlet extends HttpServlet {
             String service = request.getParameter("service");
             getSliderToHP getSlider = new getSliderToHP(dbConn);
             getBlogHP getBlog = new getBlogHP(dbConn);
+            get6SubjectHP getSubject = new get6SubjectHP(dbConn);
             if (service ==null) {
                 service="displayCommonHP";
             }
             if (service.equals("displayCommonHP")){
                 
                 ArrayList<Slider> arrSlider = getSlider.getSliderHP();
+                ArrayList<Blog> arr2Blog = getBlog.get2Post();
+                ArrayList<Subject> arrSubject = getSubject.get6ToHp();
                 System.out.println(arrSlider);
                
                 //send data-->view
                 
-                request.setAttribute("list", arrSlider);
+                request.setAttribute("listSlider", arrSlider);
+                request.setAttribute("list2Post", arr2Blog);
+                request.setAttribute("listSubject", arrSubject);
                 
                 //call view (Select)
                  RequestDispatcher dis=
