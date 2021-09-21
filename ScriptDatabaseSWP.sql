@@ -147,6 +147,7 @@ foreign key (quizID) references Quiz(quizID)
 );
 insert into Question values (1,1,'Capital of Vietnam?','Easy',1,1,1)
 insert into Question values (2,1,'Capital of England?','Easy',1,1,1)
+insert into Question values (3,2,'1 + 1 = ?','Easy',2,2,2)
 
 create table Answer(
 answerID int primary key,
@@ -159,7 +160,14 @@ insert into Answer values (1,1,1,'Hanoi')
 insert into Answer values (2,1,0,'Tokyo')
 insert into Answer values (3,1,0,'Seoul')
 insert into Answer values (4,1,0,'Bangkok')
-
+insert into Answer values (5,2,1,'London')
+insert into Answer values (6,2,0,'Paris')
+insert into Answer values (7,2,0,'Rome')
+insert into Answer values (8,2,0,'Madrid')
+insert into Answer values (9,3,0,'0')
+insert into Answer values (10,3,0,'1')
+insert into Answer values (11,3,1,'2')
+insert into Answer values (12,3,0,'3')
 
 create table Score(
 quizID int ,
