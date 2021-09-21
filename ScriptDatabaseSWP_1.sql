@@ -11,6 +11,10 @@ roleID nvarchar(8) primary key,
 roleName nvarchar(50),
 roleDescription nvarchar(50) ,
 );
+insert into "Role" values ('01','ADM','Admin')
+insert into "Role" values ('02','CUS','Customer')
+insert into "Role" values ('03','SAL','Sale')
+insert into "Role" values ('04','MKT','Marketing')
 
 create table Setting(
 SettingID int primary key,
@@ -57,7 +61,7 @@ foreign key (UserID) references "User"(UserID)
 INSERT INTO Registration (registrationID,regisTime,status, validFrom,validto,totalPrice,UserID,UserEmail)
 VALUES (1, '20/9/2021', 1, '25/9/2021','30/11/2021',50.5,1,'email');
 INSERT INTO Registration (registrationID,regisTime,status, validFrom,validto,totalPrice,UserID,UserEmail)
-VALUES (2, '20/9/2021', 1, '25/9/2021','30/11/2021',40.5,1,'email');
+VALUES (2, '20/9/2021', 1, '25/9/2021','30/11/2021',40.5,1,'email2');
 
 create table [Subject](
 subjectID int primary key,
