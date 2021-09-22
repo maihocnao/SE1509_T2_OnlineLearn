@@ -11,9 +11,7 @@ package dao.itf;
  */
 public interface UserDAO {
     boolean checkAccountExist();
-    
-    void changePassword();
-    
+    void changePassword(String UserID, String Password);
     void changName();
     void resetPassword();
 }
