@@ -5,13 +5,18 @@
  */
 package controller;
 
+import bean.User;
+import dao.impl.Login;
+import dao.itf.UserDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -33,16 +38,28 @@ public class LoginServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet LoginServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet LoginServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            String email = request.getParameter("email");
+            String password = request.getParameter("password");
+
+            Login login = new Login();
+            try {
+                User user = login.checkLogin(email, password);
+                if (user.getRoleID() == "01") {
+                    response.sendRedirect("/adminview.jsp");
+                }
+                if (user.getRoleID() == "02") {
+                    response.sendRedirect("homepageservlet");
+                }
+                if (user.getRoleID() == "03") {
+                    response.sendRedirect("/salview.jsp");
+                }
+                if (user.getRoleID() == "04") {
+                    response.sendRedirect("makview.jsp");
+                }                              
+            } catch (Exception e) {
+                response.sendRedirect("login-fail.jsp");
+            }
+
         }
     }
 
