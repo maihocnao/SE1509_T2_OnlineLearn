@@ -3,103 +3,102 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller;
-
+package dao.impl;
 import bean.User;
-import dao.impl.Login;
-import dao.itf.UserDAO;
-import java.io.IOException;
-import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
+import context.DBConnect;
+import dao.itf.UserDAO ;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
- * @author Phong
+ * @author Viettech88.vn
  */
-@WebServlet(name = "LoginServlet", urlPatterns = {"/loginservlet"})
-public class LoginServlet extends HttpServlet {
+public class Login implements UserDAO{
+    private Connection con;
+    private PreparedStatement ps;
+    private ResultSet rs;
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            String email = request.getParameter("email");
-            String password = request.getParameter("password");
-
-            Login login = new Login();
-            try {
-                User user = login.checkLogin(email, password);
-                if (user.getRoleID() == "01") {
-                    response.sendRedirect("/adminview.jsp");
-                }
-                if (user.getRoleID() == "02") {
-                    response.sendRedirect("homepageservlet");
-                }
-                if (user.getRoleID() == "03") {
-                    response.sendRedirect("/salview.jsp");
-                }
-                if (user.getRoleID() == "04") {
-                    response.sendRedirect("makview.jsp");
-                }                              
-            } catch (Exception e) {
-                response.sendRedirect("login-fail.jsp");
-            }
-
+    private void closeConnection() throws SQLException {
+        if (con != null) {
+            con.close();
+        }
+        if (rs != null) {
+            rs.close();
+        }
+        if (ps != null) {
+            ps.close();
         }
     }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+   
     /**
-     * Handles the HTTP <code>GET</code> method.
      *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
+     * @param email
+     * @param password
+     * @return
+     * @throws Exception
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
+        public User checkLogin(String email, String password) {
+        User user = null;
+        String sql = "select * from user where email=? AND password=?";
+        try {
+            DBConnect db = new DBConnect();
+            con = db.getConnection();
+            if (con != null) {
+                ps = con.prepareStatement(sql);
+                ps.setString(1, email);
+                ps.setString(2, password);
+                rs = ps.executeQuery();
+                if (rs.next()) {
+                    String roleID = rs.getString("roleID");
+                    int userID = Integer.parseInt(rs.getString("userID"));
+                    email = rs.getString("email");
+                    String gender = rs.getString("gender");
+                    String fullname = rs.getString("fullname");
+                    String phone = rs.getString("phone");
+                    user = new User(userID, roleID, email, password, gender, fullname, phone);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                closeConnection();
+            } catch (SQLException ex) {
+                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return user ;
     }
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
+//    @Override
+//    public void checkLogin() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+//
+//    @Override
+//    public boolean checkAccountExist() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+//
+//    @Override
+//    public void changePassword() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+//
+//    @Override
+//    public void changName() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+//
+//    @Override
+//    public void resetPassword() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+//    
 }
