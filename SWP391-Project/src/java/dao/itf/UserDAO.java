@@ -10,6 +10,7 @@ package dao.itf;
  * @author Viettech88.vn
  */
 public interface UserDAO {
+    public User checkLogin(String email, String password);
     boolean checkAccountExist();
     void changePassword(String UserID, String Password);
     void changName();
