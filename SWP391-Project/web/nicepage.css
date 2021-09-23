@@ -12745,7 +12745,7 @@ section.u-image,
   position: fixed;
   top: 0;
 }
-@supports (position: sticky) {
+/*@supports (position: sticky) {
   .u-header.u-sticky {
     position: sticky;
   }
@@ -12754,7 +12754,7 @@ section.u-image,
   .u-header.u-sticky {
     position: -webkit-sticky;
   }
-}
+}*/
 .u-sticky {
   transition: background-color 250ms, box-shadow 250ms;
 }
