@@ -47,7 +47,7 @@ public class UserDaoImpl extends BaseDao implements UserDAO {
         Connection conn = getConnection();
         PreparedStatement stm = null;
         try {
-             stm = conn.prepareCall(sql);
+            stm = conn.prepareCall(sql);
             int index = 0;
             stm.setString(++index, user.getRoleID());
             stm.setInt(++index, user.getSettingID());
@@ -60,9 +60,7 @@ public class UserDaoImpl extends BaseDao implements UserDAO {
             return stm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        finally
-        {
+        } finally {
             try {
                 closeConnection(conn);
                 closeStatement(stm);
@@ -71,5 +69,37 @@ public class UserDaoImpl extends BaseDao implements UserDAO {
             }
         }
         return -1;
+    }
+
+    @Override
+    public int countExistedUser(User user) {
+        String sql = "SELECT count(*) AS total FROM dbo.[User]"
+                + "WHERE email = ?";
+        Connection conn = getConnection();
+        PreparedStatement stm = null;
+        ResultSet rs = null;
+        int total = -1;
+        try {
+            stm = conn.prepareStatement(sql);
+            int index = 0;
+            stm.setString(++index, user.getEmail());
+            rs = stm.executeQuery();
+            if (rs.next()) {
+                total = rs.getInt("total");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                closeConnection(conn);
+                closeResultSet(rs);
+                closeStatement(stm);
+            } catch (SQLException ex) {
+                Logger.getLogger(UserDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return total;
     }
 }

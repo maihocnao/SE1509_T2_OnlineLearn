@@ -49,15 +49,20 @@ public class MyRegistrationServlet extends HttpServlet {
         }
         User user = new User(1, "02", email, password, gender, fullName, phoneNumber, address, true);
         UserDaoImpl userDao = new UserDaoImpl();
-        int created = userDao.createUser(user);
-        //insert fail 
-        //case -1 represent for something causes exception
-        //case 0 represent for data not inserted into database
-        //other means data inserted into database
-        if (created == -1 || created == 0) {
-            request.setAttribute("CREATE_USER_STATUS", false);
+        int existedUser = userDao.countExistedUser(user);
+        if (existedUser != 0) {
+            request.setAttribute("IS_EXISTED", true);
         } else {
-            request.setAttribute("CREATE_USER_STATUS", true);
+            int created = userDao.createUser(user);
+            //insert fail 
+            //case -1 represent for something causes exception
+            //case 0 represent for data not inserted into database
+            //other means data inserted into database
+            if (created == -1 || created == 0) {
+                request.setAttribute("CREATE_USER_STATUS", false);
+            } else {
+                request.setAttribute("CREATE_USER_STATUS", true);
+            }
         }
         request.getRequestDispatcher("RegistUser.jsp").forward(request, response);
     }
