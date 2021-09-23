@@ -5,6 +5,9 @@
  */
 package dao.itf;
 
+import java.sql.SQLException;
+import  bean.User;
+
 /**
  *
  * @author Viettech88.vn
@@ -16,4 +19,6 @@ public interface UserDAO {
     
     void changName();
     void resetPassword();
+    
+    int createUser(User user);
 }

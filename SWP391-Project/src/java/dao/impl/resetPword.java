@@ -4,10 +4,12 @@
  * and open the template in the editor.
  */
 package dao.impl;
+import bean.User;
 import dao.DBConnect;
 import dao.itf.UserDAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 /**
  *
  * @author Viettech88.vn
@@ -40,6 +42,11 @@ public class resetPword implements UserDAO {
 
     @Override
     public void resetPassword() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int createUser(User user) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

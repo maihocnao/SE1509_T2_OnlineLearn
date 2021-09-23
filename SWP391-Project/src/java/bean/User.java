@@ -18,12 +18,13 @@ public class User {
     String Gender;
     String Fullname;
     String Phone;
+    boolean enabled;
+    String address;
 
     public User() {
     }
 
-    public User(int UserID, int SettingID, String RoleID, String Email, String Password, String Gender, String Fullname, String Phone) {
-        this.UserID = UserID;
+    public User(int SettingID, String RoleID, String Email, String Password, String Gender, String Fullname, String Phone,String address, boolean enabled) {
         this.SettingID = SettingID;
         this.RoleID = RoleID;
         this.Email = Email;
@@ -31,6 +32,16 @@ public class User {
         this.Gender = Gender;
         this.Fullname = Fullname;
         this.Phone = Phone;
+        this.address = address;
+        this.enabled = enabled;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public int getUserID() {
@@ -95,6 +106,14 @@ public class User {
 
     public void setPhone(String Phone) {
         this.Phone = Phone;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 
     @Override

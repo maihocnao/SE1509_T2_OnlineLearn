@@ -5,7 +5,6 @@ import bean.Answer;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import javax.jms.JMSException;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -20,8 +19,8 @@ import javax.jms.JMSException;
 public interface AnswerDAO {
 
 
-    void closeConnection() throws SQLException, JMSException ;
-    public ArrayList<Answer> getAllAnswer() throws SQLException, JMSException ;
+    void closeConnection() throws SQLException ;
+    public ArrayList<Answer> getAllAnswer() throws SQLException ;
                
     void getAllCorrectAnswer() throws SQLException ;
                

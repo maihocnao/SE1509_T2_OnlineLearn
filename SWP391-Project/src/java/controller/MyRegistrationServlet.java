@@ -5,6 +5,8 @@
  */
 package controller;
 
+import bean.User;
+import dao.impl.UserDaoImpl;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -12,12 +14,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import utils.StringValidation;
 
 /**
  *
  * @author Phong
  */
-@WebServlet(name = "MyRegistrationServlet", urlPatterns = {"/myregistrationservlet"})
+@WebServlet(name = "MyRegistrationServlet", urlPatterns = {"/user/register"})
 public class MyRegistrationServlet extends HttpServlet {
 
     /**
@@ -31,19 +34,32 @@ public class MyRegistrationServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet MyRegistrationServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet MyRegistrationServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        StringValidation stringValidation = new StringValidation();
+        String email = request.getParameter("email");
+        String fullName = request.getParameter("name");
+        String phoneNumber = request.getParameter("phonenumber");
+        String address = request.getParameter("address");
+        String gender = request.getParameter("gender");
+        String password = request.getParameter("password");
+        //first access to servlet
+        if (stringValidation.isNullOrEmpty(email) || stringValidation.isNullOrEmpty(fullName)
+                || stringValidation.isNullOrEmpty(gender) || stringValidation.isNullOrEmpty(password)) {
+            request.getRequestDispatcher("RegistUser.jsp").forward(request, response);
+            return;
         }
+        User user = new User(1, "02", email, password, gender, fullName, phoneNumber, address, true);
+        UserDaoImpl userDao = new UserDaoImpl();
+        int created = userDao.createUser(user);
+        //insert fail 
+        //case -1 represent for something causes exception
+        //case 0 represent for data not inserted into database
+        //other means data inserted into database
+        if (created == -1 || created == 0) {
+            request.setAttribute("CREATE_USER_STATUS", false);
+        } else {
+            request.setAttribute("CREATE_USER_STATUS", true);
+        }
+        request.getRequestDispatcher("RegistUser.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
