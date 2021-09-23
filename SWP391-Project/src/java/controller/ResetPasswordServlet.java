@@ -44,12 +44,12 @@ public class ResetPasswordServlet extends HttpServlet {
                 resetPass.changePassword (newPassword);
                 out.println("<script type=\"text/javascript\">");
                 out.println("alert('Password Reseted!');");
-                 out.println("location='Homepage';");
+                 out.println("location='Homepage.html';");
                 out.println("</script>");
             } else {
                 out.println("<script type=\"text/javascript\">");
                 out.println("alert('Re-password mismatch!');");
-                out.println("location='reset-password-password-input.jsp';");
+                out.println("location='3-Reset-Password.html';");
                 out.println("</script>");
             }  
         }
