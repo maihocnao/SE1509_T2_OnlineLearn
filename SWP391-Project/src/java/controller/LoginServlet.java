@@ -44,6 +44,7 @@ public class LoginServlet extends HttpServlet {
             Login login = new Login();
             try {
                 User user = login.checkLogin(email, password);
+                request.getSession().setAttribute("currentUser", user);
                 if (user.getRoleID() == "01") {
                     response.sendRedirect("/adminview.jsp");
                 }

@@ -53,6 +53,10 @@ public class DBConnect {
     public static void main(String[] args) {
         new DBConnect();
     }
+
+    public Connection getConnection() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
 }

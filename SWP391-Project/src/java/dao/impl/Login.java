@@ -44,7 +44,7 @@ public class Login implements UserDAO{
     @Override
         public User checkLogin(String email, String password) {
         User user = null;
-        String sql = "select * from user where email=? AND password=?";
+        String sql = "select * from User where Email=? AND Password=?";
         try {
             DBConnect db = new DBConnect();
             con = db.getConnection();
@@ -54,13 +54,14 @@ public class Login implements UserDAO{
                 ps.setString(2, password);
                 rs = ps.executeQuery();
                 if (rs.next()) {
-                    String roleID = rs.getString("roleID");
-                    int userID = Integer.parseInt(rs.getString("userID"));
-                    email = rs.getString("email");
-                    String gender = rs.getString("gender");
-                    String fullname = rs.getString("fullname");
-                    String phone = rs.getString("phone");
-                    user = new User(userID, roleID, email, password, gender, fullname, phone);
+                    String roleID = rs.getString("RoleID");
+                    int settingID = rs.getInt("SettingID");
+                    int userID = Integer.parseInt(rs.getString("UserID"));
+                    email = rs.getString("Email");
+                    String gender = rs.getString("Gender");
+                    String fullname = rs.getString("Fullname");
+                    String phone = rs.getString("Phone");
+                    user = new User(userID,settingID, roleID, email, password, gender, fullname, phone);
                 }
             }
         } catch (Exception e) {
@@ -101,4 +102,24 @@ public class Login implements UserDAO{
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 //    }
 //    
+
+    @Override
+    public boolean checkAccountExist(String Email) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void changePassword(String UserID, String Password) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void changName() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void resetPassword(String email) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
