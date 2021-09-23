@@ -3,15 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Viettech88.vn/Documents/GitHub/SE1509_T2_OnlineLearn/SWP391-Project/web/PublicHomePage.jsp</file>
-            <file>file:/C:/Users/Viettech88.vn/Documents/GitHub/SE1509_T2_OnlineLearn/SWP391-Project/src/java/bean/Subject.java</file>
-            <file>file:/C:/Users/Viettech88.vn/Documents/GitHub/SE1509_T2_OnlineLearn/SWP391-Project/src/java/dao/impl/getSliderToHP.java</file>
-            <file>file:/C:/Users/Viettech88.vn/Documents/GitHub/SE1509_T2_OnlineLearn/SWP391-Project/src/java/dao/impl/getBlogHP.java</file>
-            <file>file:/C:/Users/Viettech88.vn/Documents/GitHub/SE1509_T2_OnlineLearn/SWP391-Project/src/java/dao/impl/PricePackageList.java</file>
-            <file>file:/C:/Users/Viettech88.vn/Documents/GitHub/SE1509_T2_OnlineLearn/SWP391-Project/web/images/Keshi.jpg</file>
-            <file>file:/C:/Users/Viettech88.vn/Documents/GitHub/SE1509_T2_OnlineLearn/SWP391-Project/web/7-Homepage.html</file>
-            <file>file:/C:/Users/Viettech88.vn/Documents/GitHub/SE1509_T2_OnlineLearn/SWP391-Project/src/java/dao/impl/get6SubjectHP.java</file>
-            <file>file:/C:/Users/Viettech88.vn/Documents/GitHub/SE1509_T2_OnlineLearn/SWP391-Project/src/java/controller/HomepageServlet.java</file>
+            <file>file:/D:/workspace/vscode/SE1509_T2_OnlineLearn/SWP391-Project/src/java/dao/impl/changePword.java</file>
+            <file>file:/D:/workspace/vscode/SE1509_T2_OnlineLearn/SWP391-Project/src/java/dao/impl/resetPword.java</file>
+            <file>file:/D:/workspace/vscode/SE1509_T2_OnlineLearn/SWP391-Project/src/java/dao/itf/UserDAO.java</file>
+            <file>file:/D:/workspace/vscode/SE1509_T2_OnlineLearn/SWP391-Project/src/java/controller/ResetPasswordServlet.java</file>
+            <file>file:/D:/workspace/vscode/SE1509_T2_OnlineLearn/SWP391-Project/src/java/dao/impl/BlogList.java</file>
+            <file>file:/D:/workspace/vscode/SE1509_T2_OnlineLearn/SWP391-Project/web/Login.jsp</file>
+            <file>file:/D:/workspace/vscode/SE1509_T2_OnlineLearn/SWP391-Project/web/3-Reset-password.html</file>
+            <file>file:/D:/workspace/vscode/SE1509_T2_OnlineLearn/SWP391-Project/src/java/dao/itf/BlogDAO.java</file>
+            <file>file:/D:/workspace/vscode/SE1509_T2_OnlineLearn/SWP391-Project/src/java/controller/HomepageServlet.java</file>
         </group>
     </open-files>
 </project-private>

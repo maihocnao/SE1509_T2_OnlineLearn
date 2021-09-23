@@ -35,8 +35,7 @@ public class ResetPasswordServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-                
+        try (PrintWriter out = response.getWriter()) {   
             resetPword resetPass = new resetPword();
             String newPassword = request.getParameter("new-psw");
             String reNewPassword = request.getParameter("re-new-psw");

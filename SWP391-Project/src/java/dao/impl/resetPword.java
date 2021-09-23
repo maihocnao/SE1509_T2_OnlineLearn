@@ -25,15 +25,14 @@ private ResultSet rs;
     }
 
     public resetPword(DBConnect dbconn) {
-      
         conn = dbconn.con;
         this.dbConn=dbconn;
          
     }
 
     @Override
-    public boolean checkAccountExist(String email) {
-        String sql = "select email from user where email=?";
+    public boolean checkAccountExist(String email) { //Kiểm tra tài khoản có tồn tại không qua Email
+        String sql = "select User from user where email=?";
         try {
             DBConnect db = new DBConnect();
          
@@ -51,9 +50,8 @@ private ResultSet rs;
 
 
      @Override
-    public void resetPassword(String email)  {
+    public void resetPassword(String email)  { //reset Password về null
         DBConnect db = new DBConnect();
-        ResultSet Rs = dbConn.getData("update user set password = null where email=?");
  try {
             ps = conn.prepareStatement("update user set password = null where email=?");
             ps.setString(1, email);
@@ -69,7 +67,7 @@ private ResultSet rs;
     }
 
     
-    public void changePassword( String Password) {
+    public void changePassword( String Password) {// thay đổi mật khẩu tại nơi Password null
     String xSql = "update User set Password = ? where password is null";
         try {
             ps = conn.prepareStatement(xSql);
