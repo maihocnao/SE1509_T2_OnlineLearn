@@ -1,4 +1,4 @@
-package dao.itf;
+ package dao.itf;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -24,3 +24,4 @@ public interface BlogDAO {
     
     public ArrayList<Blog> getAllBlog() throws Exception ;
 }
+

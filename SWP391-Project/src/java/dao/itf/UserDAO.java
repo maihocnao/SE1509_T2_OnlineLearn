@@ -22,3 +22,4 @@ public interface UserDAO {
     
     int createUser(User user);
 }
+
