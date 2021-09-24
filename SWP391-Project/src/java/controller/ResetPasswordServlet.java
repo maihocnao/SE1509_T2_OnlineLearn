@@ -5,6 +5,7 @@
  */
 package controller;
 
+import bean.MailSenderBean;
 import dao.DBConnect;
 import dao.impl.resetPword;
 import dao.itf.UserDAO;
@@ -15,6 +16,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -22,7 +24,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "ResetPasswordServlet", urlPatterns = {"/resetpasswordservlet"})
 public class ResetPasswordServlet extends HttpServlet {
-
+   MailSenderBean mailSender = new MailSenderBean();
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -34,24 +36,34 @@ public class ResetPasswordServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+      
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {   
             resetPword resetPass = new resetPword();
-            String newPassword = request.getParameter("new-psw");
-            String reNewPassword = request.getParameter("re-new-psw");
-            if (newPassword.equals(reNewPassword)) {
-                resetPass.changePassword (newPassword);
+            String toEmail = request.getParameter("email");
+            HttpSession session = request.getSession();
+            session.setAttribute("email", toEmail);
+            String fromEmail = "";
+            String username = "";
+            String password = "";
+            if (resetPass.checkAccountExist(toEmail)) {
+                mailSender.sendEmail(fromEmail, username, password, toEmail);
+                resetPass.resetPassword(toEmail);
                 out.println("<script type=\"text/javascript\">");
-                out.println("alert('Password Reseted!');");
-                 out.println("location='Homepage.html';");
+                out.println("alert('Email sent! Check your inbox');");
+                 out.println("location='Homepage';");
                 out.println("</script>");
+
             } else {
                 out.println("<script type=\"text/javascript\">");
-                out.println("alert('Re-password mismatch!');");
-                out.println("location='3-Reset-Password.html';");
+                out.println("alert('Sorry you have not registered!');");
+                 out.println("location='Homepage';");
                 out.println("</script>");
-            }  
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+        
     }
     
 
