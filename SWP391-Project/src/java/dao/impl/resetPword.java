@@ -72,8 +72,8 @@ private ResultSet rs;
             ps.setString(1, Password);
             ps.executeUpdate();
             ps.close();
-        } catch (Exception e) {    }
-        
+        } catch (Exception e) {    
+        }        
     }
 
     @Override

@@ -36,7 +36,7 @@ public class BlogList implements BlogDAO {
     }
 
     @Override
-    public List<Blog> getFirstFive() throws Exception {
+    public List<Blog> getFirstFive() throws Exception { // Get 5 first Blog from Blog List
  String sql = "select * from (select b.*, u.fullname from blog b, user u where u.userID = b.userID order by updatedDate desc) as T limit 5;";
         ArrayList<Blog> list = new ArrayList<>();  
        try {
@@ -81,7 +81,7 @@ public class BlogList implements BlogDAO {
     }
 
     @Override
-    public List<Blog> getPaging(int index) throws Exception {
+    public List<Blog> getPaging(int index) throws Exception { 
         String sql = "select * from (select b.*, u.fullname,  row_number() over (order by updatedDate desc) as r from blog b, user u where u.userID = b.userID) as x where r between (? * 9 - 8) and (? * 9)";
         ArrayList<Blog> list = new ArrayList<>();
         try {
@@ -144,13 +144,11 @@ public class BlogList implements BlogDAO {
         }
         return 0;
     }
- public List<Blog> getSearchList(String txt, int index) throws SQLException {
+ public List<Blog> getSearchList(String txt, int index) throws SQLException { //Tim kiem trong list cac Blog
         String sql = "select * from (select b.*, u.fullname,  row_number() over (order by updatedDate desc) as r from blog b, user u where u.userID = b.userID and title like ?) as x where r between (?* 9 - 8) and (? * 9);";
         ArrayList<Blog> list = new ArrayList<>();
-
         try {
             DBConnect db = new DBConnect();
-
             if (conn != null) {
                 ps = conn.prepareStatement(sql);
                 ps.setString(1, "%" + txt + "%");

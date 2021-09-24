@@ -53,7 +53,6 @@ public class ResetPasswordServlet extends HttpServlet {
                 out.println("alert('Email sent! Check your inbox');");
                  out.println("location='Homepage';");
                 out.println("</script>");
-
             } else {
                 out.println("<script type=\"text/javascript\">");
                 out.println("alert('Sorry you have not registered!');");
@@ -61,7 +60,7 @@ public class ResetPasswordServlet extends HttpServlet {
                 out.println("</script>");
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            
         }
         
     }
