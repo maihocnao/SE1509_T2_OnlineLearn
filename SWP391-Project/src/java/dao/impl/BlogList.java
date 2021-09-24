@@ -144,4 +144,48 @@ public class BlogList implements BlogDAO {
         }
         return 0;
     }
+ public List<Blog> getSearchList(String txt, int index) throws SQLException {
+        String sql = "select * from (select b.*, u.fullname,  row_number() over (order by updatedDate desc) as r from blog b, user u where u.userID = b.userID and title like ?) as x where r between (?* 9 - 8) and (? * 9);";
+        ArrayList<Blog> list = new ArrayList<>();
+
+        try {
+            DBConnect db = new DBConnect();
+
+            if (conn != null) {
+                ps = conn.prepareStatement(sql);
+                ps.setString(1, "%" + txt + "%");
+                ps.setInt(2, index);
+                ps.setInt(3, index);
+                rs = ps.executeQuery();
+
+                while (rs.next()) {
+                    int blogID = rs.getInt("blogID");
+                    int userID = rs.getInt("userID");
+                    String fullname = rs.getString("fullname");
+                    int categoryID = rs.getInt("categoryID");
+                    String thumbnail = rs.getString("thumbnail");
+                    String title = rs.getString("title");
+                    String updatedDate = rs.getString("updatedDate");
+                    String blogDetail = rs.getString("blogDetail");
+                    byte flag = rs.getByte("flag");
+                    byte status = rs.getByte("status");
+                    BlogStatus blogStatus;
+                    boolean blogFlag = (flag == 1);
+                    // convert status type to enum
+                    if (status == 1) {
+                        blogStatus = BlogStatus.PUBLISH;
+                    } else {
+                        blogStatus = BlogStatus.DRAFT;
+                    }
+                    Blog blog = new Blog( blogID, userID, fullname, categoryID, thumbnail,  title,  updatedDate,  blogDetail,  flag,  status);
+                    list.add(blog);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("getPaging :: " + e);
+        } finally {
+            closeConnection();
+        }
+        return list;
+    }
 }
