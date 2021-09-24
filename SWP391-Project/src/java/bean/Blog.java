@@ -24,7 +24,8 @@ public class Blog {
     public Blog() {
     }
 
-    public Blog(int blogID, int userID, String fullname, int categoryID, String thumbnail, String title, String updatedDate, String blogDetail, byte flag, byte status) {
+    public Blog(int blogID, int userID, String fullname, int categoryID, String thumbnail, String title, String updatedDate,
+            String blogDetail, byte flag, byte status) {
         this.blogID = blogID;
         this.userID = userID;
         this.fullname = fullname;

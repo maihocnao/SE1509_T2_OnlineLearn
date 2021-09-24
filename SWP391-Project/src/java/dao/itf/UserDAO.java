@@ -5,13 +5,16 @@
  */
 package dao.itf;
 
+import bean.User;
+
 /**
  *
  * @author Viettech88.vn
  */
 public interface UserDAO {
-    boolean checkAccountExist();
+    public User checkLogin(String email, String password);
+    boolean checkAccountExist(String Email);
     void changePassword(String UserID, String Password);
     void changName();
-    void resetPassword();
+    void resetPassword(String email);
 }

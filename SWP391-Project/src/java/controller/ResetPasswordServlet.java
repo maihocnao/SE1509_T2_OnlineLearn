@@ -5,6 +5,9 @@
  */
 package controller;
 
+import dao.DBConnect;
+import dao.impl.resetPword;
+import dao.itf.UserDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -32,19 +35,25 @@ public class ResetPasswordServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ResetPasswordServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ResetPasswordServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        try (PrintWriter out = response.getWriter()) {   
+            resetPword resetPass = new resetPword();
+            String newPassword = request.getParameter("new-psw");
+            String reNewPassword = request.getParameter("re-new-psw");
+            if (newPassword.equals(reNewPassword)) {
+                resetPass.changePassword (newPassword);
+                out.println("<script type=\"text/javascript\">");
+                out.println("alert('Password Reseted!');");
+                 out.println("location='Homepage.html';");
+                out.println("</script>");
+            } else {
+                out.println("<script type=\"text/javascript\">");
+                out.println("alert('Re-password mismatch!');");
+                out.println("location='3-Reset-Password.html';");
+                out.println("</script>");
+            }  
         }
     }
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

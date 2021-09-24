@@ -7,6 +7,7 @@ package dao.impl;
 
 import bean.Slider;
 import bean.Subject;
+import bean.User;
 import dao.DBConnect;
 import dao.itf.*;
 import java.sql.Connection;
@@ -30,18 +31,22 @@ public class changePword implements UserDAO{
          
     }
 
-    @Override
-    public boolean checkAccountExist() {
+    public changePword() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void changePassword(String xUserID, String xPassword) {
-        String xSql = "update User set Password = ? where UserID = ?";
+    public boolean checkAccountExist(String email) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void changePassword(String xEmail, String xPassword) {
+        String xSql = "update User set Password = ? where Email = ?";
         try {
             ps = conn.prepareStatement(xSql);
             ps.setString(1, xPassword);
-            ps.setString(2, xUserID);
+            ps.setString(2, xEmail);
             ps.executeUpdate();
             ps.close();
         } catch (Exception e) {
@@ -54,7 +59,12 @@ public class changePword implements UserDAO{
     }
 
     @Override
-    public void resetPassword() {
+    public void resetPassword(String email) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public User checkLogin(String email, String password) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
