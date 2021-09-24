@@ -34,12 +34,10 @@ private ResultSet rs;
     public boolean checkAccountExist(String email) { //Kiểm tra tài khoản có tồn tại không qua Email
         String sql = "select User from user where email=?";
         try {
-            DBConnect db = new DBConnect();
-         
+            DBConnect db = new DBConnect();        
             ps = conn.prepareStatement(sql);
             ps.setString(1, email);
             rs = ps.executeQuery();
-
             return rs.next();
         } catch (Exception e) {
             e.printStackTrace();
@@ -66,7 +64,7 @@ private ResultSet rs;
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    
+
     public void changePassword( String Password) {// thay đổi mật khẩu tại nơi Password null
     String xSql = "update User set Password = ? where password is null";
         try {
@@ -87,6 +85,10 @@ private ResultSet rs;
     public void changePassword(String UserID, String Password) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+ public static void main(String[] args) {
+        DBConnect dbconn = new DBConnect();
+        resetPword a = new resetPword(dbconn);
+        a.resetPassword("");
+ }
     
 }
