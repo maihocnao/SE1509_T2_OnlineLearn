@@ -13,7 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 /**
  *
- * @author Viettech88.vn
+ * @author Admin
  */
 public  class resetPword implements UserDAO {
      Connection conn = null;

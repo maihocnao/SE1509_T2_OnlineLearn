@@ -9,7 +9,7 @@ import bean.User;
 
 /**
  *
- * @author Viettech88.vn
+ * @author Admin
  */
 public interface UserDAO {
     public User checkLogin(String email, String password);
