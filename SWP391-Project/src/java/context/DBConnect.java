@@ -5,58 +5,83 @@
  */
 package context;
 
+import config.IDBConfig;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
- * @author HP
+ * @author phuon
  */
-public class DBConnect {
-    Connection con=null;
-    public DBConnect(String URL,String userName,String pass){
+public class MSSQLConnection {
+    public static Connection getConnection() {
+        Connection con = null; // create connection
+        String connectionUrl = "jdbc:sqlserver://" + IDBConfig.HOSTNAME + ":" + IDBConfig.PORT + ";"
+                + "databaseName=" + IDBConfig.DATABASENAME + ";integratedSecurity=" + IDBConfig.INTEGRATEDSECURITY + ";";
+
         try {
-            //call driver
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            //get connection
-            con=DriverManager.getConnection(URL,userName, pass);
-            
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DBConnect.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(DBConnect.class.getName()).log(Level.SEVERE, null, ex);
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver"); // đăng kí một cái driver
+        } catch (ClassNotFoundException e) {
+            System.err.println("Where is your MSSQL JDBC Driver?");
+            return con;
         }
-        
+        System.out.println("MSSQL JDBC Driver Registered!");
+        try {
+            con = DriverManager.getConnection(connectionUrl, IDBConfig.USERNAME, IDBConfig.PASSWORD); // mở một kết nối đến driver
+        } catch (SQLException ex) {
+            System.err.println("Connection Failed! Check output console");
+            return con;
+        }
+        return con;
     }
 
-    public DBConnect() {
-        this("jdbc:sqlserver://localhost:1433;databaseName=SWP",
-                "sa","123456");
-    }
-    public ResultSet getData(String sql){
-        ResultSet rs=null;
-        try {
-            Statement state = con.createStatement(
-                    ResultSet.TYPE_SCROLL_SENSITIVE,
-                    ResultSet.CONCUR_UPDATABLE);
-            rs = state.executeQuery(sql);
-        } catch (SQLException ex) {
-            Logger.getLogger(DBConnect.class.getName()).log(Level.SEVERE, null, ex);
+    public static void main(String[] args) throws SQLException {
+        Connection con = MSSQLConnection.getConnection();
+        if (con != null) {
+            System.out.println("You made it, take control your database now!");
+        } else {
+            System.out.println("Failed to make connection!");
         }
-        return rs;
-    }
-    public static void main(String[] args) {
-        new DBConnect();
     }
 
-    public Connection getConnection() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public static void closeConnection(Connection con) { // đóng kết nối
+        if (con != null) {
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                System.err.println(ex);
+            }
+        }
+    }
+
+    /**
+     *Close PrepareStatement to MSSQL Sever
+     * @param ps
+     */
+    public static void closePreparedStatement(PreparedStatement ps) { // đóng biên dịch sql
+        if (ps != null) {
+            try {
+                ps.close();
+            } catch (SQLException ex) {
+                System.err.println("Close PreparedStatement Fail!");
+            }
+        }
     }
     
-    
+    /**
+     *Close ResultSet to MSSQL Sever
+     * @param rs
+     */
+    public static void closeResultSet(ResultSet rs) {
+        if (rs != null) {
+            try {
+                rs.close();
+            } catch (SQLException ex) {
+                System.err.println("Close PreparedStatement Fail!");
+            }
+        }
+    }
 }
