@@ -133,8 +133,8 @@
                     <input type="hidden" value="" name="recaptchaResponse">
                   </form>
                 </div>
-                <a href="#" class="u-border-1 u-border-active-palette-1-base u-border-hover-palette-1-base u-btn u-button-style u-login-control u-login-forgot-password u-none u-text-palette-1-base u-btn-2">Don't have an account?</a>
-                <a href="#" class="u-border-1 u-border-active-palette-1-base u-border-hover-palette-1-base u-btn u-button-style u-login-control u-login-forgot-password u-none u-text-palette-1-base u-btn-3">Forgot password?</a>
+                <a href="2-Sign-up.html" class="u-border-1 u-border-active-palette-1-base u-border-hover-palette-1-base u-btn u-button-style u-login-control u-login-forgot-password u-none u-text-palette-1-base u-btn-2">Don't have an account?</a>
+                <a href="3-Reset-password.html" class="u-border-1 u-border-active-palette-1-base u-border-hover-palette-1-base u-btn u-button-style u-login-control u-login-forgot-password u-none u-text-palette-1-base u-btn-3">Forgot password?</a>
               </div>
             </div>
           </div>
@@ -174,16 +174,6 @@
         </div>
         <p class="u-align-center-lg u-align-center-md u-align-center-xl u-text u-text-1">A Product of TEAM2 </p>
       </div></footer>
-    <section class="u-backlink u-clearfix u-grey-80">
-      <a class="u-link" href="https://nicepage.com/website-templates" target="_blank">
-        <span>Website Templates</span>
-      </a>
-      <p class="u-text">
-        <span>created with</span>
-      </p>
-      <a class="u-link" href="https://nicepage.com/" target="_blank">
-        <span>Website Builder Software</span>
-      </a>. 
-    </section>
+   
   </body>
 </html>

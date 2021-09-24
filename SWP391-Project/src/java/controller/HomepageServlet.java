@@ -49,13 +49,17 @@ public class HomepageServlet extends HttpServlet {
             getSliderToHP getSlider = new getSliderToHP(dbConn);
             getBlogHP getBlog = new getBlogHP(dbConn);
             get6SubjectHP getSubject = new get6SubjectHP(dbConn);
+            //display homepage in public view
             if (service ==null) {
                 service="displayCommonHP";
             }
+            //homepage public view
             if (service.equals("displayCommonHP")){
-                
+                //User Dao file to slider with arraylist type
                 ArrayList<Slider> arrSlider = getSlider.getSliderHP();
+                //User Dao file to blog post with arraylist type
                 ArrayList<Blog> arr2Blog = getBlog.get2Post();
+                //User Dao file to subject with arraylist type
                 ArrayList<Subject> arrSubject = getSubject.get6ToHp();
                 System.out.println(arrSlider);
                
@@ -68,12 +72,12 @@ public class HomepageServlet extends HttpServlet {
                 //call view (Select)
                  RequestDispatcher dis=
                         request.getRequestDispatcher("/PublicHomePage.jsp");
-                // loclalhost:8080/webroot/filename
-                // run
+                //forward to jsp
                 dis.forward(request, response);
             }
         }
     }
+    //method for forward
      private void dispath(HttpServletRequest request, HttpServletResponse response, String URL) {
         try {
             RequestDispatcher dis = request.getRequestDispatcher(URL);

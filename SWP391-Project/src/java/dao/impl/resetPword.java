@@ -28,10 +28,7 @@ public class resetPword implements UserDAO {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public void changePassword() {
-        
-    }
+    
 
     @Override
     public void changName() {
@@ -40,6 +37,11 @@ public class resetPword implements UserDAO {
 
     @Override
     public void resetPassword() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void changePassword(String UserID, String Password) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
