@@ -1,7 +1,5 @@
-<%@page import="bean.*"%>
-<%@page import="java.util.ArrayList"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core"prefix="c" %>
 <!DOCTYPE html>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <html style="font-size: 16px;">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +7,7 @@
     <meta name="keywords" content="Post 1 Headline, Post 2 Headline, About Us, Course">
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
-    <title>Homepage</title>
+    <title>7 Homepage</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
 <link rel="stylesheet" href="7-Homepage.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
@@ -37,7 +35,7 @@
     <meta property="og:type" content="website">
   </head>
   <body class="u-body"><header class="u-clearfix u-header u-palette-4-dark-1 u-header" id="sec-af13"><div class="u-clearfix u-sheet u-sheet-1">
-        <a href="https://nicepage.com" class="u-image u-logo u-image-1" data-image-width="200" data-image-height="200">
+        <a href="PublicHomePage.jsp" class="u-image u-logo u-image-1" data-image-width="200" data-image-height="200">
           <img src="images/da817cf6d1dc43f99b0dc8d48bcbeffb.png" class="u-logo-image u-logo-image-1">
         </a>
         <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1">
@@ -50,7 +48,7 @@
             </a>
           </div>
           <div class="u-custom-menu u-nav-container">
-            <ul class="u-nav u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Homepage.html" style="padding: 10px 20px;">Homepage</a>
+            <ul class="u-nav u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="PublicHomePage.jsp" style="padding: 10px 20px;">Homepage</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="19-Dashboard.html" style="padding: 10px 20px;">Blogs</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" style="padding: 10px 20px;">Browse Courses</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" style="padding: 10px 20px;">About Us</a>
@@ -60,7 +58,7 @@
             <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
               <div class="u-sidenav-overflow">
                 <div class="u-menu-close"></div>
-                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Homepage.html" style="padding: 10px 20px;">Homepage</a>
+                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="PublicHomePage.jsp" style="padding: 10px 20px;">Homepage</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="19-Dashboard.html" style="padding: 10px 20px;">Blogs</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" style="padding: 10px 20px;">Browse Courses</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" style="padding: 10px 20px;">About Us</a>
@@ -80,16 +78,16 @@
             </a>
           </div>
           <div class="u-custom-menu u-nav-container">
-            <ul class="u-nav u-unstyled u-nav-3"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Login.jsp">Login</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="2-Sign-up.html">Sign up</a>
+            <ul class="u-nav u-unstyled u-nav-3"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="1-Login.jsp">Login</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="2-Sign-up.jsp">Sign up</a>
 </li></ul>
           </div>
           <div class="u-custom-menu u-nav-container-collapse">
             <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
               <div class="u-sidenav-overflow">
                 <div class="u-menu-close"></div>
-                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-4"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="1-Login.html">Login</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="2-Sign-up.html">Sign up</a>
+                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-4"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="1-Login.jsp">Login</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="2-Sign-up.jsp">Sign up</a>
 </li></ul>
               </div>
             </div>
@@ -106,42 +104,37 @@
           <input class="u-search-input u-search-input-1" type="search" name="search" value="" placeholder="Search">
         </form>
       </div></header>
-      
-      <%-- Slider--%>
-      
-    
     <section class="u-align-center u-clearfix u-section-1" id="sec-de65">
       <div class="u-clearfix u-sheet u-sheet-1">
         <h1 class="u-text u-text-1">Popular posts</h1>
         <div class="pointer-event u-carousel u-expanded-width-xs u-gallery u-layout-carousel u-lightbox u-no-transition u-show-text-always u-gallery-1" id="carousel-e131" data-interval="5000" data-u-ride="carousel">
           <div class="u-carousel-inner u-gallery-inner" role="listbox">
-           
-         <%--Loop to get all Slider to Homepage--%>      
-                  <c:forEach items="${listSlider}" var="slide">
-                  
-              <div class="u-active u-carousel-item u-gallery-item u-carousel-item-${slide.sliderID}">
-                
+            <div class="u-active u-carousel-item u-gallery-item u-carousel-item-1">
               <div class="u-back-slide" data-image-width="1280" data-image-height="853">
-                <img class="u-back-image u-expanded" src="${slide.image}">
+                <img class="u-back-image u-expanded" src="images/slider1.jpg">
               </div>
-              <div class="u-over-slide u-over-slide-${slide.title}">
-                <h3 class="u-gallery-heading">${slide.title}</h3>
-                <p class="u-gallery-text"></p>
+              <div class="u-over-slide u-over-slide-1">
+                <h3 class="u-gallery-heading">Sample Title</h3>
+                <p class="u-gallery-text">Sample Text</p>
               </div>
-                
             </div>
-                  </c:forEach>
-    
+            <div class="u-carousel-item u-gallery-item u-carousel-item-2">
+              <div class="u-back-slide" data-image-width="1280" data-image-height="853">
+                <img class="u-back-image u-expanded" src="images/slider2.jpg">
+              </div>
+              <div class="u-over-slide u-over-slide-2">
+                <h3 class="u-gallery-heading">Sample Title</h3>
+                <p class="u-gallery-text">Sample Text</p>
+              </div>
+            </div>
             <div class="u-carousel-item u-gallery-item u-carousel-item-3" data-image-width="2836" data-image-height="1875">
               <div class="u-back-slide" data-image-width="1280" data-image-height="853">
                 <img class="u-back-image u-expanded" src="images/05a4691a6a8c25443fe1afa9d68b7179c22479d624700180d397afca4e2dd80884ac2697d045f256d4e1354076c4c38e9ca340e9004a5c9d6dcad5_1280.jpg">
               </div>
               <div class="u-over-slide u-over-slide-3">
-                <h3 class="u-gallery-heading">Title 3</h3>
-                <p class="u-gallery-text"></p>
+                <h3 class="u-gallery-heading">Title 1</h3>
+                <p class="u-gallery-text">Sample Text</p>
               </div>
-                
-               
               <style data-mode="XL" data-visited="true"></style>
               <style data-mode="LG"></style>
               <style data-mode="MD"></style>
@@ -153,7 +146,7 @@
                 <img class="u-back-image u-expanded" src="images/unnamed.png">
               </div>
               <div class="u-over-slide u-over-slide-4">
-                <h3 class="u-gallery-heading">Tile 4</h3>
+                <h3 class="u-gallery-heading"></h3>
                 <p class="u-gallery-text"></p>
               </div>
               <style data-mode="XL"></style>
@@ -162,7 +155,6 @@
               <style data-mode="SM"></style>
               <style data-mode="XS"></style>
             </div>
-      --%>
           </div>
           <a class="u-absolute-vcenter u-carousel-control u-carousel-control-prev u-grey-70 u-icon-circle u-opacity u-opacity-70 u-spacing-10 u-text-white u-carousel-control-1" href="#carousel-e131" role="button" data-u-slide="prev">
             <span aria-hidden="true">
@@ -191,74 +183,117 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
         </div>
       </div>
     </section>
-    
-        <%-- Slider--%>
-        
-        
-        <%--Post Blog Section start here--%>
     <section class="u-clearfix u-section-2" id="sec-a7d7">
       <div class="u-clearfix u-sheet u-sheet-1"><!--blog--><!--blog_options_json--><!--{"type":"Recent","source":"","tags":"","count":""}--><!--/blog_options_json-->
         <div class="u-blog u-expanded-width u-blog-1">
           <div class="u-repeater u-repeater-1"><!--blog_post-->
-              
-            <%--Loop to get 2 Blog to Homepage--%>
-                  <c:forEach items="${list2Post}" var="post">
-                       <div class="u-blog-post u-container-style u-repeater-item">
-              <div class="u-container-layout u-similar-container u-container-layout-${post.blogID}"><!--blog_post_header-->
+            <div class="u-blog-post u-container-style u-repeater-item">
+              <div class="u-container-layout u-similar-container u-container-layout-1"><!--blog_post_header-->
                 <h2 class="u-blog-control u-text">
-                  <a class="u-post-header-link" href="blog/post.html"><!--blog_post_header_content-->${post.title}<!--/blog_post_header_content--></a>
+                  <a class="u-post-header-link" href="blog/post.html"><!--blog_post_header_content-->Post 1 Headline<!--/blog_post_header_content--></a>
                 </h2><!--/blog_post_header-->
                 <a class="u-post-header-link" href="blog/post.html"><!--blog_post_image-->
-                  <img alt="" class="u-blog-control u-expanded-width u-image u-image-default u-image-1" src="${post.thumbnail}" data-image-width="1280" data-image-height="853"><!--/blog_post_image-->
+                  <img alt="" class="u-blog-control u-expanded-width u-image u-image-default u-image-1" src="images/blog1.jpg" data-image-width="1280" data-image-height="853"><!--/blog_post_image-->
                 </a><!--blog_post_content-->
-                <div class="u-blog-control u-post-content u-text u-text-2"><!--blog_post_content_content-->${post.blogDetail}<!--/blog_post_content_content--></div><!--/blog_post_content--><!--blog_post_metadata-->
+                <div class="u-blog-control u-post-content u-text u-text-2"><!--blog_post_content_content-->Sample small text. Lorem ipsum dolor sit amet.<!--/blog_post_content_content--></div><!--/blog_post_content--><!--blog_post_metadata-->
                 <div class="u-blog-control u-metadata u-metadata-1"><!--blog_post_metadata_date-->
-                  <span class="u-meta-date u-meta-icon"><!--blog_post_metadata_date_content--> ${post.updatedDate}<!--/blog_post_metadata_date_content--></span><!--/blog_post_metadata_date-->
+                  <span class="u-meta-date u-meta-icon"><!--blog_post_metadata_date_content-->Tue Sep 21 2021<!--/blog_post_metadata_date_content--></span><!--/blog_post_metadata_date-->
                 </div><!--/blog_post_metadata--><!--blog_post_readmore-->
                 <a href="blog/post.html" class="u-active-none u-blog-control u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-btn-1"><!--blog_post_readmore_content--><!--options_json--><!--{"content":""}--><!--/options_json-->Read More<!--/blog_post_readmore_content--></a><!--/blog_post_readmore-->
               </div>
             </div><!--/blog_post--><!--blog_post-->
-                  </c:forEach>
-            
+            <div class="u-blog-post u-container-style u-repeater-item">
+              <div class="u-container-layout u-similar-container u-container-layout-2"><!--blog_post_header-->
+                <h2 class="u-blog-control u-text">
+                  <a class="u-post-header-link" href="blog/post-1.html"><!--blog_post_header_content-->Post 2 Headline<!--/blog_post_header_content--></a>
+                </h2><!--/blog_post_header-->
+                <a class="u-post-header-link" href="blog/post-1.html"><!--blog_post_image-->
+                  <img alt="" class="u-blog-control u-expanded-width u-image u-image-default u-image-2" src="images/blog2.jpg" data-image-width="1280" data-image-height="853"><!--/blog_post_image-->
+                </a><!--blog_post_content-->
+                <div class="u-blog-control u-post-content u-text u-text-4"><!--blog_post_content_content-->Sample small text. Lorem ipsum dolor sit amet.<!--/blog_post_content_content--></div><!--/blog_post_content--><!--blog_post_metadata-->
+                <div class="u-blog-control u-metadata u-metadata-2"><!--blog_post_metadata_date-->
+                  <span class="u-meta-date u-meta-icon"><!--blog_post_metadata_date_content-->Tue Sep 21 2021<!--/blog_post_metadata_date_content--></span><!--/blog_post_metadata_date-->
+                </div><!--/blog_post_metadata--><!--blog_post_readmore-->
+                <a href="blog/post-1.html" class="u-active-none u-blog-control u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-btn-2"><!--blog_post_readmore_content--><!--options_json--><!--{"content":""}--><!--/options_json-->Read More<!--/blog_post_readmore_content--></a><!--/blog_post_readmore-->
+              </div>
+            </div><!--/blog_post-->
           </div>
         </div><!--/blog-->
       </div>
     </section>
-    <%-- Post Blog section end here --%>
-    
-    <%-- Subject start here --%>
     <section class="u-align-center u-clearfix u-section-3" id="sec-231c">
       <div class="u-clearfix u-sheet u-sheet-1">
-        <h2 class="u-text u-text-1">Featured Subjects</h2>
+        <h2 class="u-text u-text-1">Featured Courses</h2>
         <p class="u-text u-text-2">Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
         <div class="u-expanded-width u-gallery u-layout-grid u-lightbox u-show-text-on-hover u-gallery-1">
           <div class="u-gallery-inner u-gallery-inner-1">
-            <%--Loop to get 6 subject to homepage--%> 
-              <c:forEach items="${listSubject}" var="subject">
-               <div class="u-effect-fade u-gallery-item">
+            <div class="u-effect-fade u-gallery-item">
               <div class="u-back-slide" data-image-width="1280" data-image-height="853">
-                <img class="u-back-image u-expanded" src="${subject.thumbnail}">
+                <img class="u-back-image u-expanded" src="images/subject1.jpg">
               </div>
               <div class="u-over-slide u-shading u-over-slide-1">
                 <h3 class="u-gallery-heading"></h3>
                 <p class="u-gallery-text"></p>
               </div>
             </div>
-              </c:forEach>
-              
+            <div class="u-effect-fade u-gallery-item">
+              <div class="u-back-slide" data-image-width="1280" data-image-height="853">
+                <img class="u-back-image u-expanded" src="images/blog2.jpg">
+              </div>
+              <div class="u-over-slide u-shading u-over-slide-2">
+                <h3 class="u-gallery-heading"></h3>
+                <p class="u-gallery-text"></p>
+              </div>
+            </div>
+            <div class="u-effect-fade u-gallery-item">
+              <div class="u-back-slide" data-image-width="1280" data-image-height="853">
+                <img class="u-back-image u-expanded" src="images/subject3.jpg">
+              </div>
+              <div class="u-over-slide u-shading u-over-slide-3">
+                <h3 class="u-gallery-heading"></h3>
+                <p class="u-gallery-text"></p>
+              </div>
+            </div>
+            <div class="u-effect-fade u-gallery-item">
+              <div class="u-back-slide" data-image-width="1280" data-image-height="960">
+                <img class="u-back-image u-expanded" src="images/subject4.jpg">
+              </div>
+              <div class="u-over-slide u-shading u-over-slide-4">
+                <h3 class="u-gallery-heading"></h3>
+                <p class="u-gallery-text"></p>
+              </div>
+            </div>
+            <div class="u-effect-fade u-gallery-item">
+              <div class="u-back-slide" data-image-width="150" data-image-height="100">
+                <img class="u-back-image u-expanded" src="images/subject5.jpg">
+              </div>
+              <div class="u-over-slide u-shading u-over-slide-5">
+                <h3 class="u-gallery-heading"></h3>
+                <p class="u-gallery-text"></p>
+              </div>
+            </div>
+            <div class="u-effect-fade u-gallery-item">
+              <div class="u-back-slide" data-image-width="1280" data-image-height="830">
+                <img class="u-back-image u-expanded" src="images/subject6.jpg">
+              </div>
+              <div class="u-over-slide u-shading u-over-slide-6">
+                <h3 class="u-gallery-heading"></h3>
+                <p class="u-gallery-text"></p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
     
-    <%--subject end here--%>
+    
     
     
     
     
     
     <footer class="u-align-center-md u-align-center-sm u-align-center-xs u-clearfix u-footer u-grey-80" id="sec-459d"><div class="u-clearfix u-sheet u-sheet-1">
-        <a href="Homepage.html" data-page-id="854929311" class="u-border-2 u-border-palette-1-base u-image u-logo u-image-1" data-image-width="200" data-image-height="200" title="Homepage">
+        <a href="PublicHomePage.jsp" data-page-id="854929311" class="u-border-2 u-border-palette-1-base u-image u-logo u-image-1" data-image-width="200" data-image-height="200" title="Homepage">
           <img src="images/da817cf6d1dc43f99b0dc8d48bcbeffb.png" class="u-logo-image u-logo-image-1">
         </a>
         <div class="u-align-left u-social-icons u-spacing-10 u-social-icons-1">
