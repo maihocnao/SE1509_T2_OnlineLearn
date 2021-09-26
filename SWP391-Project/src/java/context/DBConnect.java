@@ -54,9 +54,21 @@ public class DBConnect {
         new DBConnect();
     }
 
-    public Connection getConnection() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
+         public Connection getConnection() throws SQLException {
+        try {
+            Connection con = null;
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            String url = "jdbc:sqlserver://localhost:1433; databaseName=PROJECT PRJ321; user = sa; password = 123456";
+            con = DriverManager.getConnection(url);
+            return con;
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    
+         }
+    
     
     
 }

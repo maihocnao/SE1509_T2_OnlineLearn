@@ -25,7 +25,12 @@ public class resetPword implements UserDAO {
          
     }
 
+    public resetPword() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
+
+     @Override
     public boolean checkAccountExist(String email) { //Kiểm tra tài khoản có tồn tại không qua Email
         String sql = "select User from user where email=?";
         try {
