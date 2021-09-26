@@ -4,10 +4,12 @@
  * and open the template in the editor.
  */
 package dao.impl;
+import bean.User;
 import dao.DBConnect;
 import dao.itf.UserDAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 /**
  *
  * @author Admin
@@ -16,7 +18,7 @@ public class resetPword implements UserDAO {
      Connection conn = null;
     DBConnect dbConn=null;
     PreparedStatement ps= null;
-
+    ResultSet rs;
     public resetPword(DBConnect dbconn) {
         conn = dbconn.con;
         this.dbConn=dbconn;
@@ -38,11 +40,8 @@ public class resetPword implements UserDAO {
         } 
         
         return false;    
-=======
-    public boolean checkAccountExist() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
->>>>>>> 7e8e6326fba4a5f060df0a1d2651985664606acd
     }
+    
 
     
 
@@ -51,7 +50,7 @@ public class resetPword implements UserDAO {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-<<<<<<< HEAD
+
 
     public void changePassword( String Password) {// thay đổi mật khẩu tại nơi Password null
     String xSql = "update User set Password = ? where password is null";
@@ -64,24 +63,33 @@ public class resetPword implements UserDAO {
         }        
     }
 
-=======
->>>>>>> 7e8e6326fba4a5f060df0a1d2651985664606acd
-    @Override
-    public void resetPassword() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+
+    public void resetPassword(String Email) {
+ try {
+            DBConnect db = new DBConnect();
+            ps = conn.prepareStatement("update user set password = null where email=?");
+            ps.setString(1, Email);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }    }
 
     @Override
     public void changePassword(String UserID, String Password) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-<<<<<<< HEAD
  public static void main(String[] args) {
         DBConnect dbconn = new DBConnect();
         resetPword a = new resetPword(dbconn);
         a.resetPassword("");
  }
-=======
->>>>>>> 7e8e6326fba4a5f060df0a1d2651985664606acd
+
+    @Override
+    public User checkLogin(String email, String password) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+   
+    
     
 }
