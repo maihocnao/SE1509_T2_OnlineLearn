@@ -36,7 +36,7 @@ public class DBConnect {
 
     public DBConnect() {
         this("jdbc:sqlserver://localhost:1433;databaseName=SWP",
-                "sa","123456");
+                "sa","123");
     }
     public ResultSet getData(String sql){
         ResultSet rs=null;
@@ -59,7 +59,7 @@ public class DBConnect {
         try {
             Connection con = null;
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            String url = "jdbc:sqlserver://localhost:1433; databaseName=PROJECT PRJ321; user = sa; password = 123456";
+            String url = "jdbc:sqlserver://localhost:1433; databaseName=SWP; user = sa; password = 123456";
             con = DriverManager.getConnection(url);
             return con;
         } catch (ClassNotFoundException ex) {
