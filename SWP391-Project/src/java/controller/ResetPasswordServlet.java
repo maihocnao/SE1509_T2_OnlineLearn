@@ -51,12 +51,12 @@ public class ResetPasswordServlet extends HttpServlet {
                 resetPass.resetPassword(toEmail);
                 out.println("<script type=\"text/javascript\">");
                 out.println("alert('Email sent! Check your inbox');");
-                 out.println("location='Homepage';");
+                 out.println("location='7-Homepage.Html';");
                 out.println("</script>");
             } else {
                 out.println("<script type=\"text/javascript\">");
                 out.println("alert('Sorry you have not registered!');");
-                 out.println("location='Homepage';");
+                 out.println("location='7-Homepage.Html';");
                 out.println("</script>");
             }
         } catch (Exception e) {

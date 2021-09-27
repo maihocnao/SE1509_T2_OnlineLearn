@@ -5,11 +5,12 @@
         <group>
             <file>file:/D:/workspace/vscode/SE1509_T2_OnlineLearn/SWP391-Project/src/java/dao/impl/changePword.java</file>
             <file>file:/D:/workspace/vscode/SE1509_T2_OnlineLearn/SWP391-Project/src/java/dao/impl/resetPword.java</file>
-            <file>file:/D:/workspace/vscode/SE1509_T2_OnlineLearn/SWP391-Project/src/java/dao/itf/UserDAO.java</file>
+            <file>file:/D:/workspace/vscode/SE1509_T2_OnlineLearn/SWP391-Project/src/java/dao/DBConnect.java</file>
             <file>file:/D:/workspace/vscode/SE1509_T2_OnlineLearn/SWP391-Project/src/java/controller/ResetPasswordServlet.java</file>
             <file>file:/D:/workspace/vscode/SE1509_T2_OnlineLearn/SWP391-Project/src/java/dao/impl/BlogList.java</file>
             <file>file:/D:/workspace/vscode/SE1509_T2_OnlineLearn/SWP391-Project/web/Login.jsp</file>
             <file>file:/D:/workspace/vscode/SE1509_T2_OnlineLearn/SWP391-Project/web/3-Reset-password.html</file>
+            <file>file:/D:/workspace/vscode/SE1509_T2_OnlineLearn/SWP391-Project/src/java/context/DBConnect.java</file>
             <file>file:/D:/workspace/vscode/SE1509_T2_OnlineLearn/SWP391-Project/src/java/dao/itf/BlogDAO.java</file>
             <file>file:/D:/workspace/vscode/SE1509_T2_OnlineLearn/SWP391-Project/src/java/controller/HomepageServlet.java</file>
         </group>
