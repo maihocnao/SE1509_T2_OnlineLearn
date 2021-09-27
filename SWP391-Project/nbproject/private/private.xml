@@ -2,33 +2,25 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
         <group name="prj301">
-            <file>file:/D:/fpt/ki5/swp/project%20git/SE1509_T2_OnlineLearn/SWP391-Project/src/java/bean/Score.java</file>
-            <file>file:/D:/fpt/ki5/swp/project%20git/SE1509_T2_OnlineLearn/SWP391-Project/src/java/bean/User.java</file>
-            <file>file:/D:/fpt/ki5/swp/project%20git/SE1509_T2_OnlineLearn/SWP391-Project/src/java/bean/SubjectDimension.java</file>
-            <file>file:/D:/fpt/ki5/swp/project%20git/SE1509_T2_OnlineLearn/SWP391-Project/src/java/bean/Question.java</file>
-            <file>file:/D:/fpt/ki5/swp/project%20git/SE1509_T2_OnlineLearn/SWP391-Project/src/java/bean/Blog.java</file>
-            <file>file:/D:/fpt/ki5/swp/project%20git/SE1509_T2_OnlineLearn/SWP391-Project/src/java/bean/Quiz.java</file>
-            <file>file:/D:/fpt/ki5/swp/project%20git/SE1509_T2_OnlineLearn/SWP391-Project/src/java/bean/Course.java</file>
-            <file>file:/D:/fpt/ki5/swp/project%20git/SE1509_T2_OnlineLearn/SWP391-Project/src/java/bean/Answer.java</file>
-            <file>file:/D:/fpt/ki5/swp/project%20git/SE1509_T2_OnlineLearn/SWP391-Project/src/java/bean/Lesson.java</file>
-            <file>file:/D:/fpt/ki5/swp/project%20git/SE1509_T2_OnlineLearn/SWP391-Project/src/java/bean/Category.java</file>
-            <file>file:/D:/fpt/ki5/swp/project%20git/SE1509_T2_OnlineLearn/SWP391-Project/src/java/bean/PricePackage.java</file>
-            <file>file:/D:/fpt/ki5/swp/project%20git/SE1509_T2_OnlineLearn/SWP391-Project/src/java/bean/Role.java</file>
-            <file>file:/D:/fpt/ki5/swp/project%20git/SE1509_T2_OnlineLearn/SWP391-Project/src/java/bean/Registration.java</file>
-=======
-        <group>
-            <file>file:/C:/Users/Viettech88.vn/Documents/GitHub/SE1509_T2_OnlineLearn/SWP391-Project/web/PublicHomePage.jsp</file>
-            <file>file:/C:/Users/Viettech88.vn/Documents/GitHub/SE1509_T2_OnlineLearn/SWP391-Project/src/java/bean/Subject.java</file>
-            <file>file:/C:/Users/Viettech88.vn/Documents/GitHub/SE1509_T2_OnlineLearn/SWP391-Project/src/java/dao/impl/getSliderToHP.java</file>
-            <file>file:/C:/Users/Viettech88.vn/Documents/GitHub/SE1509_T2_OnlineLearn/SWP391-Project/src/java/dao/impl/getBlogHP.java</file>
-            <file>file:/C:/Users/Viettech88.vn/Documents/GitHub/SE1509_T2_OnlineLearn/SWP391-Project/src/java/dao/impl/PricePackageList.java</file>
-            <file>file:/C:/Users/Viettech88.vn/Documents/GitHub/SE1509_T2_OnlineLearn/SWP391-Project/web/images/Keshi.jpg</file>
-            <file>file:/C:/Users/Viettech88.vn/Documents/GitHub/SE1509_T2_OnlineLearn/SWP391-Project/web/7-Homepage.html</file>
-            <file>file:/C:/Users/Viettech88.vn/Documents/GitHub/SE1509_T2_OnlineLearn/SWP391-Project/src/java/dao/impl/get6SubjectHP.java</file>
-            <file>file:/C:/Users/Viettech88.vn/Documents/GitHub/SE1509_T2_OnlineLearn/SWP391-Project/src/java/controller/HomepageServlet.java</file>
->>>>>>> a68411e8dfb8ef0d7c5c407e2f5a5f560765e86d
+            <file>file:/D:/fpt/ki5/swp/project%20git/SE1509_T2_OnlineLearn/SWP391-Project/web/7-Homepage.html</file>
+            <file>file:/D:/fpt/ki5/swp/project%20git/SE1509_T2_OnlineLearn/SWP391-Project/src/java/dao/impl/UserDaoImpl.java</file>
+            <file>file:/D:/fpt/ki5/swp/project%20git/SE1509_T2_OnlineLearn/SWP391-Project/src/java/dao/impl/get6SubjectHP.java</file>
+            <file>file:/D:/fpt/ki5/swp/project%20git/SE1509_T2_OnlineLearn/SWP391-Project/src/java/bean/UserDto.java</file>
+            <file>file:/D:/fpt/ki5/swp/project%20git/SE1509_T2_OnlineLearn/SWP391-Project/src/java/dao/impl/RoleDaoImpl.java</file>
+            <file>file:/D:/fpt/ki5/swp/project%20git/SE1509_T2_OnlineLearn/SWP391-Project/src/java/controller/UserListServlet.java</file>
+            <file>file:/D:/fpt/ki5/swp/project%20git/SE1509_T2_OnlineLearn/SWP391-Project/src/java/dao/impl/getBlogHP.java</file>
+            <file>file:/D:/fpt/ki5/swp/project%20git/SE1509_T2_OnlineLearn/SWP391-Project/src/java/controller/UserProfileServlet.java</file>
+            <file>file:/D:/fpt/ki5/swp/project%20git/SE1509_T2_OnlineLearn/SWP391-Project/web/user/RegistUser.jsp</file>
+            <file>file:/D:/fpt/ki5/swp/project%20git/SE1509_T2_OnlineLearn/SWP391-Project/web/7-Homepage.css</file>
+            <file>file:/D:/fpt/ki5/swp/project%20git/SE1509_T2_OnlineLearn/SWP391-Project/web/user/2-Sign-up.html</file>
+            <file>file:/D:/fpt/ki5/swp/project%20git/SE1509_T2_OnlineLearn/SWP391-Project/src/java/controller/MyRegistrationServlet.java</file>
+            <file>file:/D:/fpt/ki5/swp/project%20git/SE1509_T2_OnlineLearn/SWP391-Project/src/java/controller/ShowDetailsQuizServlet.java</file>
+            <file>file:/D:/fpt/ki5/swp/project%20git/SE1509_T2_OnlineLearn/SWP391-Project/web/common-layout/footer.jsp</file>
+            <file>file:/D:/fpt/ki5/swp/project%20git/SE1509_T2_OnlineLearn/SWP391-Project/src/java/dao/impl/getSliderToHP.java</file>
+            <file>file:/D:/fpt/ki5/swp/project%20git/SE1509_T2_OnlineLearn/SWP391-Project/web/common-layout/header.jsp</file>
+            <file>file:/D:/fpt/ki5/swp/project%20git/SE1509_T2_OnlineLearn/SWP391-Project/web/admin/UserList.jsp</file>
+            <file>file:/D:/fpt/ki5/swp/project%20git/SE1509_T2_OnlineLearn/SWP391-Project/web/user/Profile.jsp</file>
         </group>
     </open-files>
 </project-private>

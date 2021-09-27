@@ -10,6 +10,7 @@ package bean;
  * @author Phong
  */
 public class User {
+
     int UserID;
     int SettingID;
     String RoleID;
@@ -20,11 +21,12 @@ public class User {
     String Phone;
     boolean enabled;
     String address;
+    String imageUrl;
 
     public User() {
     }
 
-    public User(int SettingID, String RoleID, String Email, String Password, String Gender, String Fullname, String Phone,String address, boolean enabled) {
+    public User(int SettingID, String RoleID, String Email, String Password, String Gender, String Fullname, String Phone, String address, boolean enabled) {
         this.SettingID = SettingID;
         this.RoleID = RoleID;
         this.Email = Email;
@@ -116,10 +118,17 @@ public class User {
         this.enabled = enabled;
     }
 
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
     @Override
     public String toString() {
         return "User{" + "UserID=" + UserID + ", SettingID=" + SettingID + ", RoleID=" + RoleID + ", Email=" + Email + ", Password=" + Password + ", Gender=" + Gender + ", Fullname=" + Fullname + ", Phone=" + Phone + '}';
     }
-    
-    
+
 }

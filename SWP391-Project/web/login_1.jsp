@@ -6,11 +6,11 @@
     <meta name="keywords" content="Start Now, Start Now, Start Now, Start Now, Login">
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
-    <title>2 Sign up</title>
+    <title>1 Login</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
-    <link rel="stylesheet" href="2-Sign-up.css" media="screen">
-    <script class="u-script" type="text/javascript" src="../jquery.js" defer=""></script>
-    <script class="u-script" type="text/javascript" src="../nicepage.js" defer=""></script>
+<link rel="stylesheet" href="1-Login.css" media="screen">
+    <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
     <meta name="generator" content="Nicepage 3.25.0, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
     
@@ -28,7 +28,7 @@
 		"sameAs": []
 }</script>
     <meta name="theme-color" content="#478ac9">
-    <meta property="og:title" content="2 Sign up">
+    <meta property="og:title" content="1 Login">
     <meta property="og:type" content="website">
   </head>
   <body class="u-body"><header class="u-clearfix u-header u-palette-4-dark-1 u-header" id="sec-af13"><div class="u-clearfix u-sheet u-sheet-1">
@@ -45,7 +45,7 @@
             </a>
           </div>
           <div class="u-custom-menu u-nav-container">
-            <ul class="u-nav u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Homepage.html" style="padding: 10px 20px;">Homepage</a>
+            <ul class="u-nav u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Homepage.jsp" style="padding: 10px 20px;">Homepage</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="19-Dashboard.html" style="padding: 10px 20px;">Blogs</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" style="padding: 10px 20px;">Browse Courses</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" style="padding: 10px 20px;">About Us</a>
@@ -55,7 +55,7 @@
             <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
               <div class="u-sidenav-overflow">
                 <div class="u-menu-close"></div>
-                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Homepage.html" style="padding: 10px 20px;">Homepage</a>
+                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Homepage.jsp" style="padding: 10px 20px;">Homepage</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="19-Dashboard.html" style="padding: 10px 20px;">Blogs</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" style="padding: 10px 20px;">Browse Courses</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" style="padding: 10px 20px;">About Us</a>
@@ -75,16 +75,16 @@
             </a>
           </div>
           <div class="u-custom-menu u-nav-container">
-            <ul class="u-nav u-unstyled u-nav-3"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="1-Login.html">Login</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="2-Sign-up.html">Sign up</a>
+            <ul class="u-nav u-unstyled u-nav-3"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="1-Login.jsp">Login</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="2-Sign-up.jsp">Sign up</a>
 </li></ul>
           </div>
           <div class="u-custom-menu u-nav-container-collapse">
             <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
               <div class="u-sidenav-overflow">
                 <div class="u-menu-close"></div>
-                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-4"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="1-Login.html">Login</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="2-Sign-up.html">Sign up</a>
+                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-4"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="1-Login.jsp">Login</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="2-Sign-up.jsp">Sign up</a>
 </li></ul>
               </div>
             </div>
@@ -101,54 +101,44 @@
           <input class="u-search-input u-search-input-1" type="search" name="search" value="" placeholder="Search">
         </form>
       </div></header>
-    <section class="u-clearfix u-section-1" id="sec-955d">
-      <div class="u-clearfix u-sheet u-sheet-1">
-        <h3 class="u-text u-text-default u-text-1">Sign up</h3>
-        <div class="u-form u-form-1">
-          <form action="#" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 10px;">
-            <div class="u-form-group u-form-name">
-              <label for="name-8945" class="u-label">Full name</label>
-              <input type="text" placeholder="Enter your Name" id="name-8945" name="name" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
+    <section class="u-align-center u-clearfix u-grey-5 u-section-1" id="sec-c6eb">
+      <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+        <div class="u-layout">
+          <div class="u-layout-row">
+            <div class="u-align-left u-container-style u-image u-layout-cell u-size-31 u-image-1" data-image-width="1280" data-image-height="853">
+                <img src="images/blog2.jpg" class="u-logo-image u-logo-image-1">
+              <div class="u-container-layout u-container-layout-1"></div>
             </div>
-            <div class="u-form-email u-form-group u-form-partition-factor-2">
-              <label for="email-8945" class="u-label">Email</label>
-              <input type="email" placeholder="Enter a valid email address" id="email-8945" name="email" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
-            </div>
-            <div class="u-form-group u-form-partition-factor-2 u-form-group-3">
-              <label for="text-19ae" class="u-label">Mobile</label>
-              <input type="text" placeholder="Enter your phone number" id="text-19ae" name="mobile" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
-            </div>
-            <div class="u-form-group u-form-partition-factor-2 u-form-group-4">
-              <label for="text-5226" class="u-label">Address</label>
-              <input type="text" placeholder="Enter your address" id="text-5226" name="text-1" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
-            </div>
-            <div class="u-form-group u-form-partition-factor-2 u-form-select u-form-group-5">
-              <label for="select-7477" class="u-label">Gender</label>
-              <div class="u-form-select-wrapper">
-                <select id="select-7477" name="select" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
-                  <option value="Male">Male</option>
-                  <option value="Female">Female</option>
-                  <option value="Other">Other</option>
-                </select>
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
+            <div class="u-align-center-sm u-align-center-xs u-container-style u-layout-cell u-shape-rectangle u-size-29 u-white u-layout-cell-2">
+              <div class="u-container-layout u-valign-middle u-container-layout-2">
+                <h3 class="u-align-center-lg u-align-center-md u-align-center-xl u-text u-text-default u-text-1">Welcome</h3>
+                <div class="u-image u-image-circle u-image-2" data-image-width="1280" data-image-height="853"></div>
+                <div class="u-expanded-width-xs u-form u-login-control u-form-1">
+                  <form action="loginservlet" method="POST" class="u-clearfix u-form-custom-backend u-form-spacing-15 u-form-vertical u-inner-form" source="custom" name="form-3" style="padding: 0px;">
+                    <div class="u-form-group u-form-name">
+                      <label for="username-5b0a" class="u-form-control-hidden u-label"></label>
+                      <input type="text" placeholder="Enter your Email" id="username-5b0a" name="email" class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle" required="">
+                    </div>
+                    <div class="u-form-group u-form-password">
+                      <label for="password-5b0a" class="u-form-control-hidden u-label"></label>
+                      <input type="text" placeholder="Enter your Password" id="password-5b0a" name="password" class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle" required="">
+                    </div>
+                    <div class="u-form-checkbox u-form-group">
+                      <input type="checkbox" id="checkbox-5b0a" name="remember" value="On">
+                      <label for="checkbox-5b0a" class="u-label">Remember me</label>
+                    </div>
+                    <div class="u-align-center u-form-group u-form-submit">
+                      <a href="#" class="u-active-palette-1-light-1 u-border-none u-btn u-btn-round u-btn-submit u-button-style u-hover-palette-1-light-1 u-palette-4-base u-radius-50 u-text-body-alt-color u-btn-1">Login</a>
+                      <input type="submit" value="submit" class="u-form-control-hidden">
+                    </div>
+                    <input type="hidden" value="" name="recaptchaResponse">
+                  </form>
+                </div>
+                <a href="#" class="u-border-1 u-border-active-palette-1-base u-border-hover-palette-1-base u-btn u-button-style u-login-control u-login-forgot-password u-none u-text-palette-1-base u-btn-2">Don't have an account?</a>
+                <a href="#" class="u-border-1 u-border-active-palette-1-base u-border-hover-palette-1-base u-btn u-button-style u-login-control u-login-forgot-password u-none u-text-palette-1-base u-btn-3">Forgot password?</a>
               </div>
             </div>
-            <div class="u-form-group u-form-group-6">
-              <label for="text-547b" class="u-label">Password</label>
-              <input type="text" placeholder="Enter your password" id="text-547b" name="text" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
-            </div>
-            <div class="u-form-group u-form-group-7">
-              <label for="text-1571" class="u-form-control-hidden u-label"></label>
-              <input type="text" placeholder="Re-enter password" id="text-1571" name="text-3" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
-            </div>
-            <div class="u-align-left u-form-group u-form-submit">
-              <a href="#" class="u-border-none u-btn u-btn-submit u-button-style u-palette-4-base u-btn-1">Submit</a>
-              <input type="submit" value="submit" class="u-form-control-hidden">
-            </div>
-            <div class="u-form-send-message u-form-send-success"> Thank you! Your message has been sent. </div>
-            <div class="u-form-send-error u-form-send-message"> Unable to send your message. Please fix errors then try again. </div>
-            <input type="hidden" value="" name="recaptchaResponse">
-          </form>
+          </div>
         </div>
       </div>
     </section>
@@ -160,7 +150,7 @@
     
     
     <footer class="u-align-center-md u-align-center-sm u-align-center-xs u-clearfix u-footer u-grey-80" id="sec-459d"><div class="u-clearfix u-sheet u-sheet-1">
-        <a href="Homepage.html" data-page-id="854929311" class="u-border-2 u-border-palette-1-base u-image u-logo u-image-1" data-image-width="200" data-image-height="200" title="Homepage">
+        <a href="Homepage.jsp" data-page-id="854929311" class="u-border-2 u-border-palette-1-base u-image u-logo u-image-1" data-image-width="200" data-image-height="200" title="Homepage">
           <img src="images/da817cf6d1dc43f99b0dc8d48bcbeffb.png" class="u-logo-image u-logo-image-1">
         </a>
         <div class="u-align-left u-social-icons u-spacing-10 u-social-icons-1">
@@ -185,16 +175,6 @@
         </div>
         <p class="u-align-center-lg u-align-center-md u-align-center-xl u-text u-text-1">A Product of TEAM2 </p>
       </div></footer>
-    <section class="u-backlink u-clearfix u-grey-80">
-      <a class="u-link" href="https://nicepage.com/website-templates" target="_blank">
-        <span>Website Templates</span>
-      </a>
-      <p class="u-text">
-        <span>created with</span>
-      </p>
-      <a class="u-link" href="https://nicepage.com/" target="_blank">
-        <span>Website Builder Software</span>
-      </a>. 
-    </section>
+  
   </body>
 </html>

@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package dao.itf;
-
+import bean.Role;
+import java.util.List;
 /**
  *
  * @author Viettech88.vn
@@ -12,4 +13,6 @@ package dao.itf;
 public interface RoleDAO {
     void add();
     void update();
+    Role findById(String id);
+    List<Role> getRoleDesList();
 }
