@@ -7,6 +7,8 @@ package dao.itf;
 
 import java.sql.SQLException;
 import bean.User;
+import bean.UserDto;
+import java.util.List;
 
 /**
  *
@@ -25,4 +27,10 @@ public interface UserDAO {
     int createUser(User user);
 
     int countExistedUser(User user);
+
+    User getUser(String email, String password);
+
+    List<UserDto> getUserByCondition(String roleId, String gender, String status, int pageSize, int pageNum);
+
+    int countUserWithCondition(String roleId, String gender, String status);
 }

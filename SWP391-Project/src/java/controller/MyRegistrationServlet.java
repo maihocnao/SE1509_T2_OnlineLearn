@@ -8,7 +8,9 @@ package controller;
 import bean.User;
 import dao.impl.UserDaoImpl;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -41,6 +43,7 @@ public class MyRegistrationServlet extends HttpServlet {
         String address = request.getParameter("address");
         String gender = request.getParameter("gender");
         String password = request.getParameter("password");
+        String repassword = request.getParameter("re-password");
         //first access to servlet
         if (stringValidation.isNullOrEmpty(email) || stringValidation.isNullOrEmpty(fullName)
                 || stringValidation.isNullOrEmpty(gender) || stringValidation.isNullOrEmpty(password)) {
@@ -50,20 +53,30 @@ public class MyRegistrationServlet extends HttpServlet {
         User user = new User(1, "02", email, password, gender, fullName, phoneNumber, address, true);
         UserDaoImpl userDao = new UserDaoImpl();
         int existedUser = userDao.countExistedUser(user);
+        List<String> listError = new ArrayList<>();
+        //email already in use
         if (existedUser != 0) {
-            request.setAttribute("IS_EXISTED", true);
+            addAttributeWithExceptParam(request.getParameterMap(), "email", request);
+            listError.add("Email inputted already in use. Please try another !");
+            //password not map
+        } else if (!password.equals(repassword)) {
+            listError.add("Password not map to each other, Please try again!");
         } else {
             int created = userDao.createUser(user);
             //insert fail 
             //case -1 represent for something causes exception
             //case 0 represent for data not inserted into database
             //other means data inserted into database
+            //sắp xếp check list  // hien thu tren jsp //sắp xếp lại 
             if (created == -1 || created == 0) {
                 request.setAttribute("CREATE_USER_STATUS", false);
+
             } else {
                 request.setAttribute("CREATE_USER_STATUS", true);
+
             }
         }
+        request.setAttribute("ERRORS", listError);
         request.getRequestDispatcher("RegistUser.jsp").forward(request, response);
     }
 
@@ -106,4 +119,12 @@ public class MyRegistrationServlet extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
+    private void addAttributeWithExceptParam(Map<String, String[]> params, String except, HttpServletRequest request) {
+       //add attribute to display again, except specified
+        for (String x : params.keySet()) {
+            if (!x.equals(except)) {
+                request.setAttribute(x, params.get(x)[0]);
+            }
+        }
+    }
 }
