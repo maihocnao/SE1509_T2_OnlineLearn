@@ -40,29 +40,25 @@ public class LoginServlet extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             String email = request.getParameter("email");
             String password = request.getParameter("password");
-
-            Login login = new Login();
-            try {
-                User user = login.checkLogin(email, password);
-                request.getSession().setAttribute("currentUser", user);
-                if (user.getRoleID() == "01") {
-                    response.sendRedirect("/adminview.jsp");
-                }
-                if (user.getRoleID() == "02") {
-                    response.sendRedirect("homepageservlet");
-                }
-                if (user.getRoleID() == "03") {
-                    response.sendRedirect("/salview.jsp");
-                }
-                if (user.getRoleID() == "04") {
-                    response.sendRedirect("makview.jsp");
-                }                              
-            } catch (Exception e) {
-                response.sendRedirect("login-fail.jsp");
-            }
+            User user = new Login().checkLogin(email, password);
+        if (user!=null) {
+            HttpSession session = request.getSession();
+            session.setAttribute("user", user);
+            if ("01".equals(user.getRoleID()))
+                response.sendRedirect("adminview.jsp");
+            if ("02".equals(user.getRoleID()))
+                response.sendRedirect("homepageservlet");
+            if ("03".equals(user.getRoleID()))
+                response.sendRedirect("salview.jsp");
+            if ("04".equals(user.getRoleID()))
+                response.sendRedirect("makview.jsp");
+        }else{
+            response.sendRedirect("login-fail.jsp");
+        }
+        }
 
         }
-    }
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -76,7 +72,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+       request.getRequestDispatcher("Login.jsp").forward(request, response);
     }
 
     /**

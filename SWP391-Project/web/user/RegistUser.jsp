@@ -29,9 +29,9 @@
         <style>
             .error-alert
             {
-                padding: 10px 0px 0px 10px;
+                padding: 5px 0px 0px 10px;
                 color: red;
-                font-size: 20px;
+                font-size: 14px;
             }
         </style>
     </head>
@@ -42,23 +42,27 @@
                 <h3 class="u-text u-text-default u-text-1">Sign up</h3>
                 <div class="u-form u-form-1">
                     <form action="register" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" name="form" style="padding: 10px;" onsubmit="return onSubmitRegister()">
-                        <div class="u-form-group u-form-name">
+                        <div class="u-form-group u-form-name" style="padding-bottom: 0px; margin-bottom: 0px;">
                             <label for="name-8945" class="u-label">Full name</label>
                             <input type="text" placeholder="Enter your Name" id="name-8945" name="name" value = "${name}" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
+                            <label class="error-alert"></label>
                         </div>
-                        <div class="u-form-email u-form-group u-form-partition-factor-2">
+                        <div class="u-form-email u-form-group u-form-partition-factor-2" style="padding-bottom: 0px; margin-bottom: 0px;">
                             <label for="email-8945" class="u-label">Email</label>
                             <input type="email" placeholder="Enter a valid email address" id="email-8945" name="email" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" value =  "${email}" required="">
+                            <label  class="error-alert"></label>
                         </div>
-                        <div class="u-form-group u-form-partition-factor-2 u-form-group-3">
+                        <div class="u-form-group u-form-partition-factor-2 u-form-group-3" style="padding-bottom: 0px; margin-bottom: 0px;">
                             <label for="text-19ae" class="u-label">Mobile</label>
                             <input type="text" placeholder="Enter your phone number" id="text-19ae" name="phonenumber" value="${phonenumber}" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" onfocusout="displayTextPhoneNumber()">
+                            <label id="message-client-phone" class="error-alert"></label>
                         </div>
-                        <div class="u-form-group u-form-partition-factor-2 u-form-group-4">
+                        <div class="u-form-group u-form-partition-factor-2 u-form-group-4" style="padding-bottom: 0px; margin-bottom: 0px;">
                             <label for="text-5226" class="u-label">Address</label>
                             <input type="text" placeholder="Enter your address" id="text-5226" name="address" value = "${address}" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+                            <label class="error-alert"></label>
                         </div>
-                        <div class="u-form-group u-form-partition-factor-2 u-form-select u-form-group-5">
+                        <div class="u-form-group u-form-partition-factor-2 u-form-select u-form-group-5" style="padding-bottom: 0px; margin-bottom: 0px;">
                             <label for="select-7477" class="u-label">Gender</label>
                             <div class="u-form-select-wrapper">
                                 <select id="select-7477" name="gender" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
@@ -67,14 +71,17 @@
                                     <option value="Other" ${gender == 'Other' ? 'selected' : ''}>Other</option>
                                 </select>
                             </div>
+                            <label class="error-alert"></label>
                         </div>
-                        <div class="u-form-group u-form-group-6">
+                        <div class="u-form-group u-form-group-6" style="padding-bottom: 0px; margin-bottom: 0px;">
                             <label for="text-547b" class="u-label">Password</label>
                             <input type="password" placeholder="Enter your password" id="text-547b" name="password" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="" onfocusout="checkReEnterPassword('0')">
+                            <label class="error-alert"></label>
                         </div>
                         <div class="u-form-group u-form-group-7">
                             <label for="text-1571" class="u-form-control-hidden u-label"></label>
                             <input type="password" placeholder="Re-enter password" id="text-1571" name="re-password" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="" onfocusout="checkReEnterPassword('1')">
+                            <div id="message-client-password" class="error-alert"></div>                     
                         </div>
                         <div class="u-align-left u-form-group u-form-submit">
                             <button class="u-border-none u-btn u-btn-submit u-button-style u-palette-4-base u-btn-1">Submit</button>
@@ -83,12 +90,11 @@
                         <c:forEach var="item" items="${ERRORS}">
                             <div id="message-server">
                                 <div class="error-alert"> <c:out value="${item}"/></div>
+                            </div>
                             </c:forEach>
-                            <div id="message-client-password" class="error-alert" style="display:none">Password not map to each other, Please try again!</div>
-                            <div id="message-client-phone" class="error-alert" style="display:none">Phone number must be 10 digits</div>
                     </form>
                 </div>
-            </div>
+                </div>
         </section>
 
         <jsp:include page="../common-layout/footer.jsp"/>

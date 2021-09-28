@@ -6,10 +6,7 @@
 
 
 function onSubmitRegister() {
-    var raw = document.getElementById("text-547b").value;
-    var reenter = document.getElementById("text-1571").value;
-    var isValidPhoneNumber = validatePhoneNumber();
-    if (raw !== reenter) {
+    if (!isPasswordMapped() || !validatePhoneNumber()) {
         return false;
     }
     return true;
@@ -17,7 +14,7 @@ function onSubmitRegister() {
 function isPasswordMapped() {
     var raw = document.getElementById("text-547b").value;
     var reenter = document.getElementById("text-1571").value;
-    if (raw !== reenter) {
+    if (raw !== reenter && raw !=='') {
         return false;
     }
     return true;
@@ -41,9 +38,9 @@ function checkReEnterPassword(pointer) {
         if (serverError !== null) {
             serverError.style.display = "none";
         }
-        clientError.style.display = "block";
+        clientError.innerHTML = "Password not map to each other, Please try again!";
     } else {
-        clientError.style.display = "none";
+        clientError.innerHTML = "";
     }
 }
 
@@ -53,10 +50,10 @@ function displayTextPhoneNumber() {
     var clientError = document.getElementById("message-client-phone");
     if (isValid) {
         tag.style.borderColor = "#b3b3b3";
-        clientError.style.display = "none";
+        clientError.innerHTML = "";
     } else {
         tag.style.borderColor = "red";
-        clientError.style.display = "block";
+        clientError.innerHTML = "Phone number must be 10 digits";
     }
     function validatePhoneNumber() {
         var tag = document.getElementById("text-19ae");

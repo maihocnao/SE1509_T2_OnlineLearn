@@ -23,7 +23,7 @@ public interface UserDAO {
     void changName();
 
     void resetPassword();
-
+    void changePassword(String UserID, String Password);
     int createUser(User user);
 
     int countExistedUser(User user);
@@ -33,4 +33,6 @@ public interface UserDAO {
     List<UserDto> getUserByCondition(String roleId, String gender, String status, int pageSize, int pageNum);
 
     int countUserWithCondition(String roleId, String gender, String status);
+
+    public User checkLogin(String email, String password);
 }

@@ -33,10 +33,11 @@ public class UserProfileServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        UserDaoImpl userDao = new UserDaoImpl();
-        User user = userDao.getUser("abc@gmail.com", "123");
-        request.setAttribute("data", user);
-        System.out.println(user.getFullname());
+       User loggedin = (User) request.getSession().getAttribute("user");
+  //      UserDaoImpl userDao = new UserDaoImpl();
+   //     User loggedin = userDao.getUser("abc@gmail.com", "123");
+        request.setAttribute("data", loggedin);
+        System.out.println(loggedin.getFullname());
         request.getRequestDispatcher("Profile.jsp").forward(request, response);
     }
 
