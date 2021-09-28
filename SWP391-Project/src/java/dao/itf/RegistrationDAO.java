@@ -5,12 +5,14 @@
  */
 package dao.itf;
 
+import bean.Registration;
+import java.util.List;
+
 /**
  *
  * @author Viettech88.vn
  */
 public interface RegistrationDAO {
-    void insert();
-    void update();
-    void delete();
+    public List<Registration> getAllRegis();
+    public List<Registration> getRegisByEmail(String email);
 }

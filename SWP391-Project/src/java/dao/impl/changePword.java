@@ -42,7 +42,7 @@ public class changePword implements UserDAO{
 
     @Override
     public void changePassword(String xEmail, String xPassword) {
-        String xSql = "update User set Password = ? where Email = ?";
+        String xSql = "update [User] set Password = ? where Email = ?";
         try {
             ps = conn.prepareStatement(xSql);
             ps.setString(1, xPassword);
