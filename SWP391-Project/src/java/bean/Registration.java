@@ -13,81 +13,96 @@ import java.sql.Date;
  */
 public class Registration {
     int registrationID;
+    String regisTime;
     int status;
-    int UserID;
-    Date regisTime;
     String validFrom;
     String validto;
+    int UserID;
     String UserEmail;
-
+    String subjectID;
     public Registration() {
     }
 
-    public Registration(int registrationID, int status, int UserID, Date regisTime, String validFrom, String validto, String UserEmail) {
+    public Registration(int registrationID, String regisTime, int status, String validFrom, String validto, int UserID, String UserEmail, String subjectID) {
         this.registrationID = registrationID;
-        this.status = status;
-        this.UserID = UserID;
         this.regisTime = regisTime;
+        this.status = status;
         this.validFrom = validFrom;
         this.validto = validto;
+        this.UserID = UserID;
         this.UserEmail = UserEmail;
+        this.subjectID = subjectID;
     }
 
     public int getRegistrationID() {
         return registrationID;
     }
 
-    public int getStatus() {
-        return status;
+    public void setRegistrationID(int registrationID) {
+        this.registrationID = registrationID;
     }
 
-    public int getUserID() {
-        return UserID;
-    }
-
-    public Date getRegisTime() {
+    public String getRegisTime() {
         return regisTime;
     }
 
-    public String getValidFrom() {
-        return validFrom;
+    public void setRegisTime(String regisTime) {
+        this.regisTime = regisTime;
     }
 
-    public String getValidto() {
-        return validto;
-    }
-
-    public String getUserEmail() {
-        return UserEmail;
-    }
-
-    public void setRegistrationID(int registrationID) {
-        this.registrationID = registrationID;
+    public int getStatus() {
+        return status;
     }
 
     public void setStatus(int status) {
         this.status = status;
     }
 
-    public void setUserID(int UserID) {
-        this.UserID = UserID;
-    }
-
-    public void setRegisTime(Date regisTime) {
-        this.regisTime = regisTime;
+    public String getValidFrom() {
+        return validFrom;
     }
 
     public void setValidFrom(String validFrom) {
         this.validFrom = validFrom;
     }
 
+    public String getValidto() {
+        return validto;
+    }
+
     public void setValidto(String validto) {
         this.validto = validto;
+    }
+
+    public int getUserID() {
+        return UserID;
+    }
+
+    public void setUserID(int UserID) {
+        this.UserID = UserID;
+    }
+
+    public String getUserEmail() {
+        return UserEmail;
     }
 
     public void setUserEmail(String UserEmail) {
         this.UserEmail = UserEmail;
     }
+
+    public String getSubjectID() {
+        return subjectID;
+    }
+
+    public void setSubjectID(String subjectID) {
+        this.subjectID = subjectID;
+    }
+
+    @Override
+    public String toString() {
+        return "Registration{" + "registrationID=" + registrationID + ", regisTime=" + regisTime + ", status=" + status + ", validFrom=" + validFrom + ", validto=" + validto + ", UserID=" + UserID + ", UserEmail=" + UserEmail + ", subjectID=" + subjectID + '}';
+    }
+
     
     
 }
