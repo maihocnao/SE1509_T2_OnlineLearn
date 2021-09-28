@@ -47,6 +47,7 @@ public class HomepageServlet extends HttpServlet {
             PreparedStatement ps= null;
             String service = request.getParameter("service");
             getSliderToHP getSlider = new getSliderToHP(dbConn);
+           
             getBlogHP getBlog = new getBlogHP(dbConn);
             get6SubjectHP getSubject = new get6SubjectHP(dbConn);
             if (service ==null) {
@@ -55,9 +56,10 @@ public class HomepageServlet extends HttpServlet {
             if (service.equals("displayCommonHP")){
                 
                 ArrayList<Slider> arrSlider = getSlider.getSliderHP();
+               
                 ArrayList<Blog> arr2Blog = getBlog.get2Post();
                 ArrayList<Subject> arrSubject = getSubject.get6ToHp();
-                System.out.println(arrSlider);
+               
                
                 //send data-->view
                 
@@ -79,7 +81,7 @@ public class HomepageServlet extends HttpServlet {
             RequestDispatcher dis = request.getRequestDispatcher(URL);
             // url: link to view file start with /
             dis.forward(request, response);
-        } catch (ServletException | IOException ex) {
+        } catch (Exception e) {
             
         }
     }
