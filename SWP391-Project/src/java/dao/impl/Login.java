@@ -44,7 +44,7 @@ public class Login implements UserDAO{
     @Override
         public User checkLogin(String email, String password) {
         User user = null;
-        String sql = "select * from User where Email=? AND Password=?";
+        String sql = "select * from [SWP].[dbo].[User] where Email=? AND Password=?";
         try {
             DBConnect db = new DBConnect();
             con = db.getConnection();
@@ -54,17 +54,22 @@ public class Login implements UserDAO{
                 ps.setString(2, password);
                 rs = ps.executeQuery();
                 if (rs.next()) {
-                    String roleID = rs.getString("RoleID");
-                    int settingID = rs.getInt("SettingID");
-                    int userID = Integer.parseInt(rs.getString("UserID"));
-                    email = rs.getString("Email");
+                    
+ 
+                    int userID = rs.getInt(1);
+                    String roleID = rs.getString("RoleID");                    
+                    String uEmail = rs.getString("Email");
+                    String upass = rs.getString("password");
                     String gender = rs.getString("Gender");
                     String fullname = rs.getString("Fullname");
                     String phone = rs.getString("Phone");
-                    user = new User(userID,settingID, roleID, email, password, gender, fullname, phone);
+                    String status = rs.getString("status");
+                   user = new User(userID, roleID, email, password, gender, fullname, phone, status);
+                    System.out.println(user);
                 }
             }
         } catch (Exception e) {
+            System.out.println("failed ne");
             e.printStackTrace();
         } finally {
             try {
@@ -75,33 +80,6 @@ public class Login implements UserDAO{
         }
         return user ;
     }
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-
-//    @Override
-//    public void checkLogin() {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
-//
-//    @Override
-//    public boolean checkAccountExist() {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
-//
-//    @Override
-//    public void changePassword() {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
-//
-//    @Override
-//    public void changName() {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
-//
-//    @Override
-//    public void resetPassword() {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
-//    
 
     @Override
     public boolean checkAccountExist(String Email) {
@@ -122,4 +100,18 @@ public class Login implements UserDAO{
     public void resetPassword(String email) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public User getUser(String email, String password) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void signUp() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+//    public static void main(String[] args) {
+//        Login l = new Login();
+//        l.checkLogin("ngvCustomer@2mail.com", "12345");
+//    }
 }
