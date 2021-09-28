@@ -11,13 +11,15 @@ package bean;
  */
 public class Category {
     int categoryID ; 
+    String type;
     String categoryName ;
 
     public Category() {
     }
 
-    public Category(int categoryID, String categoryName) {
+    public Category(int categoryID, String type, String categoryName) {
         this.categoryID = categoryID;
+        this.type = type;
         this.categoryName = categoryName;
     }
 
@@ -25,12 +27,20 @@ public class Category {
         return categoryID;
     }
 
-    public String getCategoryName() {
-        return categoryName;
-    }
-
     public void setCategoryID(int categoryID) {
         this.categoryID = categoryID;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getCategoryName() {
+        return categoryName;
     }
 
     public void setCategoryName(String categoryName) {
@@ -39,8 +49,10 @@ public class Category {
 
     @Override
     public String toString() {
-        return "Category{" + "categoryID=" + categoryID + ", categoryName=" + categoryName + '}';
+        return "Category{" + "categoryID=" + categoryID + ", type=" + type + ", categoryName=" + categoryName + '}';
     }
+
+    
     
     
 }
