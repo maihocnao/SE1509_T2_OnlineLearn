@@ -11,22 +11,25 @@ package bean;
  */
 public class Lesson {
     int lessonID; 
-    int subjectID; 
-    String content; 
+    String lessonType;
     String lessonName;
-    int courseID; 
-    byte status;
+    String youtubeLink;
+    String content; 
+    String status;
+    String subjectID; 
+  
 
     public Lesson() {
     }
 
-    public Lesson(int lessonID, int subjectID, String content, String lessonName, int courseID, byte status) {
+    public Lesson(int lessonID, String lessonType, String lessonName, String youtubeLink, String content, String status, String subjectID) {
         this.lessonID = lessonID;
-        this.subjectID = subjectID;
-        this.content = content;
+        this.lessonType = lessonType;
         this.lessonName = lessonName;
-        this.courseID = courseID;
+        this.youtubeLink = youtubeLink;
+        this.content = content;
         this.status = status;
+        this.subjectID = subjectID;
     }
 
     public int getLessonID() {
@@ -37,20 +40,12 @@ public class Lesson {
         this.lessonID = lessonID;
     }
 
-    public int getSubjectID() {
-        return subjectID;
+    public String getLessonType() {
+        return lessonType;
     }
 
-    public void setSubjectID(int subjectID) {
-        this.subjectID = subjectID;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
+    public void setLessonType(String lessonType) {
+        this.lessonType = lessonType;
     }
 
     public String getLessonName() {
@@ -61,23 +56,42 @@ public class Lesson {
         this.lessonName = lessonName;
     }
 
-    public int getCourseID() {
-        return courseID;
+    public String getYoutubeLink() {
+        return youtubeLink;
     }
 
-    public void setCourseID(int courseID) {
-        this.courseID = courseID;
+    public void setYoutubeLink(String youtubeLink) {
+        this.youtubeLink = youtubeLink;
     }
 
-    public byte getStatus() {
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(byte status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
-   
+    public String getSubjectID() {
+        return subjectID;
+    }
+
+    public void setSubjectID(String subjectID) {
+        this.subjectID = subjectID;
+    }
+
+    @Override
+    public String toString() {
+        return "Lesson{" + "lessonID=" + lessonID + ", lessonType=" + lessonType + ", lessonName=" + lessonName + ", youtubeLink=" + youtubeLink + ", content=" + content + ", status=" + status + ", subjectID=" + subjectID + '}';
+    }
 
     
     
