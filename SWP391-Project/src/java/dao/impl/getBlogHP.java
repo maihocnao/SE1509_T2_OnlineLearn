@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package dao.impl;
+import dao.itf.SubjectDAO;
 import bean.*;
 
 import dao.DBConnect;
@@ -32,28 +33,29 @@ public class getBlogHP implements SubjectDAO {
     
     public ArrayList<Blog> get2Post(){
         ArrayList<Blog> arr = new ArrayList<>();
-        ResultSet rs = dbConn.getData("select top 2  [blogID],[userID],[fullname],[categoryID],[thumbnail],[title],[updatedDate],[blogDetail],[flag],[status]  FROM [SWP].[dbo].[Blog]");
+        ResultSet rs = dbConn.getData("select top 2 [blogID],[userID],[categoryID],[thumbnail],[title],[updatedDate],[blogContent],[flag],[status]\n" +
+"  FROM [SWP].[dbo].[Blog]");
     //  int blogID, int userID, String fullname, int categoryID, String thumbnail, String title, String updatedDate, String blogDetail, byte flag, byte status
         try {
             while(rs.next()) {
+           
                 int blogID = rs.getInt(1);
                 int userID = rs.getInt(2);
-                String fullname = rs.getString(3);
-                int categoryID = rs.getInt(4);
-                String thumbnail = rs.getString(5);
-                String title = rs.getString(6);
-                String updatedDate = rs.getString(7);
-                String blogDetail = rs.getString(8);
-                byte flag = rs.getByte(9);
-                byte status = rs.getByte(10);
-                Blog blog = new Blog(blogID, userID, fullname, categoryID, thumbnail, title, updatedDate, blogDetail, flag, status);
+                int categoryID = rs.getInt(3);
+                String thumbnail = rs.getString(4);
+                String title = rs.getString(5);
+                String updatedDate = rs.getString(6);
+                String blogContent = rs.getString(7);
+                byte flag = rs.getByte(8);
+                String status = rs.getString(9);
+                Blog blog = new Blog(blogID, userID, categoryID, thumbnail, title, updatedDate, blogContent, flag, status);
                 arr.add(blog);
                  
             }
         } catch (SQLException ex) {
             
         }
-        System.out.println(arr);
+       // System.out.println(arr);
  
         return arr;
     }
@@ -62,9 +64,9 @@ public class getBlogHP implements SubjectDAO {
     public void delete() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    public static void main(String[] args) {
-        DBConnect dBConnect = new DBConnect();
-        getBlogHP g = new getBlogHP(dBConnect);
-        g.get2Post();
-    }
+//    public static void main(String[] args) {
+//        DBConnect dBConnect = new DBConnect();
+//        getBlogHP g = new getBlogHP(dBConnect);
+//        g.get2Post();
+//    }
 }
