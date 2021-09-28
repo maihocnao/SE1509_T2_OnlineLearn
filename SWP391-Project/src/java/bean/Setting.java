@@ -12,20 +12,20 @@ package bean;
 public class Setting {
     int SettingID;
     int order;
-    float value; 
-    byte status;
     String type;
+    float value; 
+    String status;
     String Description;
 
     public Setting() {
     }
 
-    public Setting(int SettingID, int order, float value, byte status, String type, String Description) {
+    public Setting(int SettingID, int order, String type, float value, String status, String Description) {
         this.SettingID = SettingID;
         this.order = order;
+        this.type = type;
         this.value = value;
         this.status = status;
-        this.type = type;
         this.Description = Description;
     }
 
@@ -33,44 +33,44 @@ public class Setting {
         return SettingID;
     }
 
-    public int getOrder() {
-        return order;
-    }
-
-    public float getValue() {
-        return value;
-    }
-
-    public byte getStatus() {
-        return status;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public String getDescription() {
-        return Description;
-    }
-
     public void setSettingID(int SettingID) {
         this.SettingID = SettingID;
+    }
+
+    public int getOrder() {
+        return order;
     }
 
     public void setOrder(int order) {
         this.order = order;
     }
 
-    public void setValue(float value) {
-        this.value = value;
-    }
-
-    public void setStatus(byte status) {
-        this.status = status;
+    public String getType() {
+        return type;
     }
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public float getValue() {
+        return value;
+    }
+
+    public void setValue(float value) {
+        this.value = value;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getDescription() {
+        return Description;
     }
 
     public void setDescription(String Description) {
@@ -79,8 +79,10 @@ public class Setting {
 
     @Override
     public String toString() {
-        return "Setting{" + "SettingID=" + SettingID + ", order=" + order + ", value=" + value + ", status=" + status + ", type=" + type + ", Description=" + Description + '}';
+        return "Setting{" + "SettingID=" + SettingID + ", order=" + order + ", type=" + type + ", value=" + value + ", status=" + status + ", Description=" + Description + '}';
     }
+
+    
     
     
 }
