@@ -55,14 +55,14 @@ public class getSliderToHP  implements SliderDAO{
         } catch (SQLException ex) {
             
         }
-        System.out.println(arr);
+       // System.out.println(arr);
         return arr;
     }
     
-    public static void main(String[] args) {
-        DBConnect dbconn = new DBConnect();
-        getSliderToHP a = new getSliderToHP(dbconn);
-        a.getSliderHP();
-    }
+//    public static void main(String[] args) {
+//        DBConnect dbconn = new DBConnect();
+//        getSliderToHP a = new getSliderToHP(dbconn);
+//        a.getSliderHP();
+//    }
     
 }
