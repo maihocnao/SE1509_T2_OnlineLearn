@@ -40,29 +40,38 @@ public class LoginServlet extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             String email = request.getParameter("email");
             String password = request.getParameter("password");
-
-            Login login = new Login();
-            try {
-                User user = login.checkLogin(email, password);
-                request.getSession().setAttribute("currentUser", user);
-                if (user.getRoleID() == "01") {
-                    response.sendRedirect("/adminview.jsp");
-                }
-                if (user.getRoleID() == "02") {
-                    response.sendRedirect("homepageservlet");
-                }
-                if (user.getRoleID() == "03") {
-                    response.sendRedirect("/salview.jsp");
-                }
-                if (user.getRoleID() == "04") {
-                    response.sendRedirect("makview.jsp");
-                }                              
-            } catch (Exception e) {
-                response.sendRedirect("login-fail.jsp");
-            }
+            User user = new Login().checkLogin(email, password);
+            System.out.println(user);
+        if (user!=null) {
+            HttpSession session = request.getSession();
+            session.setAttribute("user", user);
+            if (user.getRoleID().equals("1"))
+                dispath(request, response, "/CustomerHomepage.jsp");
+            if ("2".equals(user.getRoleID()))
+                response.sendRedirect("SaleHomepage.jsp");
+            if ("3".equals(user.getRoleID()))
+                response.sendRedirect("MarketingDashB-Homepage.jsp");
+            if ("4".equals(user.getRoleID()))
+                response.sendRedirect("ExpertHomepage.jsp");
+            if ("5".equals(user.getRoleID()))
+                response.sendRedirect("AdminHomepage.jsp");
+        }else{
+            response.sendRedirect("1-Login.jsp");
+        }
+        }
 
         }
+    
+    private void dispath(HttpServletRequest request, HttpServletResponse response, String URL) {
+        try {
+            RequestDispatcher dis = request.getRequestDispatcher(URL);
+            // url: link to view file start with /
+            dis.forward(request, response);
+        } catch (Exception e) {
+            
+        }
     }
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
