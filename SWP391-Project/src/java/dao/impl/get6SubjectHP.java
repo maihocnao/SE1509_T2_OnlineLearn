@@ -35,31 +35,33 @@ public class get6SubjectHP implements SubjectDAO{
     }
     public ArrayList<Subject> get6ToHp(){ 
         ArrayList<Subject> arr = new ArrayList<>();
-        ResultSet rs = dbConn.getData("SELECT TOP 6 [subjectID],[categoryID] ,[thumbnail],[name],[Description]FROM [SWP].[dbo].[Subject]");
+        ResultSet rs = dbConn.getData("SELECT TOP 6 [subjectID],[categoryID],[thumbnail],[name],[Description],[status],[featured]FROM [SWP].[dbo].[Subject]");
      //   int subjectID, int categoryID, String thumbnail, String name, String Description
         try {
             while(rs.next()) {
-                 int subjectID=rs.getInt(1);
-                int categoryID=rs.getInt(2);
-                String thumbnail=rs.getString(3);
                
+                 String subjectID = rs.getString(1);
+                int categoryID=rs.getInt(2);
+                String thumbnail=rs.getString(3);               
                 String name=rs.getString(4);
                 String des = rs.getString(5);
-                Subject subject = new Subject(subjectID, categoryID, thumbnail, name, des);
+                String status = rs.getString(6);
+                String ft = rs.getString(7);
+                Subject subject = new Subject(subjectID, categoryID, thumbnail, name, des, status, ft);
                 
                 arr.add(subject);
             }
         } catch (SQLException ex) {
             
         }
-        System.out.println(arr);
+        //System.out.println(arr);
         return arr;
     }
     
-    public static void main(String[] args) {
-        DBConnect dbconn = new DBConnect();
-        get6SubjectHP a = new get6SubjectHP(dbconn);
-        a.get6ToHp();
-    }
+//    public static void main(String[] args) {
+//        DBConnect dbconn = new DBConnect();
+//        get6SubjectHP a = new get6SubjectHP(dbconn);
+//        a.get6ToHp();
+//    }
     
 }
