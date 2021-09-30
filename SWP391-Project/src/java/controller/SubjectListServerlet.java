@@ -5,12 +5,17 @@
  */
 package controller;
 
+import bean.Subject;
+import bean.User;
+import dao.impl.SubjectList;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -32,15 +37,14 @@ public class SubjectListServerlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet SubjectListServerlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet SubjectListServerlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            HttpSession session = request.getSession();
+            User user = (User) session.getAttribute("USER");
+ 
+                SubjectList subjectlist = new SubjectList();
+                List<Subject> allsubject = subjectlist.getAllSubject();
+                session.setAttribute("allsubject",allsubject );
+                request.getRequestDispatcher("23-Subject-List.html").forward(request, response);          
+           
         }
     }
 

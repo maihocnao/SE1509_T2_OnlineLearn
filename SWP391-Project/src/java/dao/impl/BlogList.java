@@ -44,17 +44,18 @@ public class BlogList extends MyDAO implements BlogDAO {
 //                    String blogContent = rs.getString("blog content");
 //                    byte flag = rs.getByte("flag");
 //                    String status = rs.getString("status");
-                    bl.setBlogID(rs.getInt(1));
-                    bl.setUserID(rs.getInt(2));
-                    bl.setCategoryID(rs.getInt(3));
-                    bl.setThumbnail(rs.getString(4));
-                    bl.setTitle(rs.getString(5));
-                    bl.setUpdatedDate(rs.getString(6));
-                    bl.setBlogContent(rs.getString(7));
-                    bl.setFlag(rs.getByte(8));
-                    bl.setStatus(rs.getString(9));
-//                Blog blog = new Blog(blogID, userID,categoryID, thumbnail, title, updatedDate, blogContent, flag, status);
-                    AllBlog.add(bl);
+                    int blogID = rs.getInt(1);
+                int userID = rs.getInt(2);
+                String fullname = rs.getString(3);
+                int categoryID = rs.getInt(4);
+                String thumbnail = rs.getString(5);
+                String title = rs.getString(6);
+                String updatedDate = rs.getString(7);
+                String blogDetail = rs.getString(8);
+                boolean flag = rs.getBoolean(9);
+                byte status = rs.getByte(10);
+                Blog blog = new Blog(blogID, userID, fullname, categoryID, thumbnail, title, updatedDate, blogDetail, flag, status);
+                AllBlog.add(blog);
                 }
             }
         } catch (Exception e) {

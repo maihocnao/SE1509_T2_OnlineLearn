@@ -26,13 +26,12 @@ public class SubjectList extends MyDAO implements SubjectDAO{
         ArrayList<Subject> featuredSubjectList = new ArrayList<>();
         String sql = "select subject.subjectID, subject.name, subject.thumbnail, subject.description from subject inner join category on category.categoryID = subject.categoryID ";
         try {
-         
             if (con != null) {
                 ps = con.prepareStatement(sql);
                 rs = ps.executeQuery();
                 while (rs.next()) {
                     Subject featureSubject = new Subject();
-                    featureSubject.setSubjectID(rs.getString(1));
+                    featureSubject.setSubjectID(rs.getInt(1));
                     featureSubject.setThumbnail(rs.getString(3));
                     featureSubject.setName(rs.getString(2));
                     featureSubject.setDescription(rs.getString(4));
@@ -54,13 +53,11 @@ public ArrayList<Subject> getAllSubject(){
                 rs = ps.executeQuery();
                 while (rs.next()) {
                     Subject featureSubject = new Subject();
-                    featureSubject.setSubjectID(rs.getString(1));
+                    featureSubject.setSubjectID(rs.getInt(1));
                     featureSubject.setCategoryID(rs.getInt(2));
                     featureSubject.setThumbnail(rs.getString(3));
                     featureSubject.setName(rs.getString(4));
                     featureSubject.setDescription(rs.getString(5));
-                    featureSubject.setStatus(rs.getString(6));
-                    featureSubject.setFeatured(rs.getString(7));
                     AllSubjectList.add(featureSubject);
                 }
             }

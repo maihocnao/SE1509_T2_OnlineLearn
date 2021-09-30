@@ -33,7 +33,6 @@ public class UserDetails extends MyDAO implements UserDAO {
                     user.setGender(rs.getString(5));
                     user.setFullname(rs.getString(6));
                     user.setPhone(rs.getString(7));
-                    user.setStatus(rs.getString(8));
                 }
             }
         } catch (Exception e) {
@@ -58,7 +57,6 @@ public class UserDetails extends MyDAO implements UserDAO {
                     user.setGender(rs.getString(5));
                     user.setFullname(rs.getString(6));
                     user.setPhone(rs.getString(7));
-                    user.setStatus(rs.getString(8));
 
                     lst.add(user);
                 }
@@ -86,7 +84,7 @@ public class UserDetails extends MyDAO implements UserDAO {
                     user.setGender(rs.getString(5));
                     user.setFullname(rs.getString(6));
                     user.setPhone(rs.getString(7));
-                    user.setStatus(rs.getString(8));
+
                 }
             }
         } catch (Exception e) {
@@ -112,7 +110,7 @@ public class UserDetails extends MyDAO implements UserDAO {
                     user.setGender(rs.getString(5));
                     user.setFullname(rs.getString(6));
                     user.setPhone(rs.getString(7));
-                    user.setStatus(rs.getString(8));
+
                     lst.add(user);
                 }
             }
@@ -139,7 +137,7 @@ public class UserDetails extends MyDAO implements UserDAO {
                     user.setGender(rs.getString(5));
                     user.setFullname(rs.getString(6));
                     user.setPhone(rs.getString(7));
-                    user.setStatus(rs.getString(8));
+
 
                     lst.add(user);
                 }
@@ -169,7 +167,6 @@ public class UserDetails extends MyDAO implements UserDAO {
                     user.setGender(rs.getString(5));
                     user.setFullname(rs.getString(6));
                     user.setPhone(rs.getString(7));
-                    user.setStatus(rs.getString(8));
 
                     lst.add(user);
                 }
@@ -198,7 +195,7 @@ public class UserDetails extends MyDAO implements UserDAO {
                     user.setGender(rs.getString(5));
                     user.setFullname(rs.getString(6));
                     user.setPhone(rs.getString(7));
-                    user.setStatus(rs.getString(8));
+
 
                     lst.add(user);
                 }
@@ -228,7 +225,6 @@ public class UserDetails extends MyDAO implements UserDAO {
                     user.setGender(rs.getString(5));
                     user.setFullname(rs.getString(6));
                     user.setPhone(rs.getString(7));
-                    user.setStatus(rs.getString(8));
 
                     lst.add(user);
                 }
@@ -259,7 +255,6 @@ public class UserDetails extends MyDAO implements UserDAO {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
     public User getUser(String email, String password) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -269,7 +264,6 @@ public class UserDetails extends MyDAO implements UserDAO {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
     public void signUp() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

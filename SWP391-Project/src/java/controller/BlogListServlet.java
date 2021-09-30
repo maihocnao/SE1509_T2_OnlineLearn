@@ -42,18 +42,16 @@ public class BlogListServlet extends HttpServlet {
             HttpSession session = request.getSession();
             User user = (User) session.getAttribute("USER");
             if (user != null) {
-//                CategoryDAO catDAO = new CategoryDAO();
                 BlogList bloglist = new BlogList();
                 int blogID = Integer.parseInt(request.getParameter("blogID"));
-//                List<Category> categoryList = catDAO.getAllCategory();
                 List<Blog> firstFive = bloglist.getFirstFive();
+                List<Blog> Allblog = bloglist.getAllBlog();
                 Blog blog = bloglist.getBlog(blogID);
                 session.setAttribute("firstFive", firstFive);
-//              session.setAttribute("catList", categoryList);
+                session.setAttribute("firstFive", Allblog);
                 session.setAttribute("blogID", blogID);
                 session.setAttribute("blog", blog);
-                request.getRequestDispatcher("blogDetail.jsp").forward(request, response);
-          
+                request.getRequestDispatcher("8-Blogs-List").forward(request, response);
             }else {
                 out.println("<script type=\"text/javascript\">");
                 out.println("alert('You have to login to use this feature');");

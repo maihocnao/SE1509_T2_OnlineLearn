@@ -5,7 +5,7 @@
  */
 package dao.impl;
 import bean.User;
-import dao.MyDAO;
+import dao.DBConnect;
 import dao.itf.UserDAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,21 +14,37 @@ import java.sql.ResultSet;
  *
  * @author Admin
  */
-public class resetPword extends MyDAO implements UserDAO {
- 
-
-    public resetPword() {
-       
+public class resetPword implements UserDAO {
+    Connection conn = null;
+    DBConnect dbConn=null;
+    PreparedStatement ps= null;
+    ResultSet rs;
+    public resetPword(DBConnect dbconn) {
+        conn = dbconn.con;
+        this.dbConn=dbconn;
+         
     }
+    
+    public static void main(String[] args) {
+        DBConnect db = new DBConnect();
+       resetPword sss = new resetPword(db);
+        System.out.println(sss.checkAccountExist("ngvCustomer@2mail.com"));
+        sss.resetPassword("ngvCustomer@2mail.com");
+    }
+
+    
 
 
      @Override
     public boolean checkAccountExist(String email) { //Kiểm tra tài khoản có tồn tại không qua Email
-        String sql = "select [User] from user where email=?";
+        String sql = "select * from [SWP].[dbo].[User] where Email=?";
         try {
-            ps = con.prepareStatement(sql);
+            DBConnect db = new DBConnect();   
+          
+            ps = conn.prepareStatement(sql);
             ps.setString(1, email);
             rs = ps.executeQuery();
+            //rs = dbConn.getData(sql);
             return rs.next();
         } catch (Exception e) {
             e.printStackTrace();
@@ -36,6 +52,10 @@ public class resetPword extends MyDAO implements UserDAO {
         
         return false;    
     }
+    
+
+    
+
     @Override
     public void changName() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -46,7 +66,7 @@ public class resetPword extends MyDAO implements UserDAO {
     public void changePassword( String Password) {// thay đổi mật khẩu tại nơi Password null
     String xSql = "update User set Password = ? where password is null";
         try {
-            ps = con.prepareStatement(xSql);
+            ps = conn.prepareStatement(xSql);
             ps.setString(1, Password);
             ps.executeUpdate();
             ps.close();
@@ -55,14 +75,12 @@ public class resetPword extends MyDAO implements UserDAO {
     }
 
 
-     @Override
     public void resetPassword(String Email) {
-        String xSql ="update [User] set password = null where Email= ?";
  try {
-            ps = con.prepareStatement(xSql);
+            DBConnect db = new DBConnect();
+            ps = conn.prepareStatement("update [user] set password = null where email=?");
             ps.setString(1, Email);
             ps.executeUpdate();
-             ps.close();
         } catch (Exception e) {
             e.printStackTrace();
         }    }
@@ -71,25 +89,23 @@ public class resetPword extends MyDAO implements UserDAO {
     public void changePassword(String UserID, String Password) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+ 
 
     @Override
     public User checkLogin(String email, String password) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
+
     public User getUser(String email, String password) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
+
     public void signUp() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-//    public static void main(String[] args) {
-//        resetPword rsp = new resetPword();
-//        rsp.resetPassword("trtCustomer@2mail.com");
-//    }
+    
    
     
     
