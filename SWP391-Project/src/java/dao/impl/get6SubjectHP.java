@@ -1,7 +1,11 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright (C) 2021, TEAM 2 ONLINE LEARN
+ *
+ * OnlineLearn_SWP<br>
+ *
+ * Record of change:<br>
+ * DATE          Version    Author           DESCRIPTION<br>
+ * 2021-05-13    1.0        Mai           First Version<br>
  */
 package dao.impl;
 import bean.Slider;
@@ -14,25 +18,23 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-/**
- *
- * @author Viettech88.vn
- */
-public class get6SubjectHP implements SubjectDAO{
+public class Get6SubjectHP implements SubjectDAO{
     Connection conn = null;
     DBConnect dbConn=null;
     PreparedStatement ps= null;
 
-    public get6SubjectHP(DBConnect dbconn) {
+    public Get6SubjectHP(DBConnect dbconn) {
         conn = dbconn.con;
         this.dbConn=dbconn;
          
     }
 
-    @Override
-    public void delete() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    /**
+     * Get a 6 SUbject to homepage
+     *
+     * @return an array list of subject
+     * @throws Exception
+     */
     public ArrayList<Subject> get6ToHp(){ 
         ArrayList<Subject> arr = new ArrayList<>();
         ResultSet rs = dbConn.getData("SELECT TOP 6 [subjectID],[categoryID],[thumbnail],[name],[Description],[status],[featured]FROM [SWP].[dbo].[Subject]");
@@ -54,14 +56,19 @@ public class get6SubjectHP implements SubjectDAO{
         } catch (SQLException ex) {
             
         }
-        //System.out.println(arr);
+        System.out.println(arr);
         return arr;
     }
     
-//    public static void main(String[] args) {
-//        DBConnect dbconn = new DBConnect();
-//        get6SubjectHP a = new get6SubjectHP(dbconn);
-//        a.get6ToHp();
-//    }
+    public static void main(String[] args) {
+        DBConnect dbconn = new DBConnect();
+        Get6SubjectHP a = new Get6SubjectHP(dbconn);
+        a.get6ToHp();
+    }
+
+    @Override
+    public ArrayList<Subject> listAllSubject() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
