@@ -1,7 +1,11 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright (C) 2021, TEAM 2 ONLINE LEARN
+ *
+ * OnlineLearn_SWP<br>
+ *
+ * Record of change:<br>
+ * DATE          Version    Author           DESCRIPTION<br>
+ * 2021-05-13    1.0        Mai           First Version<br>
  */
 package dao.impl;
 import bean.Slider;
@@ -15,16 +19,12 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author Viettech88.vn
- */
-public class getSliderToHP  implements SliderDAO{
+public class GetSliderToHP  implements SliderDAO{
     Connection conn = null;
     DBConnect dbConn=null;
     PreparedStatement ps= null;
 
-    public getSliderToHP(DBConnect dbconn) {
+    public GetSliderToHP(DBConnect dbconn) {
         conn = dbconn.con;
         this.dbConn=dbconn;
          
@@ -49,20 +49,20 @@ public class getSliderToHP  implements SliderDAO{
                
                 String image=rs.getString(4);
                 Slider slider = new Slider(sliderID, title, backlink, image);
-                
+                System.out.println(slider.getImage());
                 arr.add(slider);
             }
         } catch (SQLException ex) {
             
         }
-       // System.out.println(arr);
+       System.out.println(arr);
         return arr;
     }
     
-//    public static void main(String[] args) {
-//        DBConnect dbconn = new DBConnect();
-//        getSliderToHP a = new getSliderToHP(dbconn);
-//        a.getSliderHP();
-//    }
+    public static void main(String[] args) {
+        DBConnect dbconn = new DBConnect();
+        GetSliderToHP a = new GetSliderToHP(dbconn);
+        a.getSliderHP();
+    }
     
 }
