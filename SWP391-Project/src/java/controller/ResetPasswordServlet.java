@@ -36,16 +36,16 @@ public class ResetPasswordServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-      
+
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {   
             resetPword resetPass = new resetPword();
             String toEmail = request.getParameter("email");
             HttpSession session = request.getSession();
             session.setAttribute("email", toEmail);
-            String fromEmail = "";
-            String username = "";
-            String password = "";
+            String fromEmail ="ltCustomer@2mail.com";
+            String username = "Tran Thi Customer";
+            String password = "123";
             if (resetPass.checkAccountExist(toEmail)) {
                 mailSender.sendEmail(fromEmail, username, password, toEmail);
                 resetPass.resetPassword(toEmail);
@@ -56,7 +56,7 @@ public class ResetPasswordServlet extends HttpServlet {
             } else {
                 out.println("<script type=\"text/javascript\">");
                 out.println("alert('Sorry you have not registered!');");
-                 out.println("location='7-Homepage.Html';");
+                 out.println("location='3-Reset-password.Html';");
                 out.println("</script>");
             }
         } catch (Exception e) {
@@ -78,7 +78,8 @@ public class ResetPasswordServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+//        processRequest(request, response);
+
     }
 
     /**
@@ -92,7 +93,33 @@ public class ResetPasswordServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+//        processRequest(request, response);
+ 
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {   
+            resetPword resetPass = new resetPword();
+            String toEmail = request.getParameter("email");
+            HttpSession session = request.getSession();
+            session.setAttribute("email", toEmail);
+            String fromEmail ="ltCustomer@2mail.com";
+            String username = "Tran Thi Customer";
+            String password = "123";
+            if (resetPass.checkAccountExist(toEmail)) {
+                mailSender.sendEmail(fromEmail, username, password, toEmail);
+                resetPass.resetPassword(toEmail);
+                out.println("<script type=\"text/javascript\">");
+                out.println("alert('Email sent! Check your inbox');");
+                 out.println("location='7-Homepage.Html';");
+                out.println("</script>");
+            } else {
+                out.println("<script type=\"text/javascript\">");
+                out.println("alert('Sorry you have not registered!');");
+                 out.println("location='3-Reset-password.Html';");
+                out.println("</script>");
+            }
+        } catch (Exception e) {
+            
+        }
     }
 
     /**

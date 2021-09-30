@@ -4,91 +4,241 @@
  * and open the template in the editor.
  */
 package dao.impl;
+
 import bean.User;
-import context.DBConnect;
+import dao.MyDAO;
 import dao.itf.UserDAO;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+
 /**
  *
  * @author ADMIN
  */
-public class UserDetails implements UserDAO{
-  private Connection con;
-    private PreparedStatement ps;
-    private ResultSet rs;
-    
-    private void closeConnection() throws SQLException {
-        if (con != null) {
-            con.close();
-        }
-        if (rs != null) {
-            rs.close();
-        }
-        if (ps != null) {
-            ps.close();
-        }
-    }
-    
-    public boolean updateUser(User u) throws Exception {
-        String sql = "UPDATE user SET email=?, gender=?,"
-                + "fullname=?, phone=? WHERE userID=?";
+public class UserDetails extends MyDAO implements UserDAO {
+
+    public User getUserByEmail(String email) {
+        User user = new User();
+        String sql = "select * from [user] where email=?";
         try {
-            DBConnect db = new DBConnect();
-            con = db.getConnection();
             if (con != null) {
                 ps = con.prepareStatement(sql);
-                ps.setString(1, u.getEmail());
-                ps.setString(2, u.getGender());
-                ps.setString(3, u.getFullname());
-                ps.setString(4, u.getPhone());
-                ps.setInt(5, u.getUserID());
-
-                ps.executeUpdate();
-                return true;
+                ps.setString(1, email);
+                rs = ps.executeQuery();
+                if (rs.next()) {
+                    user.setUserID(rs.getInt(1));
+                    user.setRoleID(rs.getString(2));
+                    user.setEmail(rs.getString(3));
+                    user.setPassword(rs.getString(4));
+                    user.setGender(rs.getString(5));
+                    user.setFullname(rs.getString(6));
+                    user.setPhone(rs.getString(7));
+                    user.setStatus(rs.getString(8));
+                }
             }
-        } finally {
-            closeConnection();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        return false;
+        return user;
     }
 
-    public ArrayList<User> getAllUsers() throws Exception {
-        String sql = "select * from user";
-
+    public ArrayList<User> getAllUsers() {
+        String sql = "select * from [user]";
         ArrayList<User> lst = new ArrayList<>();
         try {
-            DBConnect db = new DBConnect();
-            con = db.getConnection();
+            User user = new User();
             if (con != null) {
                 ps = con.prepareStatement(sql);
                 rs = ps.executeQuery();
                 while (rs.next()) {
-                    int uid = rs.getInt("userID");
-                    int sid = rs.getInt("settingID");
-                    String rid = rs.getString("roleID");
-                    String email = rs.getString("email");
-                    String password = rs.getString("password");
-                    String gender = rs.getString("gender");
-                    String fullname = rs.getString("fullname");
-                    String phone = rs.getString("phone");
-                    
-                    User user = new User(uid, sid, rid, email, password, gender, fullname, phone);
+                    user.setUserID(rs.getInt(1));
+                    user.setRoleID(rs.getString(2));
+                    user.setEmail(rs.getString(3));
+                    user.setPassword(rs.getString(4));
+                    user.setGender(rs.getString(5));
+                    user.setFullname(rs.getString(6));
+                    user.setPhone(rs.getString(7));
+                    user.setStatus(rs.getString(8));
 
                     lst.add(user);
                 }
             }
-        } finally {
-            closeConnection();
+        } catch (Exception e) {
+
         }
         return lst;
     }
 
-    
-    
+    public User getUserbyID(int id) {
+        String sql = "select * from [user] where userID=?";
+        User user = new User();
+        try {
+
+            if (con != null) {
+                ps = con.prepareStatement(sql);
+                ps.setInt(1, id);
+                rs = ps.executeQuery();
+                if (rs.next()) {
+                    user.setUserID(rs.getInt(1));
+                    user.setRoleID(rs.getString(2));
+                    user.setEmail(rs.getString(3));
+                    user.setPassword(rs.getString(4));
+                    user.setGender(rs.getString(5));
+                    user.setFullname(rs.getString(6));
+                    user.setPhone(rs.getString(7));
+                    user.setStatus(rs.getString(8));
+                }
+            }
+        } catch (Exception e) {
+
+        }
+        return user;
+    }
+
+    public ArrayList<User> getAllUserbyName(String name) {
+        String sql = "select * from [user] where fullname like ?";
+        ArrayList<User> lst = new ArrayList<>();
+        try {
+            User user = new User();
+            if (con != null) {
+                ps = con.prepareStatement(sql);
+                ps.setString(1, "%" + name + "%");
+                rs = ps.executeQuery();
+                while (rs.next()) {
+                    user.setUserID(rs.getInt(1));
+                    user.setRoleID(rs.getString(2));
+                    user.setEmail(rs.getString(3));
+                    user.setPassword(rs.getString(4));
+                    user.setGender(rs.getString(5));
+                    user.setFullname(rs.getString(6));
+                    user.setPhone(rs.getString(7));
+                    user.setStatus(rs.getString(8));
+                    lst.add(user);
+                }
+            }
+        } catch (Exception e) {
+        }
+
+        return lst;
+    }
+
+    public ArrayList<User> getAllUserbyEmail(String semail) throws Exception {
+        String sql = "select * from [user] where email like ?";
+        ArrayList<User> lst = new ArrayList<>();
+        User user = new User();
+        try {
+            if (con != null) {
+                ps = con.prepareStatement(sql);
+                ps.setString(1, "%" + semail + "%");
+                rs = ps.executeQuery();
+                while (rs.next()) {
+                    user.setUserID(rs.getInt(1));
+                    user.setRoleID(rs.getString(2));
+                    user.setEmail(rs.getString(3));
+                    user.setPassword(rs.getString(4));
+                    user.setGender(rs.getString(5));
+                    user.setFullname(rs.getString(6));
+                    user.setPhone(rs.getString(7));
+                    user.setStatus(rs.getString(8));
+
+                    lst.add(user);
+                }
+            }
+
+        } catch (Exception e) {
+
+        }
+        return lst;
+    }
+
+    public ArrayList<User> getAllUserbyPhone(String sphone) throws Exception {
+        String sql = "select * from [user] where phone like ?";
+        ArrayList<User> lst = new ArrayList<>();
+        User user = new User();
+        try {
+
+            if (con != null) {
+                ps = con.prepareStatement(sql);
+                ps.setString(1, "%" + sphone + "%");
+                rs = ps.executeQuery();
+                while (rs.next()) {
+                  user.setUserID(rs.getInt(1));
+                    user.setRoleID(rs.getString(2));
+                    user.setEmail(rs.getString(3));
+                    user.setPassword(rs.getString(4));
+                    user.setGender(rs.getString(5));
+                    user.setFullname(rs.getString(6));
+                    user.setPhone(rs.getString(7));
+                    user.setStatus(rs.getString(8));
+
+                    lst.add(user);
+                }
+            }
+        } catch (Exception e) {
+
+        }
+        return lst;
+    }
+
+    public ArrayList<User> getAllUserbyGender(String fgender) throws Exception {
+        String sql = "select * from {user] where gender like ?";
+        ArrayList<User> lst = new ArrayList<>();
+        User user = new User();
+        try {
+
+            if (con != null) {
+                ps = con.prepareStatement(sql);
+                ps.setString(1, "%" + fgender + "%");
+                rs = ps.executeQuery();
+                while (rs.next()) {
+                    user.setUserID(rs.getInt(1));
+                    user.setRoleID(rs.getString(2));
+                    user.setEmail(rs.getString(3));
+                    user.setPassword(rs.getString(4));
+                    user.setGender(rs.getString(5));
+                    user.setFullname(rs.getString(6));
+                    user.setPhone(rs.getString(7));
+                    user.setStatus(rs.getString(8));
+
+                    lst.add(user);
+                }
+            }
+
+        } catch (Exception e) {
+
+        }
+        return lst;
+    }
+
+    public ArrayList<User> getAllUserbyRole(String frole) throws Exception {
+        String sql = "select * from {user} where roleID like ?";
+        ArrayList<User> lst = new ArrayList<>();
+        User user = new User();
+        try {
+
+            if (con != null) {
+                ps = con.prepareStatement(sql);
+                ps.setString(1, "%" + frole + "%");
+                rs = ps.executeQuery();
+                while (rs.next()) {
+                   user.setUserID(rs.getInt(1));
+                    user.setRoleID(rs.getString(2));
+                    user.setEmail(rs.getString(3));
+                    user.setPassword(rs.getString(4));
+                    user.setGender(rs.getString(5));
+                    user.setFullname(rs.getString(6));
+                    user.setPhone(rs.getString(7));
+                    user.setStatus(rs.getString(8));
+
+                    lst.add(user);
+                }
+            }
+        } catch (Exception e) {
+
+        }
+        return lst;
+    }
+
     @Override
     public User checkLogin(String email, String password) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -96,11 +246,6 @@ public class UserDetails implements UserDAO{
 
     @Override
     public boolean checkAccountExist(String Email) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void changePassword(String UserID, String Password) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -113,5 +258,28 @@ public class UserDetails implements UserDAO{
     public void resetPassword(String email) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
+    @Override
+    public User getUser(String email, String password) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void changePassword(String email, String password) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void signUp() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public static void main(String[] args) {
+        UserDetails ud = new UserDetails();
+//        System.out.println(ud.getUserByEmail("ltCustomer@2mail.com"));
+//        System.out.println(ud.getAllUsers());
+//        System.out.println(ud.getUserbyID(1));
+        System.out.println(ud.getAllUserbyName("thi"));
+        
+    }
 }
