@@ -32,11 +32,15 @@ public class resetPword implements UserDAO {
         sss.resetPassword("ngvCustomer@2mail.com");
     }
 
+    /*
+    check account exist or not
     
+     * @return a list of <code>Staff</code> objects. It is a <code>java.util.List</code> object								
+    */
 
 
      @Override
-    public boolean checkAccountExist(String email) { //Kiểm tra tài khoản có tồn tại không qua Email
+    public boolean checkAccountExist(String email) { 
         String sql = "select * from [SWP].[dbo].[User] where Email=?";
         try {
             DBConnect db = new DBConnect();   
@@ -73,7 +77,11 @@ public class resetPword implements UserDAO {
         } catch (Exception e) {    
         }        
     }
-
+ /*
+    reset password to null
+    
+    
+    */
 
     public void resetPassword(String Email) {
  try {
