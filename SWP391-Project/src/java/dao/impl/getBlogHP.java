@@ -1,7 +1,11 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright (C) 2021, TEAM 2 ONLINE LEARN
+ *
+ * OnlineLearn_SWP<br>
+ *
+ * Record of change:<br>
+ * DATE          Version    Author           DESCRIPTION<br>
+ * 2021-05-13    1.0        Mai           First Version<br>
  */
 package dao.impl;
 import dao.itf.SubjectDAO;
@@ -14,24 +18,27 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
-/**
- *
- * @author Viettech88.vn
- */
-public class getBlogHP implements SubjectDAO {
+
+public class GetBlogHP implements BlogDAO {
     Connection conn = null;
     DBConnect dbConn=null;
     PreparedStatement ps= null;
 
-    public getBlogHP(DBConnect dbconn) {
+    public GetBlogHP(DBConnect dbconn) {
         conn = dbconn.con;
         this.dbConn=dbconn;
          
     }
     
-    
-    public ArrayList<Blog> get2Post(){
+    /**
+     * Get a 2 post from db to view
+     *
+     * @return an arraylist of post
+     * @throws Exception
+     */
+    public ArrayList<Blog> get2Post() {
         ArrayList<Blog> arr = new ArrayList<>();
         ResultSet rs = dbConn.getData("select top 2 [blogID],[userID],[categoryID],[thumbnail],[title],[updatedDate],[blogContent],[flag],[status]\n" +
 "  FROM [SWP].[dbo].[Blog]");
@@ -55,18 +62,21 @@ public class getBlogHP implements SubjectDAO {
         } catch (SQLException ex) {
             
         }
-       // System.out.println(arr);
+        
  
         return arr;
     }
 
+
     @Override
-    public void delete() {
+    public void closeConnection() throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-//    public static void main(String[] args) {
-//        DBConnect dBConnect = new DBConnect();
-//        getBlogHP g = new getBlogHP(dBConnect);
-//        g.get2Post();
-//    }
+
+    @Override
+    public ArrayList<Blog> getAllBlog() throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+   
 }

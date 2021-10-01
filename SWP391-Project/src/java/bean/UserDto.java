@@ -7,33 +7,20 @@ package bean;
 
 /**
  *
- * @author Phong
+ * @author cyv2098
  */
-public class User {
+public class UserDto {
+
     int UserID;
-    String RoleID;
+    String Role;
     String Email;
-    String Password;
     String Gender;
     String Fullname;
     String Phone;
     String status;
+  
     String image;
     
-    public User() {
-    }
-
-    public User(int UserID, String RoleID, String Email, String Password, String Gender, String Fullname, String Phone, String status, String image) {
-        this.UserID = UserID;
-        this.RoleID = RoleID;
-        this.Email = Email;
-        this.Password = Password;
-        this.Gender = Gender;
-        this.Fullname = Fullname;
-        this.Phone = Phone;
-        this.status = status;
-        this.image = image;
-    }
 
     public int getUserID() {
         return UserID;
@@ -43,12 +30,12 @@ public class User {
         this.UserID = UserID;
     }
 
-    public String getRoleID() {
-        return RoleID;
+    public String getRole() {
+        return Role;
     }
 
-    public void setRoleID(String RoleID) {
-        this.RoleID = RoleID;
+    public void setRole(String Role) {
+        this.Role = Role;
     }
 
     public String getEmail() {
@@ -57,14 +44,6 @@ public class User {
 
     public void setEmail(String Email) {
         this.Email = Email;
-    }
-
-    public String getPassword() {
-        return Password;
-    }
-
-    public void setPassword(String Password) {
-        this.Password = Password;
     }
 
     public String getGender() {
@@ -107,17 +86,8 @@ public class User {
         this.image = image;
     }
 
-    @Override
-
- 
-    public String toString() {
-        return "User{" + "UserID=" + UserID + ", RoleID=" + RoleID + ", Email=" + Email + ", Password=" + Password + ", Gender=" + Gender + ", Fullname=" + Fullname + ", Phone=" + Phone + ", status=" + status + ", image=" + image + '}';
-    }
-    
-    
     
 
-   
     
     
 }

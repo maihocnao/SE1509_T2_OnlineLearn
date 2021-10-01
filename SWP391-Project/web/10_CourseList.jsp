@@ -1,4 +1,10 @@
+<%-- 
+    Document   : contact
+    Created on : Sept 29, 2021, 4:29:39 PM
+    Author     : Mai Nguyen
+--%>
 <!DOCTYPE html>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <html style="font-size: 16px;">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +13,13 @@
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
     <title>10 Courses List</title>
-    <link rel="stylesheet" href="css/nicepage.css" media="screen">
-<link rel="stylesheet" href="css/10-Courses-List.css" media="screen">
+    <link rel="stylesheet" href="nicepage.css" media="screen">
+<link rel="stylesheet" href="10-Courses-List.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
-    <meta name="generator" content="Nicepage 3.25.0, nicepage.com">
+    <meta name="generator" content="Nicepage 3.26.0, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
+    
     
     
     
@@ -54,7 +61,7 @@
           </div>
           <div class="u-custom-menu u-nav-container-collapse">
             <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
-              <div class="u-sidenav-overflow">
+              <div class="u-inner-container-layout u-sidenav-overflow">
                 <div class="u-menu-close"></div>
                 <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Homepage.html" style="padding: 10px 20px;">Homepage</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="19-Dashboard.html" style="padding: 10px 20px;">Blogs</a>
@@ -82,7 +89,7 @@
           </div>
           <div class="u-custom-menu u-nav-container-collapse">
             <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
-              <div class="u-sidenav-overflow">
+              <div class="u-inner-container-layout u-sidenav-overflow">
                 <div class="u-menu-close"></div>
                 <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-4"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="1-Login.html">Login</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="2-Sign-up.html">Sign up</a>
@@ -111,30 +118,86 @@
       <div class="u-clearfix u-sheet u-sheet-1">
         <div class="u-list u-list-1">
           <div class="u-repeater u-repeater-1">
-            <div class="u-container-style u-list-item u-repeater-item">
+              <%--loop start here--%>  
+               <c:forEach items="${listCourse}" var="subject">
+                   <c:if test="${subject.subjectID=='ASSL'}">
+                       <div class="u-container-style u-list-item u-repeater-item">
               <div class="u-container-layout u-similar-container u-container-layout-1">
-                <img alt="" class="u-expanded-width u-image u-image-default u-image-1" data-image-width="1280" data-image-height="853" src="images/eacee9d7509712f64a26c41e9a7ec9f4a2f8fd1faf880381421563121329345af12ba3ebd187f6c0ddb45b5018b3533f785164b57df1ddc209c709_1280.jpg">
-                <h3 class="u-text u-text-default u-text-1">Sample Headline</h3>
-                <p class="u-text u-text-2">Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
+                <img alt="" class="u-expanded-width u-image u-image-default u-image-1" data-image-width="1280" data-image-height="853" src="${subject.thumbnail}">
+                <h3 class="u-text u-text-default u-text-1">${subject.name}</h3>
+                <p class="u-text u-text-2">${subject.description}</p>
                 <a href="" class="u-border-none u-btn u-button-style u-hover-palette-1-dark-1 u-palette-4-base u-btn-1">learn more</a>
               </div>
             </div>
-            <div class="u-container-style u-list-item u-repeater-item">
+                   </c:if>
+                    <c:if test="${subject.subjectID=='ITE302c'}">
+                         <div class="u-container-style u-list-item u-repeater-item">
               <div class="u-container-layout u-similar-container u-container-layout-2">
-                <img alt="" class="u-expanded-width u-image u-image-default u-image-2" data-image-width="1280" data-image-height="853" src="images/e820e4d822d1ee675d09b857789ea49116bfff0cba084cf07f5601db404e783bf528a5f45679518e2d4476092caf1898e89c69e58ad74d152fdc86_1280.jpg">
-                <h3 class="u-text u-text-default u-text-3">Sample Headline</h3>
-                <p class="u-text u-text-4">Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
+                <img alt="" class="u-expanded-width u-image u-image-default u-image-2" data-image-width="1280" data-image-height="853" src="${subject.thumbnail}">
+                <h3 class="u-text u-text-default u-text-3">${subject.name}</h3>
+                <p class="u-text u-text-4">${subject.description}</p>
                 <a href="" class="u-border-none u-btn u-button-style u-hover-palette-1-dark-1 u-palette-4-base u-btn-2">learn more</a>
               </div>
             </div>
-            <div class="u-container-style u-list-item u-repeater-item">
+                  </c:if>
+                    <c:if test="${subject.subjectID=='SDE101'}">
+                        <div class="u-container-style u-list-item u-repeater-item">
               <div class="u-container-layout u-similar-container u-container-layout-3">
-                <img alt="" class="u-expanded-width u-image u-image-default u-image-3" data-image-width="1280" data-image-height="853" src="images/05a4691a6a8c25443fe1afa9d68b7179c22479d624700180d397afca4e2dd80884ac2697d045f256d4e1354076c4c38e9ca340e9004a5c9d6dcad5_12801.jpg">
-                <h3 class="u-text u-text-default u-text-5">Sample Headline</h3>
-                <p class="u-text u-text-6">Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
+                <img alt="" class="u-expanded-width u-image u-image-default u-image-3" data-image-width="1280" data-image-height="853" src="${subject.thumbnail}">
+                <h3 class="u-text u-text-default u-text-5">${subject.name}</h3>
+                <p class="u-text u-text-6">${subject.description}</p>
                 <a href="" class="u-border-none u-btn u-button-style u-hover-palette-1-dark-1 u-palette-4-base u-btn-3">learn more</a>
               </div>
             </div>
+                  </c:if>
+                   
+               </c:forEach>
+            
+           
+           
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-white u-section-3" id="carousel_5a69">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-list u-list-1">
+          <div class="u-repeater u-repeater-1">
+              <c:forEach items="${listCourse}" var="subject">
+                   <c:if test="${subject.subjectID=='SSL'}">
+                      <div class="u-container-style u-list-item u-repeater-item">
+              <div class="u-container-layout u-similar-container u-container-layout-1">
+                <img alt="" class="u-expanded-width u-image u-image-default u-image-1" data-image-width="1280" data-image-height="853" src="${subject.thumbnail}">
+                <h3 class="u-text u-text-default u-text-1">${subject.name}</h3>
+                <p class="u-text u-text-2">${subject.description}</p>
+                <a href="" class="u-border-none u-btn u-button-style u-hover-palette-1-dark-1 u-palette-4-base u-btn-1">learn more</a>
+              </div>
+            </div>
+                  </c:if>
+                   <c:if test="${subject.subjectID=='SWE201'}">
+                       <div class="u-container-style u-list-item u-repeater-item">
+              <div class="u-container-layout u-similar-container u-container-layout-2">
+                <img alt="" class="u-expanded-width u-image u-image-default u-image-2" data-image-width="1280" data-image-height="853" src="${subject.thumbnail}">
+                <h3 class="u-text u-text-default u-text-3">${subject.name}</h3>
+                <p class="u-text u-text-4">${subject.description}</p>
+                <a href="" class="u-border-none u-btn u-button-style u-hover-palette-1-dark-1 u-palette-4-base u-btn-2">learn more</a>
+              </div>
+            </div>
+                  </c:if>
+                  <c:if test="${subject.subjectID=='WED102'}">
+                      <div class="u-container-style u-list-item u-repeater-item">
+              <div class="u-container-layout u-similar-container u-container-layout-3">
+                <img alt="" class="u-expanded-width u-image u-image-default u-image-3" data-image-width="1280" data-image-height="853" src="${subject.thumbnail}">
+                <h3 class="u-text u-text-default u-text-5">${subject.name}</h3>
+                <p class="u-text u-text-6"> ${subject.description}</p>
+                <a href="" class="u-border-none u-btn u-button-style u-hover-palette-1-dark-1 u-palette-4-base u-btn-3">learn more</a>
+              </div>
+            </div>
+                  </c:if>
+              </c:forEach>
+            
+           
+            
           </div>
         </div>
       </div>
@@ -172,16 +235,6 @@
         </div>
         <p class="u-align-center-lg u-align-center-md u-align-center-xl u-text u-text-1">A Product of TEAM2 </p>
       </div></footer>
-    <section class="u-backlink u-clearfix u-grey-80">
-      <a class="u-link" href="https://nicepage.com/website-templates" target="_blank">
-        <span>Website Templates</span>
-      </a>
-      <p class="u-text">
-        <span>created with</span>
-      </p>
-      <a class="u-link" href="https://nicepage.com/" target="_blank">
-        <span>Website Builder Software</span>
-      </a>. 
-    </section>
+   
   </body>
 </html>

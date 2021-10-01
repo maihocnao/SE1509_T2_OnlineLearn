@@ -1,32 +1,33 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright (C) 2021, TEAM 2 ONLINE LEARN
+ *
+ * OnlineLearn_SWP<br>
+ *
+ * Record of change:<br>
+ * DATE          Version    Author           DESCRIPTION<br>
+ * 2021-05-13    1.0        TEAM 2          First Version<br>
  */
 package bean;
 
-/**
- *
- * @author Phong
- */
+
 public class Subject {
     String subjectID ; 
     int categoryID ; 
     String thumbnail;
     String name; 
-    String Description; 
+    String description; 
     String status;
     String featured;
 
     public Subject() {
     }
 
-    public Subject(String subjectID, int categoryID, String thumbnail, String name, String Description, String status, String featured) {
+    public Subject(String subjectID, int categoryID, String thumbnail, String name, String description, String status, String featured) {
         this.subjectID = subjectID;
         this.categoryID = categoryID;
         this.thumbnail = thumbnail;
         this.name = name;
-        this.Description = Description;
+        this.description = description;
         this.status = status;
         this.featured = featured;
     }
@@ -64,11 +65,11 @@ public class Subject {
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public void setDescription(String Description) {
-        this.Description = Description;
+        this.description = Description;
     }
 
     public String getStatus() {
@@ -89,7 +90,7 @@ public class Subject {
 
     @Override
     public String toString() {
-        return "Subject{" + "subjectID=" + subjectID + ", categoryID=" + categoryID + ", thumbnail=" + thumbnail + ", name=" + name + ", Description=" + Description + ", status=" + status + ", featured=" + featured + '}';
+        return "Subject{" + "subjectID=" + subjectID + ", categoryID=" + categoryID + ", thumbnail=" + thumbnail + ", name=" + name + ", Description=" + description + ", status=" + status + ", featured=" + featured + '}';
     }
 
     
