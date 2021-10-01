@@ -14,21 +14,23 @@ import java.sql.Date;
 public class Registration {
     int registrationID;
     String regisTime;
-    int status;
+    String status;
     String validFrom;
     String validto;
+    float totalprice;
     int UserID;
     String UserEmail;
     String subjectID;
     public Registration() {
     }
 
-    public Registration(int registrationID, String regisTime, int status, String validFrom, String validto, int UserID, String UserEmail, String subjectID) {
+    public Registration(int registrationID, String regisTime, String status, String validFrom, String validto, float totalprice, int UserID, String UserEmail, String subjectID) {
         this.registrationID = registrationID;
         this.regisTime = regisTime;
         this.status = status;
         this.validFrom = validFrom;
         this.validto = validto;
+        this.totalprice = totalprice;
         this.UserID = UserID;
         this.UserEmail = UserEmail;
         this.subjectID = subjectID;
@@ -50,11 +52,11 @@ public class Registration {
         this.regisTime = regisTime;
     }
 
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
@@ -72,6 +74,14 @@ public class Registration {
 
     public void setValidto(String validto) {
         this.validto = validto;
+    }
+
+    public float getTotalprice() {
+        return totalprice;
+    }
+
+    public void setTotalprice(float totalprice) {
+        this.totalprice = totalprice;
     }
 
     public int getUserID() {
@@ -96,11 +106,6 @@ public class Registration {
 
     public void setSubjectID(String subjectID) {
         this.subjectID = subjectID;
-    }
-
-    @Override
-    public String toString() {
-        return "Registration{" + "registrationID=" + registrationID + ", regisTime=" + regisTime + ", status=" + status + ", validFrom=" + validFrom + ", validto=" + validto + ", UserID=" + UserID + ", UserEmail=" + UserEmail + ", subjectID=" + subjectID + '}';
     }
 
     

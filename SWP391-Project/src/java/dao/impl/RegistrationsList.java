@@ -36,21 +36,23 @@ public class RegistrationsList {
     public List<Registration> getAllRegis() {
         List<Registration> rlist = new ArrayList<>();
         String xSql = "select * from Registration";
-        int registrationid, status, userid;
-        String registime,validfrom, validto, useremail,subjectid;
+        int registrationid,  userid;
+        String registime,status,validfrom, validto, useremail,subjectid;
+        float totalprice;
         try {
             ps = conn.prepareStatement(xSql);
             rs = ps.executeQuery();
             while(rs.next()){
                 registrationid = rs.getInt("registrationID");
                 registime = rs.getString("regisTime");
-                status = rs.getInt("status");
+                status = rs.getString("status");
                 validfrom = rs.getString("validFrom");
                 validto = rs.getString("validto");
+                totalprice = rs.getFloat("totalPrice");
                 userid = rs.getInt("UserID");
                 useremail = rs.getString("UserEmail");
-                subjectid = rs.getString("SubjectID");
-                Registration r = new Registration(registrationid, registime, status, validfrom, validto, userid, useremail, subjectid);
+                subjectid = rs.getString("subjectID");
+                Registration r = new Registration(registrationid, registime, status, validfrom, validto,totalprice, userid, useremail, subjectid);
                 rlist.add(r);
             }
             rs.close();

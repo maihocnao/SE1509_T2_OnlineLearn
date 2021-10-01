@@ -1,7 +1,7 @@
 package controller;
 
 import bean.User;
-import dao.impl.changePword;
+import dao.impl.ChangePword;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -35,7 +35,7 @@ public class ChangePasswordServlet extends HttpServlet {
             pr.println("location='6change-password.html';");
             pr.println("</script>");
         }else{
-            changePword cp = new changePword();
+            ChangePword cp = new ChangePword();
             cp.changePassword(u.getEmail(), newpass1);
             pr.println("<script type=\"text/javascript\">");
             pr.println("alert('Password changed successfully!');");

@@ -19,19 +19,19 @@ import java.util.ArrayList;
  *
  * @author asus
  */
-public class changePword implements UserDAO{
+public class ChangePword implements UserDAO{
 
     Connection conn = null;
     DBConnect dbConn=null;
     PreparedStatement ps= null;
 
-    public changePword(DBConnect dbconn) {
+    public ChangePword(DBConnect dbconn) {
         conn = dbconn.con;
         this.dbConn=dbconn;
          
     }
 
-    public changePword() {
+    public ChangePword() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

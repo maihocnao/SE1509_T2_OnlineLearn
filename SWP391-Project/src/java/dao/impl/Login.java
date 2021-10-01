@@ -101,15 +101,7 @@ public class Login implements UserDAO{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public User getUser(String email, String password) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
-    @Override
-    public void signUp() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 //    public static void main(String[] args) {
 //        Login l = new Login();
 //        l.checkLogin("ngvCustomer@2mail.com", "12345");
