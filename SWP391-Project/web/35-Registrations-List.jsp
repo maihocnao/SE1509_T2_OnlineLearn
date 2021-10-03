@@ -195,9 +195,9 @@
             </tbody>
           </table>
         </div>
-        <a href="https://nicepage.com/c/art-design-website-templates" class="u-active-none u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-btn-2">Edit</a>
-        <a href="https://nicepage.com/c/art-design-website-templates" class="u-active-none u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-btn-3">Edit</a>
-        <a href="https://nicepage.com/c/technology-html-templates" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-2-base u-palette-4-base u-radius-6 u-btn-4">Add new Registration<span style="font-weight: 400;"></span>
+        <a href="registrationDetailsController?RegisID=${Registration.registrationID}" class="u-active-none u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-btn-2">Edit</a>
+        <a href="#" class="u-active-none u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-btn-3">Edit</a>
+        <a href="#" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-2-base u-palette-4-base u-radius-6 u-btn-4">Add new Registration<span style="font-weight: 400;"></span>
         </a>
       </div>
     </section>
