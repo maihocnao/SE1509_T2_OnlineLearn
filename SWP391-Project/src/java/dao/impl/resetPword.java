@@ -32,7 +32,12 @@ public class resetPword implements UserDAO {
     public resetPword() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+ /*
+ * The class contains method select data from database
+ * Staff table in database. In the update or insert method, all data will be normalized (trim space) before update/insert into database
+ * The method wil throw an object  of <code>java.lang.Exception</code> class if there is any error occurring when finding, inserting, or updating data
+ * @author Hoanganh
+ */
 
      @Override
     public boolean checkAccountExist(String email) { //Kiểm tra tài khoản có tồn tại không qua Email
@@ -70,7 +75,12 @@ public class resetPword implements UserDAO {
         } catch (Exception e) {    
         }        
     }
-
+ /*
+ * The class contains method update data from database
+ * Staff table in database. In the update or insert method, all data will be normalized (trim space) before update/insert into database
+ * The method wil throw an object  of <code>java.lang.Exception</code> class if there is any error occurring when finding, inserting, or updating data
+ * @author Hoanganh
+ */
 
     public void resetPassword(String Email) {
  try {
