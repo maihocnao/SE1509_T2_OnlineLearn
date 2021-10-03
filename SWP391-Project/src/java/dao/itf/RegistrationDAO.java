@@ -3,16 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dao.itf;
+package dao;
 
+import bean.New;
+import java.util.ArrayList;
 import bean.Registration;
-import java.util.List;
+
 
 /**
  *
  * @author Viettech88.vn
  */
 public interface RegistrationDAO {
-    public List<Registration> getAllRegis();
-    public List<Registration> getRegisByEmail(String email);
+    
+    ArrayList<Registration> getSubjectIDfromUserRegistration(int userID) throws Exception;
+    public New GetDetailFromRegistration(int registrationID) throws Exception;
+    
 }
