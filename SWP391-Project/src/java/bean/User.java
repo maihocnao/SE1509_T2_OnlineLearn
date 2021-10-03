@@ -10,29 +10,38 @@ package bean;
  * @author Phong
  */
 public class User {
+
     int UserID;
-    String RoleID;
-    String Email;
-    String Password;
-    String Gender;
-    String Fullname;
-    String Phone;
+    String roleID;
+    String email;
+    String password;
+    String gender;
+    String fullname;
+    String phone;
     String status;
     String image;
-    
+
     public User() {
     }
 
     public User(int UserID, String RoleID, String Email, String Password, String Gender, String Fullname, String Phone, String status, String image) {
         this.UserID = UserID;
-        this.RoleID = RoleID;
-        this.Email = Email;
-        this.Password = Password;
-        this.Gender = Gender;
-        this.Fullname = Fullname;
-        this.Phone = Phone;
+        this.roleID = RoleID;
+        this.email = Email;
+        this.password = Password;
+        this.gender = Gender;
+        this.fullname = Fullname;
+        this.phone = Phone;
         this.status = status;
         this.image = image;
+    }
+
+    public User(String Fullname, String Gender, String Email, String Phone) {
+        this.fullname = Fullname;
+        this.gender = Gender;
+        this.email = Email;
+        this.phone = Phone;
+
     }
 
     public int getUserID() {
@@ -44,52 +53,54 @@ public class User {
     }
 
     public String getRoleID() {
-        return RoleID;
+        return roleID;
     }
 
     public void setRoleID(String RoleID) {
-        this.RoleID = RoleID;
+        this.roleID = RoleID;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String Email) {
-        this.Email = Email;
+        this.email = Email;
     }
 
     public String getPassword() {
-        return Password;
-    }
-
-    public void setPassword(String Password) {
-        this.Password = Password;
+        return password;
     }
 
     public String getGender() {
-        return Gender;
-    }
-
-    public void setGender(String Gender) {
-        this.Gender = Gender;
+        return gender;
     }
 
     public String getFullname() {
-        return Fullname;
-    }
-
-    public void setFullname(String Fullname) {
-        this.Fullname = Fullname;
+        return fullname;
     }
 
     public String getPhone() {
-        return Phone;
+        return phone;
     }
 
-    public void setPhone(String Phone) {
-        this.Phone = Phone;
+    public void setPassword(String password) {
+        this.password = password;
     }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    
 
     public String getStatus() {
         return status;
@@ -108,16 +119,10 @@ public class User {
     }
 
     @Override
-
- 
     public String toString() {
-        return "User{" + "UserID=" + UserID + ", RoleID=" + RoleID + ", Email=" + Email + ", Password=" + Password + ", Gender=" + Gender + ", Fullname=" + Fullname + ", Phone=" + Phone + ", status=" + status + ", image=" + image + '}';
+        return "User{" + "UserID=" + UserID + ", roleID=" + roleID + ", email=" + email + ", password=" + password + ", gender=" + gender + ", fullname=" + fullname + ", phone=" + phone + ", status=" + status + ", image=" + image + '}';
     }
-    
-    
+
     
 
-   
-    
-    
 }
