@@ -10,9 +10,11 @@
  */
 package dao;
 
-
-
-    public enum BlogStatus {
-    PUBLISH, DRAFT
+/**
+ *
+ * @author Viettech88.vn
+ */
+public interface ScoreDAO {
+    void update();
+    void delete();
 }
-

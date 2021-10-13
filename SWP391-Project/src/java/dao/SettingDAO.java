@@ -6,13 +6,14 @@
  *
  * Record of change:<br>
  * DATE          Version    Author           DESCRIPTION<br>
- * 2021-09-30    1.0        Mai           First Version<br>
+ * 2021-10-3    1.0        Mai           First Version<br>
  */
 package dao;
 
-
-
-    public enum BlogStatus {
-    PUBLISH, DRAFT
+/**
+ *
+ * @author Viettech88.vn
+ */
+public interface SettingDAO {
+    void list();
 }
-

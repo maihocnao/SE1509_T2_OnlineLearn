@@ -11,8 +11,6 @@
 package dao;
 
 
-
-    public enum BlogStatus {
-    PUBLISH, DRAFT
+public interface SubjectDimensionDAO {
+    void update();
 }
-

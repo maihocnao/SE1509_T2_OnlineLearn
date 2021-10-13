@@ -10,9 +10,13 @@
  */
 package dao;
 
-
-
-    public enum BlogStatus {
-    PUBLISH, DRAFT
+/**
+ *
+ * @author Viettech88.vn
+ */
+public interface CourseDAO {
+    void insert();
+    void delete();
+    void top3CourseHP();
+    
 }
-

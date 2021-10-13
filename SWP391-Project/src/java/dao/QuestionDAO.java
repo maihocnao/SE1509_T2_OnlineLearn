@@ -10,9 +10,19 @@
  */
 package dao;
 
+import bean.Question;
 
-
-    public enum BlogStatus {
-    PUBLISH, DRAFT
+/**
+ *
+ * @author Viettech88.vn
+ */
+public interface QuestionDAO {
+    
+    public void addQuestion();
+    
+    public Question getQuestion();
+    
+    public void editQuestion();
+    
+    public void deleteQuestion();
 }
-

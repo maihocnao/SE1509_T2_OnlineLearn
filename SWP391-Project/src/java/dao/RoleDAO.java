@@ -10,9 +10,14 @@
  */
 package dao;
 
+import bean.Role;
+import java.util.List;
 
-
-    public enum BlogStatus {
-    PUBLISH, DRAFT
+/**
+ *
+ * @author Viettech88.vn
+ */
+public interface RoleDAO {
+    Role findById(String id) throws Exception;
+    List<Role> getRoleDesList() throws Exception;
 }
-

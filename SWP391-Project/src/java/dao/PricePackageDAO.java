@@ -9,10 +9,14 @@
  * 2021-09-30    1.0        Mai           First Version<br>
  */
 package dao;
+import bean.PricePackage;
 
+import java.util.ArrayList;
 
-
-    public enum BlogStatus {
-    PUBLISH, DRAFT
+/**
+ *
+ * @author Viettech88.vn
+ */
+public interface PricePackageDAO {
+    ArrayList<PricePackage> getPPbySubjectID(String subjectID) throws Exception;
 }
-

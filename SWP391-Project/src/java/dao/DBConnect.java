@@ -1,7 +1,12 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright (C) 2021, TEAM 2 ONLINE LEARN
+ *
+ * SWP_OnlineLearn
+ * SWP ONLINE LEARN PROJECT - TEAM 2
+ *
+ * Record of change:<br>
+ * DATE          Version    Author           DESCRIPTION<br>
+ * 2021-09-30    1.0        Mai           First Version<br>
  */
 package dao;
 
@@ -36,7 +41,7 @@ public class DBConnect {
 
     public DBConnect() {
         this("jdbc:sqlserver://localhost:1433;databaseName=SWP",
-                "sa","sa");
+                "sa","123456");
     }
     public ResultSet getData(String sql){
         ResultSet rs=null;

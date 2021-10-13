@@ -10,9 +10,10 @@
  */
 package dao;
 
-
-
-    public enum BlogStatus {
-    PUBLISH, DRAFT
+/**
+ *
+ * @author Viettech88.vn
+ */
+public interface CategoryDAO {
+    
 }
-

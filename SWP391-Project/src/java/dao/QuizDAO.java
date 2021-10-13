@@ -10,9 +10,20 @@
  */
 package dao;
 
+import bean.Quiz;
 
-
-    public enum BlogStatus {
-    PUBLISH, DRAFT
+/**
+ *
+ * @author Viettech88.vn
+ */
+public interface QuizDAO {
+    
+    public void addQuiz();
+    
+    public Quiz getQuiz();
+    
+    public void editQuiz();
+    
+    
+    public void deleteQuiz();
 }
-
