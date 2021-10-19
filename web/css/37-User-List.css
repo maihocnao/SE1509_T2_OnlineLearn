@@ -1,0 +1,130 @@
+.u-section-1 .u-sheet-1 {
+  min-height: 1080px;
+}
+
+.u-section-1 .u-btn-1 {
+  border-style: none;
+  font-size: 1rem;
+  background-image: none;
+  font-weight: normal;
+  margin: 30px 45px 0 auto;
+  padding: 8px 33px;
+}
+
+.u-section-1 .u-form-1 {
+  height: 156px;
+  margin: 11px 30px 0 0;
+}
+
+.u-section-1 .u-form-group-1 {
+  margin-left: 0;
+}
+
+.u-section-1 .u-form-group-2 {
+  margin-left: 0;
+}
+
+.u-section-1 .u-form-group-3 {
+  margin-left: 0;
+}
+
+.u-section-1 .u-btn-2 {
+  background-image: none;
+  border-style: none;
+}
+
+.u-section-1 .u-table-1 {
+  margin-top: 28px;
+  margin-bottom: 0;
+}
+
+.u-block-31d6-4 {
+  background-image: none;
+}
+
+.u-section-1 .u-table-header-1 {
+  font-weight: 700;
+  background-image: none;
+}
+
+.u-section-1 .u-table-cell-8 {
+  background-image: none;
+}
+
+.u-section-1 .u-table-cell-15 {
+  background-image: none;
+}
+
+.u-block-31d6-31 {
+  background-image: none;
+}
+
+.u-section-1 .u-btn-3 {
+  background-image: none;
+  border-style: none none solid;
+  margin: -170px 45px 0 auto;
+  padding: 0;
+}
+
+.u-section-1 .u-btn-4 {
+  background-image: none;
+  border-style: none none solid;
+  margin: 56px 45px 60px auto;
+  padding: 0;
+}
+
+@media (max-width: 1199px) {
+  .u-section-1 .u-btn-1 {
+    margin-top: 87px;
+    margin-right: 0;
+  }
+
+  .u-section-1 .u-form-1 {
+    margin-top: -111px;
+    margin-right: 0;
+  }
+
+  .u-section-1 .u-table-1 {
+    margin-top: 149px;
+  }
+
+  .u-section-1 .u-btn-3 {
+    margin-right: 0;
+  }
+
+  .u-section-1 .u-btn-4 {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 991px) {
+  .u-section-1 .u-btn-1 {
+    margin-top: 138px;
+  }
+
+  .u-section-1 .u-form-1 {
+    margin-top: -162px;
+  }
+}
+
+@media (max-width: 767px) {
+  .u-section-1 .u-btn-1 {
+    margin-top: 96px;
+  }
+
+  .u-section-1 .u-form-1 {
+    margin-top: -120px;
+  }
+}
+
+@media (max-width: 575px) {
+  .u-section-1 .u-form-1 {
+    margin-top: -111px;
+  }
+
+  .u-section-1 .u-table-1 {
+    margin-top: -37px;
+  }
+}.u-section-2 .u-sheet-1 {
+  min-height: 464px;
+}
