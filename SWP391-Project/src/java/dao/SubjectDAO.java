@@ -34,5 +34,8 @@ public interface SubjectDAO {
      public ArrayList<Subject> getSubjectBySubjectID(String sID) throws Exception;
      public ArrayList<Subject> getSubjectOfUser( int uID) throws Exception;
      public void editSubject(String subjectid, int categoryid, String thumbnail, String name, String description, String status, String featured);
-     public void addSubject(String subjectid, int categoryid, String thumbnail, String name, String description, String status, String featured);       
+     public void addSubject(String subjectid, int categoryid, String thumbnail, String name, String description, String status, String featured);   
+     int countTotalSubjectSearch(int status) throws Exception;
+     List<Subject> search(int status, int pageIndex, int pageSize) throws Exception;
+     
 }
