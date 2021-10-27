@@ -1,0 +1,54 @@
+/*
+ * Copyright (C) 2021, TEAM 2 ONLINE LEARN
+ *
+ * SWP_OnlineLearn
+ * SWP ONLINE LEARN PROJECT - TEAM 2
+ *
+ * Record of change:<br>
+ * DATE          Version    Author           DESCRIPTION<br>
+ * 2021-10-20    1.0        Quan           First Version<br>
+ */
+package controller;
+
+import dao.impl.DeletePricePackage;
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ *
+ * @author asus
+ */
+public class DeletePricePackageController extends HttpServlet {
+
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter pr = response.getWriter();
+        String subjectid = request.getParameter("subjectid");
+        int pricepackageid = Integer.parseInt(request.getParameter("pricepackageid"));
+        DeletePricePackage dpp = new DeletePricePackage();
+        dpp.deletePricePackage(pricepackageid);
+        response.sendRedirect("PricePackageController?subjectid="+subjectid);
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter pr = response.getWriter();
+        
+    }
+
+}
