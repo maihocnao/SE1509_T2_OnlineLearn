@@ -9,20 +9,42 @@
  */
 package bean;
 
+import java.util.List;
+
 
 public class Quiz {
-    int quizID ; 
-    int lessonID ; 
+    String quizID ; 
+    String lessonID ; 
     String quizName; 
     String level; 
     int numOfQuestion; 
     int duration;//minute
     float passRate;  
     String quizType; 
+    int userId;
+    int submitDuration;
+    List<Question> questions;
+    float score;
     public Quiz() {
     }
 
-    public Quiz(int quizID, int lessonID, String quizName, String level, int numOfQuestion, int duration, float passRate, String quizType) {
+    public float getScore() {
+        return score;
+    }
+
+    public void setScore(float score) {
+        this.score = score;
+    }
+
+    public int getSubmitDuration() {
+        return submitDuration;
+    }
+
+    public void setSubmitDuration(int submitDuration) {
+        this.submitDuration = submitDuration;
+    }
+
+    public Quiz(String quizID, String lessonID, String quizName, String level, int numOfQuestion, int duration, float passRate, String quizType) {
         this.quizID = quizID;
         this.lessonID = lessonID;
         this.quizName = quizName;
@@ -33,19 +55,35 @@ public class Quiz {
         this.quizType = quizType;
     }
 
-    public int getQuizID() {
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public List<Question> getQuestions() {
+        return questions;
+    }
+
+    public void setQuestions(List<Question> questions) {
+        this.questions = questions;
+    }
+
+    public String getQuizID() {
         return quizID;
     }
 
-    public void setQuizID(int quizID) {
+    public void setQuizID(String quizID) {
         this.quizID = quizID;
     }
 
-    public int getLessonID() {
+    public String getLessonID() {
         return lessonID;
     }
 
-    public void setLessonID(int lessonID) {
+    public void setLessonID(String lessonID) {
         this.lessonID = lessonID;
     }
 

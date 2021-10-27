@@ -6,7 +6,7 @@
 package controller;
 
 import bean.UserDto;
-import static controller.UserListServlet.log;
+import static controller.UserListController.log;
 import dao.RoleDAO;
 import dao.UserDAO;
 import dao.impl.RoleDaoImpl;
@@ -34,7 +34,7 @@ import utils.StringValidation;
 @WebServlet(name = "NewServlet", urlPatterns = {"/list-user"})
 public class NewServlet extends HttpServlet {
 private static final int PAGE_SIZE = 10;
-    static final Logger log = Logger.getLogger(UserListServlet.class.getName());
+    static final Logger log = Logger.getLogger(UserListController.class.getName());
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -88,13 +88,13 @@ private static final int PAGE_SIZE = 10;
             
             request.getRequestDispatcher("newjsp1.jsp").forward(request, response);}
         catch(Exception e){
-             Logger.getLogger(UserListServlet.class.getName()).log(Level.SEVERE, null, e);
+             Logger.getLogger(UserListController.class.getName()).log(Level.SEVERE, null, e);
             request.setAttribute("errorMessage", e.toString());
             request.getRequestDispatcher("error.jsp").forward(request, response);
         }
         
         }catch(Exception e){
-             Logger.getLogger(UserListServlet.class.getName()).log(Level.SEVERE, null, e);
+             Logger.getLogger(UserListController.class.getName()).log(Level.SEVERE, null, e);
             request.setAttribute("errorMessage", e.toString());
             request.getRequestDispatcher("error.jsp").forward(request, response);
         }

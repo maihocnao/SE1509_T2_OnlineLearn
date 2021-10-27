@@ -1,38 +1,36 @@
 /*
- *Copyright(C) 2005,  <Name of Organization/Individual own the application>.
- * <ProjectCode/Short Name of Application> :
- *  <Full name of project code/Name or application>
+ * Copyright (C) 2021, TEAM 2 ONLINE LEARN
  *
- * Record of change:
- * DATE                Version     AUTHOR                       DESCRIPTION
- * <yyyy-MM-dd>      10/3/2021      cuong                      userprofile
- */
+ * SWP_OnlineLearn
+ * SWP ONLINE LEARN PROJECT - TEAM 2
+ *
+ * Record of change:<br>
+ * DATE          Version    Author           DESCRIPTION<br>
+ * 2021-10-15    1.0        Cuong               post detail*/
 package controller;
 
-import bean.User;
-import dao.impl.UserDAOImpl;
+import bean.Blog;
+import dao.BlogDAO;
+import dao.impl.BlogDaoImpl;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
+   /**
+ * Process:<br>
+ * - Get List blog detail
+ * <br>
  *
- * @author cyv2098
+ * Exception:<br>
+ * - If content fails, it will return to error page.
+ *
+ * @author cuong
  */
-@WebServlet(name = "UserProfileServlet", urlPatterns = {"/user/profile"})
-/**														
- * The class contains method find update, delete, insert staff information from														
- * Staff table in database. In the update or insert method, all data will be normalized (trim space) before update/insert into database														
- * The method wil throw an object  of <code>java.lang.Exception</code> class if there is any error occurring when finding, inserting, or updating data														
- * <p>Bugs: Still have some issues related to search staff by address														
- *														
- * @author Nguyen Duc Cuong														
- */														
-public class UserProfileServlet extends HttpServlet {
+@WebServlet(name = "PostDetailServlet", urlPatterns = {"/post/detail"})
+public class PostDetailController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -45,12 +43,13 @@ public class UserProfileServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       User loggedin = (User) request.getSession().getAttribute("user");
-  //      UserDAOImpl userDao = new UserDAOImpl();
-   //     User loggedin = userDao.getUser("abc@gmail.com", "123");
-        request.setAttribute("data", loggedin);
-        System.out.println(loggedin.getFullname());
-        request.getRequestDispatcher("Profile.jsp").forward(request, response);
+        String id = request.getParameter("id");//get id 
+        BlogDAO dao = new BlogDaoImpl(); //new oj 
+        Blog blog = dao.findById("2");//find id 
+        System.out.println(blog.getBlogContent());
+        //send vew
+        request.setAttribute("data", blog);
+        request.getRequestDispatcher("PostDetail.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

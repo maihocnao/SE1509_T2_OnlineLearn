@@ -33,13 +33,22 @@ public abstract class BaseDao {
         }
         return connection;
     }
-    public void closeConnection(Connection conn) throws SQLException{
-        conn.close();
+
+    public void closeConnection(Connection conn) throws SQLException {
+        if (conn != null) {
+            conn.close();
+        }
     }
-    public void closeResultSet(ResultSet rs) throws SQLException{
-        rs.close();
+
+    public void closeResultSet(ResultSet rs) throws SQLException {
+        if (rs != null) {
+            rs.close();
+        }
     }
-    public void closeStatement(PreparedStatement stm) throws SQLException{
-        stm.close();
+
+    public void closeStatement(PreparedStatement stm) throws SQLException {
+        if (stm != null) {
+            stm.close();
+        }
     }
 }

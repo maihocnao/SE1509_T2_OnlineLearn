@@ -1,53 +1,51 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright (C) 2021, TEAM 2 ONLINE LEARN
+ *
+ * SWP_OnlineLearn
+ * SWP ONLINE LEARN PROJECT - TEAM 2
+ *
+ * Record of change:<br>
+ * DATE          Version    Author           DESCRIPTION<br>
+ * 2021-10-15    1.0        Cuong               blogdetail
  */
 package controller;
 
-import bean.Lesson;
-import dao.LessonDAO;
-import dao.impl.LessonDaoImpl;
+import bean.Blog;
+import dao.BlogDAO;
+import dao.impl.BlogDaoImpl;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import utils.StringValidation;
 
 /**
  *
  * @author cyv2098
  */
-public class LessonDetailServlet extends HttpServlet {
+@WebServlet(name = "BlogDetailServlet", urlPatterns = {"/blog/detail"})
+public class BlogDetailController extends HttpServlet {
 
     /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+ * Process:<br>
+ * - Get List blog detail
+ * <br>
+ *
+ * Exception:<br>
+ * - If content fails, it will return to error page.
+ *
+ * @author cuong
+ */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        StringValidation vld = new StringValidation();
-        String idReq = request.getParameter("id");
-        String idSess = (String) request.getSession().getAttribute("id");
-        System.out.println(request.getRequestURI());
-        int id = 0;
-        try {
-            id = Integer.parseInt(vld.isNullOrEmpty(idReq) ? (vld.isNullOrEmpty(idSess) ? idReq : idSess) : idReq);
-        } catch (NumberFormatException e) {
-            request.getRequestDispatcher("Detail.jsp").forward(request, response);
-            return;
-        }
-        LessonDAO dao = new LessonDaoImpl();
-        Lesson data = dao.getOne(id);
-        request.setAttribute("data", data);
-        request.getRequestDispatcher("Detail.jsp").forward(request, response);
+        String blogId = request.getParameter("id"); //get id 
+        BlogDAO dao = new BlogDaoImpl();//new blog
+        Blog blog = dao.findById("2");  //find id 
+        //send to view
+        request.setAttribute("data", blog);//
+        System.out.println(blog.getBlogID());
+       request.getRequestDispatcher("BlogDetail.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

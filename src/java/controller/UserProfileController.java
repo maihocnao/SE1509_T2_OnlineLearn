@@ -1,52 +1,45 @@
 /*
- * Copyright (C) 2021, TEAM 2 ONLINE LEARN
+ *Copyright(C) 2005,  <Name of Organization/Individual own the application>.
+ * <ProjectCode/Short Name of Application> :
+ *  <Full name of project code/Name or application>
  *
- * SWP_OnlineLearn
- * SWP ONLINE LEARN PROJECT - TEAM 2
- *
- * Record of change:<br>
- * DATE          Version    Author           DESCRIPTION<br>
- * 2021-10-15    1.0        Cuong               blogdetail
+ * Record of change:
+ * DATE                Version     AUTHOR                       DESCRIPTION
+ * <yyyy-MM-dd>      10/3/2021      cuong                      userprofile
  */
 package controller;
 
-import bean.Blog;
-import dao.BlogDAO;
-import dao.impl.BlogDaoImpl;
+import bean.User;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author cyv2098
- */
-@WebServlet(name = "BlogDetailServlet", urlPatterns = {"/blog/detail"})
-public class BlogDetailServlet extends HttpServlet {
 
-    /**
+@WebServlet(name = "UserProfileServlet", urlPatterns = {"/user/profile"})
+/**
  * Process:<br>
- * - Get List blog detail
+ * - Get display userprofile  of user  and find userlist
  * <br>
  *
  * Exception:<br>
  * - If content fails, it will return to error page.
  *
  * @author cuong
- */
+ */																
+public class UserProfileController extends HttpServlet {
+
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String blogId = request.getParameter("id"); //get id 
-        BlogDAO dao = new BlogDaoImpl();//new blog
-        Blog blog = dao.findById("2");  //find id 
-        //send to view
-        request.setAttribute("data", blog);//
-        System.out.println(blog.getBlogID());
-       request.getRequestDispatcher("BlogDetail.jsp").forward(request, response);
+       User loggedin = (User) request.getSession().getAttribute("user");
+  //      UserDAOImpl userDao = new UserDAOImpl();
+   //     User loggedin = userDao.getUser("abc@gmail.com", "123");
+        request.setAttribute("data", loggedin);
+        System.out.println(loggedin.getFullname());
+        request.getRequestDispatcher("Profile.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -6,11 +6,11 @@
     </servlet>
     <servlet>
         <servlet-name>BlogDetailServlet</servlet-name>
-        <servlet-class>controller.BlogDetailServlet</servlet-class>
+        <servlet-class>controller.BlogDetailController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>PostDetailServlet</servlet-name>
-        <servlet-class>controller.PostDetailServlet</servlet-class>
+        <servlet-class>controller.PostDetailController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SaveBlogDetailServlet</servlet-name>
@@ -22,11 +22,11 @@
     </servlet>
     <servlet>
         <servlet-name>AddNewSubject</servlet-name>
-        <servlet-class>controller.AddNewSubjectServlet</servlet-class>
+        <servlet-class>controller.AddNewSubjectController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>LessonDetailServlet</servlet-name>
-        <servlet-class>controller.LessonDetailServlet</servlet-class>
+        <servlet-class>controller.LessonDetailController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>LessonSaveServlet</servlet-name>
@@ -34,11 +34,19 @@
     </servlet>
     <servlet>
         <servlet-name>PricePackageServlet</servlet-name>
-        <servlet-class>controller.PricePackageServlet</servlet-class>
+        <servlet-class>controller.PricePackageController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SavePricePackageServlet</servlet-name>
         <servlet-class>controller.SavePricePackageServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>QuizHandleServlet</servlet-name>
+        <servlet-class>controller.QuizHandleController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>QuizFinishServlet</servlet-name>
+        <servlet-class>controller.QuizFinishController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>SubjectListServlet</servlet-name>
@@ -54,7 +62,7 @@
     </servlet>
     <servlet>
         <servlet-name>UserListServlet</servlet-name>
-        <servlet-class>controller.UserListServlet</servlet-class>
+        <servlet-class>controller.UserListController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>UserServlet</servlet-name>
@@ -111,6 +119,14 @@
     <servlet-mapping>
         <servlet-name>SavePricePackageServlet</servlet-name>
         <url-pattern>/admin/pricepackage/save</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>QuizHandleServlet</servlet-name>
+        <url-pattern>/quiz/do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>QuizFinishServlet</servlet-name>
+        <url-pattern>/quiz/finish</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

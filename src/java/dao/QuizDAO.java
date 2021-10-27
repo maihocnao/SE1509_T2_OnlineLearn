@@ -21,4 +21,6 @@ public interface QuizDAO {
     
     
     public void deleteQuiz();
+    
+    public void insert(Quiz quiz);
 }

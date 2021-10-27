@@ -6,6 +6,8 @@
 package dao;
 
 import bean.Question;
+import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -20,4 +22,9 @@ public interface QuestionDAO {
     public void editQuestion();
     
     public void deleteQuestion();
+    public Question getById(int id);
+    public List<Question> getBySubject(Map<String,Integer> ratio, String subjectId);
+    public int countQuestionByLevel(String level, String subjectID);
+    public List<Question> getByLevelAndSubject(String subjectId, String level, List<Integer> listId);
+    public void insertMany(List<Question> data);
 }

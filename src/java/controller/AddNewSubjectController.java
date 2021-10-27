@@ -16,14 +16,11 @@ import dao.SubjectDAO;
 import dao.impl.CategoryDaoImpl;
 import dao.impl.SubjectDaoImpl;
 import java.io.File;
-import java.io.FileInputStream;
+
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -31,7 +28,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import javax.servlet.annotation.MultipartConfig;
 import utils.StringValidation;
-import java.util.List;
+
 import java.util.Map;
 
 /**
@@ -45,15 +42,16 @@ import java.util.Map;
  * @author cuong
  */
 @MultipartConfig(location = "")
-public class AddNewSubjectServlet extends HttpServlet {
-/**
+public class AddNewSubjectController extends HttpServlet {
+
+    /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
      *
      * @param request servlet request
      * @param response servlet response
      * @throws javax.servlet.ServletException if a servlet-specific error occurs
-     * @throws java.io.IOException  if an I/O error occurs
+     * @throws java.io.IOException if an I/O error occurs
      */
     private static final String FRONT_END_PAGE = "AddNewSubject.jsp";//
     private final String PARAM_SUBJECT_CODE = "subjectCode";
@@ -87,7 +85,7 @@ public class AddNewSubjectServlet extends HttpServlet {
         String description = request.getParameter(PARAM_DESCRIPTION);
         String folder = request.getServletContext().getRealPath("images");
         folder = folder.replace("\\build", "");
-              //validation  = null or empty getRequestDispatcher(FRONT_END_PAGE)  
+        //validation  = null or empty getRequestDispatcher(FRONT_END_PAGE)  
         if (validation.isNullOrEmpty(subjectCode)) {
             request.getRequestDispatcher(FRONT_END_PAGE).forward(request, response);
             return;
@@ -95,7 +93,7 @@ public class AddNewSubjectServlet extends HttpServlet {
         //new subjectDAoimpl
         SubjectDAO dao = new SubjectDaoImpl();
         if (dao.checkExist(subjectCode)) {
-            addAttributeWithExceptParam(request.getParameterMap(),"",request);//addAttribute
+            addAttributeWithExceptParam(request.getParameterMap(), "", request);//addAttribute
             //send to view
             System.out.println("ERROR");
             request.setAttribute("ERROR", "1");
@@ -183,7 +181,6 @@ public class AddNewSubjectServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-    
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -192,7 +189,7 @@ public class AddNewSubjectServlet extends HttpServlet {
      * @param request servlet request
      * @param response servlet response
      * @throws javax.servlet.ServletException if a servlet-specific error occurs
-     * @throws java.io.IOException  if an I/O error occurs
+     * @throws java.io.IOException if an I/O error occurs
      */
     //open file
     private String getFileExtension(String fileName) {
@@ -206,7 +203,6 @@ public class AddNewSubjectServlet extends HttpServlet {
     private String getTimeStamp() {
         return System.currentTimeMillis() + "";
     }
-
 
     private void addAttributeWithExceptParam(Map<String, String[]> params, String except, HttpServletRequest request) {
         //add attribute to display again, except specified

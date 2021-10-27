@@ -38,36 +38,42 @@ import utils.StringValidation;
  *														
  * @author Nguyen Duc Cuong														
  */															
-public class RegisterUserServlet extends HttpServlet {
+public class RegisterUserController extends HttpServlet {
 
     /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+ * Process:<br>
+ * - insert register of user and checkexits
+ * <br>
+ *
+ * Exception:<br>
+ * - If content fails, it will return to error page.
+ *
+ * @author cuong
+     * @param request
+     * @param response
+     * @throws javax.servlet.ServletException
+     * @throws java.io.IOException
+ */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try{
             StringValidation stringValidation = new StringValidation();
-        String email = request.getParameter("email");
-        String fullName = request.getParameter("name");
-        String phoneNumber = request.getParameter("phonenumber");
-        String address = request.getParameter("address");
-        String gender = request.getParameter("gender");
-        String password = request.getParameter("password");
+        String email = request.getParameter("email");//get email 
+        String fullName = request.getParameter("name");//get name
+        String phoneNumber = request.getParameter("phonenumber");//get phone number 
+        String address = request.getParameter("address");//get address
+        String gender = request.getParameter("gender");//gender
+        String password = request.getParameter("password");//get pasword 
         String repassword = request.getParameter("re-password");
         //first access to servlet
-        if (stringValidation.isNullOrEmpty(email) || stringValidation.isNullOrEmpty(fullName)
-                || stringValidation.isNullOrEmpty(gender) || stringValidation.isNullOrEmpty(password)) {
+        if (stringValidation.isNullOrEmpty(email) || stringValidation.isNullOrEmpty(fullName)//if email and full name null or emty start 
+                || stringValidation.isNullOrEmpty(gender) || stringValidation.isNullOrEmpty(password)) {//if gender  and pasword name null or emty start 
             try{
+                //request servlet -> regiss
             request.getRequestDispatcher("RegistUser.jsp").forward(request, response);
             return;}
-            catch(Exception e){
-                Logger.getLogger(RegisterUserServlet.class.getName()).log(Level.SEVERE, null, e);
+            catch(IOException | ServletException e){
+                Logger.getLogger(RegisterUserController.class.getName()).log(Level.SEVERE, null, e);
             request.setAttribute("errorMessage", e.toString());
             request.getRequestDispatcher("error.jsp").forward(request, response);
             }
@@ -96,15 +102,16 @@ public class RegisterUserServlet extends HttpServlet {
 
             } else {
                 request.setAttribute("CREATE_USER_STATUS", true);
+               
 
             }
         }
         request.setAttribute("ERRORS", listError);
-       // response.sendRedirect("Login.jsp");
+        response.sendRedirect("Login.jsp");
         request.getRequestDispatcher("RegistUser.jsp").forward(request, response);
         }
         catch (Exception  e) {
-            Logger.getLogger(RegisterUserServlet.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(RegisterUserController.class.getName()).log(Level.SEVERE, null, e);
             request.setAttribute("errorMessage", e.toString());
             request.getRequestDispatcher("error.jsp").forward(request, response);
         }

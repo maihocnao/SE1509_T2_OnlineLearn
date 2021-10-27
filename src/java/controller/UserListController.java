@@ -10,7 +10,6 @@
 
 package controller;
 
-import bean.User;
 import bean.UserDto;
 import dao.RoleDAO;
 import dao.UserDAO;
@@ -36,18 +35,20 @@ import utils.StringValidation;
  * @author cyv2098
  */
 @WebServlet(name = "UserListServlet", urlPatterns = {"/admin/list-user"})
-/**														
- * The class contains method find update, delete, insert staff information from														
- * Staff table in database. In the update or insert method, all data will be normalized (trim space) before update/insert into database														
- * The method wil throw an object  of <code>java.lang.Exception</code> class if there is any error occurring when finding, inserting, or updating data														
- * <p>Bugs: Still have some issues related to search staff by address														
- *														
- * @author Nguyen Duc Cuong														
- */														
-public class UserListServlet extends HttpServlet {
+/**
+ * Process:<br>
+ * - Get display userlist  of user  and find userlist
+ * <br>
+ *
+ * Exception:<br>
+ * - If content fails, it will return to error page.
+ *
+ * @author cuong
+ */											
+public class UserListController extends HttpServlet {
     
     private static final int PAGE_SIZE = 10;
-    static final Logger log = Logger.getLogger(UserListServlet.class.getName());
+    static final Logger log = Logger.getLogger(UserListController.class.getName());
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -62,24 +63,24 @@ public class UserListServlet extends HttpServlet {
             throws ServletException, IOException {
         try {
             StringValidation vld = new StringValidation();
-        String userRoleRaw = request.getParameter("role");
-        String genderRaw = request.getParameter("gender");
-        String statusRaw = request.getParameter("status");
-        String pageIndexRaw = request.getParameter("pageIndex");
+        String userRoleRaw = request.getParameter("role");//get role
+        String genderRaw = request.getParameter("gender");//get gender
+        String statusRaw = request.getParameter("status");//get status 
+        String pageIndexRaw = request.getParameter("pageIndex");//get parameter
         log.info("------------- Parameter from client -------------");
         log.log(Level.INFO, "User role from client: {0}", userRoleRaw);
         log.log(Level.INFO, "User gender from client: {0}", genderRaw);
         log.log(Level.INFO, "User status from client: {0}", statusRaw);
         log.log(Level.INFO, "User page index from client: {0}", pageIndexRaw);
         log.info("");
-        Map<String, Object> attributeList = new HashMap<>();
-        UserDAO userDAO = new UserDAOImpl();//new user
+        Map<String, Object> attributeList = new HashMap<>(); //new hash map 
+        UserDAO userDAO = new UserDAOImpl();//new userdao
         RoleDAO roleDAO;
-        roleDAO = new RoleDaoImpl();
-        attributeList.put("roles", roleDAO.getRoleDesList());
-        String roleId = (vld.isNullOrEmpty(userRoleRaw) || userRoleRaw.equals("All")) ? null : userRoleRaw.equals("All") ? null : userRoleRaw;
-        String gender = (vld.isNullOrEmpty(genderRaw) || genderRaw.equals("All")) ? null : genderRaw.equals("All") ? null : genderRaw;
-        String status = (vld.isNullOrEmpty(statusRaw) || statusRaw.equals("All")) ? null : statusRaw.equals("All") ? null : statusRaw.equals("Active") ? "true" : "false";
+        roleDAO = new RoleDaoImpl(); //new roleumpl
+        attributeList.put("roles", roleDAO.getRoleDesList());//get roles 
+        String roleId = (vld.isNullOrEmpty(userRoleRaw) || userRoleRaw.equals("All")) ? null : userRoleRaw.equals("All") ? null : userRoleRaw;//check vrole  null or emty 
+        String gender = (vld.isNullOrEmpty(genderRaw) || genderRaw.equals("All")) ? null : genderRaw.equals("All") ? null : genderRaw;//check fender null or emty
+        String status = (vld.isNullOrEmpty(statusRaw) || statusRaw.equals("All")) ? null : statusRaw.equals("All") ? null : statusRaw.equals("Active") ? "true" : "false";//check status 
         int pageIndex = 1;
         try {
             pageIndex = Integer.parseInt(pageIndexRaw);
@@ -108,7 +109,7 @@ public class UserListServlet extends HttpServlet {
             } catch (Exception ex) {
                  //request.setAttribute("errorMessage", e.toString());
            // request.getRequestDispatcher("error.jsp").forward(request, response);
-                Logger.getLogger(UserListServlet.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(UserListController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
@@ -171,10 +172,10 @@ public class UserListServlet extends HttpServlet {
     private List<String> extractPaging(int pageSize, int dataSize) {
         List<String> paging = new ArrayList<>();//new lisst 
         paging.add("1");
-        int count = 1;
-        while ((dataSize / pageSize) >= 1) {//
-            paging.add(++count + "");
-            dataSize = dataSize - pageSize;
+        int count = 1;//cout size 1 
+        while ((dataSize / pageSize) >= 1) {//while data siza page size  >= 1
+            paging.add(++count + "");//index ++
+            dataSize = dataSize - pageSize;//dsize - psize
         }
         return paging;
     }

@@ -5,22 +5,22 @@
  */
 package controller;
 
-import bean.PricePackage;
-import dao.PricePackageDAO;
-import dao.impl.PricePackageDaoImpl;
+import bean.Lesson;
+import dao.LessonDAO;
+import dao.impl.LessonDaoImpl;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import utils.NumberProccessing;
+import utils.StringValidation;
 
 /**
  *
  * @author cyv2098
  */
-public class PricePackageServlet extends HttpServlet {
+public class LessonDetailController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,16 +33,21 @@ public class PricePackageServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int id = 1;
+        StringValidation vld = new StringValidation();//new oj
+        String idReq = request.getParameter("id");//get id
+        String idSess = (String) request.getSession().getAttribute("id"); //séion get id
+        System.out.println(request.getRequestURI());
+        int id = 0;
         try {
-            //cast price package ID to integer
-            id = NumberProccessing.paramToInteger(request, "id");
+            id = Integer.parseInt(vld.isNullOrEmpty(idReq) ? (vld.isNullOrEmpty(idSess) ? idReq : idSess) : idReq);
         } catch (NumberFormatException e) {
+            request.getRequestDispatcher("Detail.jsp").forward(request, response);
+            return;
         }
-        PricePackageDAO dao = new PricePackageDaoImpl();
-        PricePackage data = dao.getOneById(id);
+        LessonDAO dao = new LessonDaoImpl();
+        Lesson data = dao.getOne(id);
         request.setAttribute("data", data);
-        request.getRequestDispatcher("PricePackage.jsp").forward(request, response);
+        request.getRequestDispatcher("Detail.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

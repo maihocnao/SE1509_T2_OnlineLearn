@@ -9,25 +9,49 @@
  */
 package bean;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  *
  * @author Phong
  */
-public class Question {
-    int questionID ; 
-    int quizID ; 
-    String content ; 
+public class Question implements Comparable<Question> {
+
+    int questionID;
+    String subjectID;
+    String content;
     String level;
+    int userAnswer = -1;
+    List<Answer> answer;
 
     public Question() {
     }
 
-    public Question(int questionID, int quizID, String content, String level) {
+    public Question(int questionID, String subjectID, String content, String level) {
         this.questionID = questionID;
-        this.quizID = quizID;
+        this.subjectID = subjectID;
         this.content = content;
         this.level = level;
     }
+
+    public int getUserAnswer() {
+        return userAnswer;
+    }
+
+    public void setUserAnswer(int userAnswer) {
+        this.userAnswer = userAnswer;
+    }
+
+    public List<Answer> getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(List<Answer> answer) {
+        this.answer = answer;
+    }
+
+ 
 
     public int getQuestionID() {
         return questionID;
@@ -37,12 +61,12 @@ public class Question {
         this.questionID = questionID;
     }
 
-    public int getQuizID() {
-        return quizID;
+    public String getSubjectID() {
+        return subjectID;
     }
 
-    public void setQuizID(int quizID) {
-        this.quizID = quizID;
+    public void setSubjectID(String subjectID) {
+        this.subjectID = subjectID;
     }
 
     public String getContent() {
@@ -63,8 +87,12 @@ public class Question {
 
     @Override
     public String toString() {
-        return "Question{" + "questionID=" + questionID + ", quizID=" + quizID + ", content=" + content + ", level=" + level + '}';
+        return "Question{" + "questionID=" + questionID + ", subjectID=" + subjectID + ", content=" + content + ", level=" + level + '}';
     }
-    
-    
+
+    @Override
+    public int compareTo(Question o) {
+     return this.content.compareTo(o.getContent());
+    }
+
 }

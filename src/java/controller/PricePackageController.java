@@ -1,28 +1,35 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ *Copyright(C) 2005,  <Name of Organization/Individual own the application>.
+ * <ProjectCode/Short Name of Application> :
+ *  <Full name of project code/Name or application>
+ *
+ * Record of change:
+ * DATE                Version     AUTHOR                       DESCRIPTION
+ * <yyyy-MM-dd>      10/20/2021      cuong                       pricepackage 
  */
+
 package controller;
 
-import bean.Blog;
-import dao.BlogDAO;
-import dao.impl.BlogDaoImpl;
-import dao.impl.BlogList;
+import bean.PricePackage;
+import dao.PricePackageDAO;
+import dao.impl.PricePackageDaoImpl;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import utils.NumberProccessing;
 /**
+ * Process:<br>
+ * - Get edit   price  of pricepackage  and find userlist
+ * <br>
  *
- * @author cyv2098
- */
-@WebServlet(name = "PostDetailServlet", urlPatterns = {"/post/detail"})
-public class PostDetailServlet extends HttpServlet {
+ * Exception:<br>
+ * - If content fails, it will return to error page.
+ *
+ * @author cuong
+ */		
+public class PricePackageController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,12 +42,17 @@ public class PostDetailServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String id = request.getParameter("id");
-        BlogDAO dao = new BlogDaoImpl();
-        Blog blog = dao.findById("2");
-        System.out.println(blog.getBlogContent());
-        request.setAttribute("data", blog);
-        request.getRequestDispatcher("PostDetail.jsp").forward(request, response);
+        int id = 1;
+        try {
+            //cast price package ID to integer
+            id = NumberProccessing.paramToInteger(request, "id");
+        } catch (NumberFormatException e) {
+        }
+        PricePackageDAO dao = new PricePackageDaoImpl();//new oj
+        PricePackage data = dao.getOneById(id);//get id 
+        //send vw 
+        request.setAttribute("data", data);
+        request.getRequestDispatcher("PricePackage.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
