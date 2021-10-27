@@ -21,9 +21,11 @@ import bean.Registration;
  */
 public interface RegistrationDAO {
     ArrayList<Registration> getSubjectIDfromUserRegistration(int userID) throws Exception;
-   
+    int getCountTotalRegistration() throws Exception ;
     public New GetDetailFromRegistration(int registrationID) throws Exception;
     public ArrayList<Registration> getAllRegis() throws Exception;
     public int countRegis() throws Exception;
     public ArrayList<Registration> getRegisByPaging(int pageNumber, int rows) throws Exception;
+    List<RegistrationStatistic> search( int status, int pageIndex, int pageSize) throws Exception ;
+    int countTotalRegistrationSearch(int status) throws Exception;
 }
