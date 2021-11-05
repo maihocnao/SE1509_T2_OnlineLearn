@@ -14,6 +14,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -63,6 +65,37 @@ public class AnswerDaoImpl extends BaseDao implements AnswerDAO {
     @Override
     public boolean deleteAnswer(int answerID) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void insertMany(List<Answer> data) {
+        //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        String sql = "INSERT INTO [dbo].[Answer](questionID, result, content) VALUES(?,?,?)";
+        PreparedStatement stm = null;
+        Connection con = null;
+
+        con = getConnection();
+
+        try {
+            stm = con.prepareStatement(sql);
+            for (Answer x : data) {
+                stm.setInt(1, x.getQuestionID());
+                stm.setByte(2, (byte) x.getResult());
+                stm.setString(3, x.getContent());
+                stm.addBatch();
+            }
+            stm.executeBatch();
+        } catch (SQLException ex) {
+            Logger.getLogger(AnswerDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                closeConnection(con);
+                closeStatement(stm);
+            } catch (SQLException ex) {
+                Logger.getLogger(QuestionDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
 
 }

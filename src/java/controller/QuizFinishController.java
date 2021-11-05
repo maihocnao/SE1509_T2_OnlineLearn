@@ -1,9 +1,14 @@
 package controller;
 
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright (C) 2021, TEAM 2 ONLINE LEARN
+ *
+ * SWP_OnlineLearn
+ * SWP ONLINE LEARN PROJECT - TEAM 2
+ *
+ * Record of change:<br>
+ * DATE          Version    Author           DESCRIPTION<br>
+ * 2021-10-28    1.0        Cuong             QuizHandle
  */
 import bean.Answer;
 import bean.Question;
@@ -11,7 +16,6 @@ import bean.Quiz;
 import dao.QuizDAO;
 import dao.impl.QuizDaoImpl;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -44,7 +48,7 @@ public class QuizFinishController extends HttpServlet {
         quiz.setScore((float) score);
         QuizDAO dao = new QuizDaoImpl();
         dao.insert(quiz);
-        request.getSession().removeAttribute("quiz");
+       // request.getSession().removeAttribute("quiz");
         request.setAttribute("quiz", quiz);
         request.setAttribute("score",score);
         request.getRequestDispatcher("finish.jsp").forward(request, response);

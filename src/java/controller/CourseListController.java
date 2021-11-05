@@ -9,15 +9,11 @@
  */
 package controller;
 
-import bean.Blog;
-import bean.Slider;
+
 import bean.Subject;
-import dao.DBConnect;
 import dao.impl.CourseListDAOImpl;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;

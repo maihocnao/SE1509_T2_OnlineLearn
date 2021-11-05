@@ -28,6 +28,6 @@ public interface AnswerDAO {
    
    public boolean deleteAnswer(int answerID) throws SQLException;
                
-               
+       public void insertMany(List<Answer> data);        
     
 }

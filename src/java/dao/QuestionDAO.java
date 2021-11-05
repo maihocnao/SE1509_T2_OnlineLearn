@@ -27,4 +27,6 @@ public interface QuestionDAO {
     public int countQuestionByLevel(String level, String subjectID);
     public List<Question> getByLevelAndSubject(String subjectId, String level, List<Integer> listId);
     public void insertMany(List<Question> data);
+    public void insertOne(Question data);
+     public int getQuestionId(String subjectId, String content, String level);
 }

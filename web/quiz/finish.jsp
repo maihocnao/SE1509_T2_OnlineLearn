@@ -29,12 +29,6 @@
         <meta property="og:title" content="2 Sign up">
         <meta property="og:type" content="website">
         <style>
-            .error-alert
-            {
-                padding: 10px 0px 0px 10px;
-                color: red;
-                font-size: 20px;
-            }
             .center{
                 width: 70%;
                 align-self: center;
@@ -69,10 +63,10 @@
         <%
             String durationText = "0m:0s";
             Quiz quiz = (Quiz) request.getAttribute("quiz");
-            if(quiz != null){
+            if (quiz != null) {
                 int min = quiz.getDuration() / 60;
                 int sec = quiz.getDuration() - min * 60;
-                durationText = min +"m:"+sec+"s";
+                durationText = min + "m:" + sec + "s";
             }
         %>
     </head>
@@ -82,22 +76,31 @@
 
             <h4 style="padding: 8px; text-decoration: underline">YOUR RESULT: </h4>
             <br>
-            <table style="width:30%;font-size: 20px;height: 20%">
+            <table style="width:30%;font-size: 22px;height: 20%; margin-left: 10%">
                 <tr>
                     <th style="width: 40%"></th>
                     <th></th>
                 </tr>
                 <tr>
+                    <td>Subject:</td>
+                    <td>${quiz.getLessonID()}</td>
+                </tr>
+                <tr>
                     <td>Score:</td>
-                    <td>${score}/10</td>
+                    <td>${score} - 
+                        <span style="font-size: 23px;color: ${score >= quiz.getPassRate() ? 'green': 'red'}">
+                            ${score >= quiz.getPassRate() ? 'Pass': 'Fail'}</span></td>
                 </tr>
                 <tr>
                     <td>Duration:</td>
                     <td><%=durationText%></td>
                 </tr>
+                  <tr>
+                      <td><a href="#">Detail</a></td>
+                    <td></td>
+                </tr>
             </table>
             <br>
-            <div style="font-size: 25px">>><a href="#">Back</a></div>
         </section>
         <jsp:include page="../common-layout/footer.jsp"/>
     </body>

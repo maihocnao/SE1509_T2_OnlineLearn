@@ -1,17 +1,20 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright (C) 2021, TEAM 2 ONLINE LEARN
+ *
+ * SWP_OnlineLearn
+ * SWP ONLINE LEARN PROJECT - TEAM 2
+ *
+ * Record of change:<br>
+ * DATE          Version    Author           DESCRIPTION<br>
+ * 2021-10-28    1.0        Cuong             QuizHandle
  */
 package controller;
 
-import bean.Answer;
 import bean.Question;
 import bean.Quiz;
 import dao.QuestionDAO;
 import dao.impl.QuestionDaoImpl;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -23,8 +26,14 @@ import javax.servlet.http.HttpServletResponse;
 import utils.QuizLevelConstant;
 
 /**
+ * Process:<br>
+ * - Get List of Lesson and AddSubject
+ * <br>
  *
- * @author cyv2098
+ * Exception:<br>
+ * - If content fails, it will return to error page.
+ *
+ * @author cuong
  */
 public class QuizHandleController extends HttpServlet {
     
@@ -50,6 +59,8 @@ public class QuizHandleController extends HttpServlet {
             //@ToDo replace this with logged in userID
             quiz.setUserId(1);
             quiz.setQuizID(getQuizID());
+            //ti le qua mon
+            quiz.setPassRate(5);
             //replace this
             quiz.setLessonID("ASSL");
             QuestionDAO dao = new QuestionDaoImpl();

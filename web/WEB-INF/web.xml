@@ -48,6 +48,14 @@
         <servlet-name>QuizFinishServlet</servlet-name>
         <servlet-class>controller.QuizFinishController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ImportQuizController</servlet-name>
+        <servlet-class>controller.ImportQuizController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DownloadTemplteController</servlet-name>
+        <servlet-class>controller.DownloadTemplteController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SubjectListServlet</servlet-name>
         <url-pattern>/SubjectListServlet</url-pattern>
@@ -127,6 +135,14 @@
     <servlet-mapping>
         <servlet-name>QuizFinishServlet</servlet-name>
         <url-pattern>/quiz/finish</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ImportQuizController</servlet-name>
+        <url-pattern>/quiz/import</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DownloadTemplteController</servlet-name>
+        <url-pattern>/quizlet/down-template</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

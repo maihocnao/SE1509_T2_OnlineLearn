@@ -194,6 +194,65 @@ public class QuestionDaoImpl extends BaseDao implements QuestionDAO {
 
     @Override
     public void insertMany(List<Question> data) {
-      //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void insertOne(Question data) {
+        PreparedStatement stm = null;
+        Connection con = null;
+        try {
+            // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            String sql = "INSERT INTO [dbo].[Question](subjectID,content,level) VALUES(?,?,?)";
+
+            con = getConnection();
+            stm = con.prepareStatement(sql);
+            stm.setString(1, data.getSubjectID());
+            stm.setString(2, data.getContent());
+            stm.setString(3, data.getLevel());
+            stm.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(QuestionDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                closeConnection(con);
+                closeStatement(stm);
+            } catch (SQLException ex) {
+                Logger.getLogger(QuestionDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+    }
+
+    public int getQuestionId(String subjectId, String content, String level) {
+        PreparedStatement stm = null;
+        Connection con = null;
+        ResultSet rs = null;
+        try {
+            // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            String sql = "SELECT * FROM [dbo].[Question]"
+                    + "WHERE subjectID = ? AND content = ? AND level = ?";
+
+            con = getConnection();
+            stm = con.prepareStatement(sql);
+            stm.setString(1, subjectId);
+            stm.setString(2, content);
+            stm.setString(3, level);
+            rs = stm.executeQuery();
+            if (rs.next()) {
+                return rs.getInt("questionID");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(QuestionDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                closeConnection(con);
+                closeResultSet(rs);
+                closeStatement(stm);
+            } catch (SQLException ex) {
+                Logger.getLogger(QuestionDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return -1;
     }
 }

@@ -88,7 +88,7 @@
                 <div>
                     <button class="btn-quiz" onclick="submitForm('previous')">Previous</button>
                     <button class="btn-quiz" style="padding: 8px 36px"  onclick="submitForm('next')">Next</button>
-                    <button class="btn-quiz" style="float: right;background-color: green;color: black;border-color: green"
+                    <button class="btn-quiz" style="background-color: green;color: white;border-color: green"
                             onclick="submitForm('submit')">SUBMIT</button>
                 </div>
                 <br>
@@ -122,6 +122,12 @@
                 var form = document.getElementById("form");
                 document.getElementById("actionType").value = actionType;
                 document.getElementById("duration").value = localStorage["timeLeft"];
+                if (actionType === 'submit') {
+                    var r = confirm("Do you want to submit?");
+                    if (r === false) {
+                        return;
+                    }
+                }
                 form.submit();
             }
         </script>

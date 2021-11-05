@@ -1,12 +1,16 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright (C) 2021, TEAM 2 ONLINE LEARN
+ *
+ * SWP_OnlineLearn
+ * SWP ONLINE LEARN PROJECT - TEAM 2
+ *
+ * Record of change:<br>
+ * DATE          Version    Author           DESCRIPTION<br>
+ * 2021-10-15    1.0        Cuong               blogdetail
  */
 package controller;
 
 import bean.Blog;
-import bean.User;
 import dao.impl.BlogList;
 import java.io.IOException;
 import java.io.PrintWriter;
