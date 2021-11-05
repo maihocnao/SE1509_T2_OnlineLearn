@@ -7,7 +7,8 @@ package dao;
 
 import java.util.ArrayList;
 import bean.UrlPatternForRole;
-import java.util.List;
+import bean.Role;
+import bean.UrlPath;
 
 /**
  *
@@ -16,4 +17,5 @@ import java.util.List;
 public interface UrlPatternDAO {
     public ArrayList<UrlPatternForRole> allUrlRole() throws Exception;
     public ArrayList<UrlPatternForRole> urlbyRole(String roleId) throws Exception;
+   
 }
