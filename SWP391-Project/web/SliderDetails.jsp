@@ -35,29 +35,55 @@
     <meta property="og:type" content="website">
   </head>  
   <body class="u-body">
-      <header>
       <jsp:include page="header.jsp"></jsp:include>
-      </header>
-   <img src="${slider.image}" alt="User Avatar">
-            <table style ="border: none; border-color:white; width:100%; float: right;" class="table table-bordered">
-                <tbody>
-                    <tr>
-                        <td>Full name</td>
-                        <td> ${slider.title}</td>
-                    </tr>
-                    <tr>
-                        <td>Back link</td>
-                        <td> ${slider.backlink}</td>
-                    </tr>
-                    <tr>
-                        <td>ID</td>
-                        <td> ${slider.sliderID}</td>
-                    </tr>
-               
-                </tbody>
-            </table>
-                    <footer>
+        <section class="u-clearfix u-section-1" id="sec-0fa4">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <img class="u-image u-image-default u-image-1" src="images/8975890213a4d48dd6719d223c9b24a8e633c7e1eb62c0329c8a97e5da8e8dd5d7f958a9a1b505babb1d2e4068e6cc0c772dea44d5b24ab423a67c_1280.jpg" alt="" data-image-width="1280" data-image-height="850">
+        <div class="u-form u-form-1">
+          <form action="SlideDetails" method="POST" class="u-clearfix u-form-spacing-15 u-form-vertical u-inner-form" style="padding: 15px;" source="custom" name="form">
+            <div class="u-form-group u-form-name">
+              <label for="name-6797" class="u-form-control-hidden u-label">Name</label>
+              <input type="text" placeholder="Slider Title" id="name-6797" name="title" class="u-border-1 u-border-grey-30 u-input u-input-rectangle" required="">
+            </div>
+            <div class="u-form-email u-form-group">
+              <label for="email-6797" class="u-form-control-hidden u-label">Email</label>
+              <input type="email" placeholder="Backlink" id="email-6797" name="link" class="u-border-1 u-border-grey-30 u-input u-input-rectangle" required="">
+            </div>
+            <div class="u-form-group u-form-group-3">
+              <label for="text-d6cf" class="u-label">Choose image</label>
+              <input type="text" placeholder="image" id="text-d6cf" name="image" class="u-border-1 u-border-grey-30 u-input u-input-rectangle">
+            </div>
+            <div class="u-align-left u-form-group u-form-submit">
+              <a href="#" class="u-border-none u-btn u-btn-submit u-button-style u-hover-palette-2-base u-palette-4-base u-btn-1">Submit</a>
+              <input type="submit" value="submit" class="u-form-control-hidden">
+            </div>
+       
+          </form>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-2" id="sec-661d">
+      <div class="u-clearfix u-sheet u-sheet-1"></div>
+    </section>
+        <form action="SlideDetails" method="POST" class="u-clearfix u-form-spacing-15 u-form-vertical u-inner-form" style="padding: 15px;" source="custom" name="form">
+            <div class="u-form-group u-form-name">
+              <label for="name-6797" class="u-form-control-hidden u-label">Name</label>
+              <input type="text" placeholder="Slider Title" id="name-6797" name="title" class="u-border-1 u-border-grey-30 u-input u-input-rectangle" required="">
+            </div>
+            <div class="u-form-email u-form-group">
+              <label for="email-6797" class="u-form-control-hidden u-label">Email</label>
+              <input type="email" placeholder="Backlink" id="email-6797" name="link" class="u-border-1 u-border-grey-30 u-input u-input-rectangle" required="">
+            </div>
+            <div class="u-form-group u-form-group-3">
+              <label for="text-d6cf" class="u-label">Choose image</label>
+              <input type="text" placeholder="image" id="text-d6cf" name="image" class="u-border-1 u-border-grey-30 u-input u-input-rectangle">
+            </div>
+            <div class="u-align-left u-form-group u-form-submit">
+              <a href="#" class="u-border-none u-btn u-btn-submit u-button-style u-hover-palette-2-base u-palette-4-base u-btn-1">Submit</a>
+              <input type="submit" value="submit" class="u-form-control-hidden">
+            </div>
+       
+          </form>
          <jsp:include page="footer.jsp"></jsp:include>
-  </footer>
     </body>
 </html>
