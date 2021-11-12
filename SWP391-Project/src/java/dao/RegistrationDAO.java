@@ -28,4 +28,5 @@ public interface RegistrationDAO {
     public ArrayList<Registration> getRegisByPaging(int pageNumber, int rows) throws Exception;
     List<RegistrationStatistic> search( int status, int pageIndex, int pageSize) throws Exception ;
     int countTotalRegistrationSearch(int status) throws Exception;
+    void addRegistration(int userid,String useremail, String subjectid, int pricepackageid);
 }
